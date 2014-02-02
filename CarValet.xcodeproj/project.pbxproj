@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		150DE9AD188743870015DD7E /* ElectricCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 150DE9AC188743870015DD7E /* ElectricCar.m */; };
 		15F001171885CB6E00800736 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F001161885CB6E00800736 /* UIKit.framework */; };
 		15F001191885CB6E00800736 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F001181885CB6E00800736 /* Foundation.framework */; };
 		15F0011B1885CB6E00800736 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F0011A1885CB6E00800736 /* CoreGraphics.framework */; };
@@ -24,6 +25,8 @@
 		15F001401885CB6E00800736 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F001181885CB6E00800736 /* Foundation.framework */; };
 		15F001481885CB6E00800736 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 15F001461885CB6E00800736 /* InfoPlist.strings */; };
 		15F0014B1885CB6E00800736 /* CarValetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F0014A1885CB6E00800736 /* CarValetTests.m */; };
+		15F001561885CB9100800736 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F001551885CB9100800736 /* Car.m */; };
+		15F001591885E9B100800736 /* HybridCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F001581885E9B100800736 /* HybridCar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		150DE9AB188743870015DD7E /* ElectricCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElectricCar.h; sourceTree = "<group>"; };
+		150DE9AC188743870015DD7E /* ElectricCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElectricCar.m; sourceTree = "<group>"; };
 		15F001131885CB6E00800736 /* CarValet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarValet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15F001161885CB6E00800736 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		15F001181885CB6E00800736 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -60,6 +65,10 @@
 		15F001471885CB6E00800736 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		15F001491885CB6E00800736 /* CarValetTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CarValetTests.h; sourceTree = "<group>"; };
 		15F0014A1885CB6E00800736 /* CarValetTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CarValetTests.m; sourceTree = "<group>"; };
+		15F001541885CB9100800736 /* Car.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
+		15F001551885CB9100800736 /* Car.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Car.m; sourceTree = "<group>"; };
+		15F001571885E9B100800736 /* HybridCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HybridCar.h; sourceTree = "<group>"; };
+		15F001581885E9B100800736 /* HybridCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HybridCar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +135,12 @@
 				15F001341885CB6E00800736 /* ViewController.h */,
 				15F001351885CB6E00800736 /* ViewController.m */,
 				15F0011D1885CB6E00800736 /* Supporting Files */,
+				15F001541885CB9100800736 /* Car.h */,
+				15F001551885CB9100800736 /* Car.m */,
+				15F001571885E9B100800736 /* HybridCar.h */,
+				15F001581885E9B100800736 /* HybridCar.m */,
+				150DE9AB188743870015DD7E /* ElectricCar.h */,
+				150DE9AC188743870015DD7E /* ElectricCar.m */,
 			);
 			path = CarValet;
 			sourceTree = "<group>";
@@ -277,6 +292,9 @@
 				15F001231885CB6E00800736 /* main.m in Sources */,
 				15F001271885CB6E00800736 /* AppDelegate.m in Sources */,
 				15F001361885CB6E00800736 /* ViewController.m in Sources */,
+				15F001561885CB9100800736 /* Car.m in Sources */,
+				15F001591885E9B100800736 /* HybridCar.m in Sources */,
+				150DE9AD188743870015DD7E /* ElectricCar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,6 +485,7 @@
 				15F001501885CB6E00800736 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		15F001511885CB6E00800736 /* Build configuration list for PBXNativeTarget "CarValetTests" */ = {
 			isa = XCConfigurationList;
@@ -475,6 +494,7 @@
 				15F001531885CB6E00800736 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
