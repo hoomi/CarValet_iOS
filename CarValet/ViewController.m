@@ -15,47 +15,69 @@
 
 @end
 
-@implementation ViewController
+@implementation ViewController {
+    NSMutableArray *arrayOfCars;
+    NSInteger displayedCarIndex;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+
+    arrayOfCars = [[NSMutableArray alloc] init];
+    displayedCarIndex = 0;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    Car *car = [[Car alloc] initWithMake:@"bmw" model:@"M3" year:2013 fuelAmount:60.0f];
-    [car printCarInfo];
-    [car shoutMake];
-    [car printCarInfo];
-    car.make = @"VW";
-    car.model = @"CC";
-    car.year = 2013;
-    [car setTheFuelAmountTo:23.0f];
-    
-    [car printCarInfo];
-    car.showLitres = YES;
-    [car printCarInfo];
-    
-    HybridCar *secondCar = [[HybridCar alloc] init];
-    [secondCar printCarInfo];
-    secondCar.mpg = 42.0f;
-    [secondCar printCarInfo];
-    HybridCar *thirdCar = [[HybridCar alloc] initWithMake:@"Toyota" model:@"Prius" year:2013 fuelAmount:8.3f MPG:42.0f];
-    [thirdCar printCarInfo];
-    ElectricCar *electricCar = [[ElectricCar alloc] initWithMake:@"BMW" model:@"i3" year:2014 fuelAmount:20.0f numberOfBatteries:3];
-    [electricCar printCarInfo];
-    self.totalCarLable.text = @"Total number of cars is: 999";
+    [self displayCarInformation];
+}
+
+- (void) changeDisplayedCar : (NSInteger) displayCarIndex {
+    if (displayCarIndex < 0) {
+        displayCarIndex = 0;
+    } else if (displayCarIndex >= [arrayOfCars count]) {
+        displayCarIndex = [arrayOfCars count] - 1;
+    }
+    displayedCarIndex = displayCarIndex;
+    [self displayCarInformation];
     
 }
 
+- (void) updateLabel :(UILabel *) label : (NSString*) withBaseString : (NSInteger) count {
+    NSString* newText = [NSString stringWithFormat:@"%@: %d",withBaseString,count];
+    label.text = newText;
+}
+
+- (void) displayCarInformation {
+    if ([arrayOfCars count] == 0) {
+        self.numberCarLabel.text = [NSString stringWithFormat:@"No Cars"];
+        self.carInfoLabel.text = nil;
+    } else {        
+        Car *currentCar = [arrayOfCars objectAtIndex:displayedCarIndex];
+        self.numberCarLabel.text = [NSString stringWithFormat:@"Car Number: %d",displayedCarIndex];
+        [self updateLabel:self.numberCarLabel :@"Car number" :displayedCarIndex + 1];
+        self.carInfoLabel.text = [currentCar carInfo];
+    }
+}
+
+- (IBAction)newCar:(id)sender {
+    Car* newCar = [[Car alloc] init];
+    [arrayOfCars addObject:newCar];
+    [self updateLabel:self.totalCarLabel :@"Total Cars" :[arrayOfCars count]];
+}
+
+- (IBAction)nextCar:(id)sender {
+    [self changeDisplayedCar:displayedCarIndex + 1];
+}
+
+- (IBAction)prevCar:(id)sender {
+    [self changeDisplayedCar:displayedCarIndex - 1];
+}
 @end

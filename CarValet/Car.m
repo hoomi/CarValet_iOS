@@ -55,6 +55,15 @@
     NSLog(@"---Car  fuel level is at %0.2f", self.fuelAmount);
 }
 
+- (NSString*) carInfo {
+    return [NSString stringWithFormat:
+            @"Name: %@\n Model: %@\n Year: %d\n Fuel Amount: %f\n",
+            self.make ? self.make : @"Unknown make",
+            self.model ? self.model : @"Unknown model",
+            self.year,
+            self.fuelAmount];
+}
+
 -(void) shoutMake {
     self.make = [_make uppercaseString];
 }

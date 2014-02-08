@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UILabel *totalCarLable;
+@property (weak, nonatomic) IBOutlet UILabel *carInfoLabel;
+@property (weak, nonatomic) IBOutlet UILabel *numberCarLabel;
+@property (weak, nonatomic) IBOutlet UILabel *totalCarLabel;
+- (IBAction)newCar:(id)sender;
+- (IBAction)nextCar:(id)sender;
+- (IBAction)prevCar:(id)sender;
 
 @end
