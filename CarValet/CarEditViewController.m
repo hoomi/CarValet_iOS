@@ -23,6 +23,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    self.carNumberLabel.text = [NSString stringWithFormat:@"Car Number: %d",self.carNumber];
     self.currentCar.make = self.makeTextField.text;
     self.currentCar.model = self.modelTextField.text;
     self.currentCar.year = [self.yearTextField.text integerValue];

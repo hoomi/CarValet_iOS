@@ -15,6 +15,4 @@
 - (IBAction)newCar:(id)sender;
 - (IBAction)nextCar:(id)sender;
 - (IBAction)prevCar:(id)sender;
-
-
 @end

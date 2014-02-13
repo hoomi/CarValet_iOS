@@ -185,7 +185,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="M8W-8W-jgQ" kind="push" id="vo1-kh-I3V"/>
+                                    <segue destination="M8W-8W-jgQ" kind="push" identifier="EditSegue" id="vo1-kh-I3V"/>
                                 </connections>
                             </button>
                         </subviews>

@@ -69,6 +69,7 @@
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSLog(@"Segue %@",segue.identifier);
     if ([segue.identifier isEqualToString:@"EditSegue"]) {
         CarEditViewController* nextController;
         nextController = segue.destinationViewController;
@@ -82,6 +83,8 @@
     Car* newCar = [[Car alloc] init];
     [arrayOfCars addObject:newCar];
     [self updateLabel:self.totalCarLabel :@"Total Cars" :[arrayOfCars count]];
+    displayedCarIndex = [arrayOfCars count] - 1;
+    [self displayCarInformation];
 }
 
 - (IBAction)nextCar:(id)sender {
@@ -91,6 +94,5 @@
 - (IBAction)prevCar:(id)sender {
     [self changeDisplayedCar:displayedCarIndex - 1];
 }
-
 
 @end
