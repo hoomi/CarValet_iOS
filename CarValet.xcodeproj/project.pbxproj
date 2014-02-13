@@ -43,6 +43,7 @@
 /* Begin PBXFileReference section */
 		150DE9AB188743870015DD7E /* ElectricCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElectricCar.h; sourceTree = "<group>"; };
 		150DE9AC188743870015DD7E /* ElectricCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElectricCar.m; sourceTree = "<group>"; };
+		1550CF5918ACFA5F006A01FC /* CarEditViewControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CarEditViewControllerProtocol.h; sourceTree = "<group>"; };
 		15AD246B18A68B9900698408 /* CarEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarEditViewController.h; sourceTree = "<group>"; };
 		15AD246C18A68B9900698408 /* CarEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarEditViewController.m; sourceTree = "<group>"; };
 		15F001131885CB6E00800736 /* CarValet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarValet.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +99,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1550CF5618ACFA07006A01FC /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				15F001341885CB6E00800736 /* ViewController.h */,
+				15F001351885CB6E00800736 /* ViewController.m */,
+				15AD246B18A68B9900698408 /* CarEditViewController.h */,
+				15AD246C18A68B9900698408 /* CarEditViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		1550CF5718ACFA22006A01FC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				15F001541885CB9100800736 /* Car.h */,
+				15F001551885CB9100800736 /* Car.m */,
+				15F001571885E9B100800736 /* HybridCar.h */,
+				15F001581885E9B100800736 /* HybridCar.m */,
+				150DE9AB188743870015DD7E /* ElectricCar.h */,
+				150DE9AC188743870015DD7E /* ElectricCar.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		1550CF5818ACFA34006A01FC /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				1550CF5918ACFA5F006A01FC /* CarEditViewControllerProtocol.h */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		15F0010A1885CB6E00800736 = {
 			isa = PBXGroup;
 			children = (
@@ -131,21 +164,14 @@
 		15F0011C1885CB6E00800736 /* CarValet */ = {
 			isa = PBXGroup;
 			children = (
+				1550CF5818ACFA34006A01FC /* Protocols */,
+				1550CF5718ACFA22006A01FC /* Models */,
+				1550CF5618ACFA07006A01FC /* ViewControllers */,
 				15F001251885CB6E00800736 /* AppDelegate.h */,
 				15F001261885CB6E00800736 /* AppDelegate.m */,
 				15F0012E1885CB6E00800736 /* MainStoryboard_iPhone.storyboard */,
 				15F001311885CB6E00800736 /* MainStoryboard_iPad.storyboard */,
-				15F001341885CB6E00800736 /* ViewController.h */,
-				15F001351885CB6E00800736 /* ViewController.m */,
 				15F0011D1885CB6E00800736 /* Supporting Files */,
-				15F001541885CB9100800736 /* Car.h */,
-				15F001551885CB9100800736 /* Car.m */,
-				15F001571885E9B100800736 /* HybridCar.h */,
-				15F001581885E9B100800736 /* HybridCar.m */,
-				150DE9AB188743870015DD7E /* ElectricCar.h */,
-				150DE9AC188743870015DD7E /* ElectricCar.m */,
-				15AD246B18A68B9900698408 /* CarEditViewController.h */,
-				15AD246C18A68B9900698408 /* CarEditViewController.m */,
 			);
 			path = CarValet;
 			sourceTree = "<group>";

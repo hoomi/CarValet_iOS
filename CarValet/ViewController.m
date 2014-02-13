@@ -73,9 +73,7 @@
     if ([segue.identifier isEqualToString:@"EditSegue"]) {
         CarEditViewController* nextController;
         nextController = segue.destinationViewController;
-        nextController.carNumber = displayedCarIndex + 1;
-        Car *currentCar = arrayOfCars[displayedCarIndex];
-        nextController.currentCar = currentCar;
+        nextController.delegate = self;
     }
 }
 
@@ -94,5 +92,21 @@
 - (IBAction)prevCar:(id)sender {
     [self changeDisplayedCar:displayedCarIndex - 1];
 }
+
+- (void)editedCarUpdated
+{
+    [self displayCarInformation];
+}
+
+- (Car *)carToEdit
+{
+    return arrayOfCars[displayedCarIndex];
+}
+
+- (NSInteger)carNumber
+{
+    return displayedCarIndex + 1;
+}
+
 
 @end

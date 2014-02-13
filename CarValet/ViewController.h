@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CarEditViewControllerProtocol.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <CarEditViewControllerProtocol>
 @property (weak, nonatomic) IBOutlet UILabel *carInfoLabel;
 @property (weak, nonatomic) IBOutlet UILabel *numberCarLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalCarLabel;

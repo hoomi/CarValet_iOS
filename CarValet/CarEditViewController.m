@@ -9,6 +9,9 @@
 #import "CarEditViewController.h"
 #import "Car.h"
 
+@interface CarEditViewController ()
+
+@end
 
 @implementation CarEditViewController
 
@@ -28,13 +31,15 @@
     self.currentCar.model = self.modelTextField.text;
     self.currentCar.year = [self.yearTextField.text integerValue];
     self.currentCar.fuelAmount = [self.fuelAmountTextField.text floatValue];
+    [self.delegate editedCarUpdated];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSString* carNumberText = [NSString stringWithFormat:@"Car number: %d",self.carNumber];
+    NSString* carNumberText = [NSString stringWithFormat:@"Car number: %d",[self.delegate carNumber]];
     self.carNumberLabel.text = carNumberText;
+    self.currentCar = [self.delegate carToEdit];
     self.makeTextField.text = self.currentCar.make;
     self.modelTextField.text = self.currentCar.model;
     self.yearTextField.text = [NSString stringWithFormat:@"%d",self.currentCar.year];

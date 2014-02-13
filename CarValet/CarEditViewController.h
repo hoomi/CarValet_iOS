@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CarEditViewControllerProtocol.h"
 
 @class Car;
 
@@ -14,6 +15,7 @@
 
 @property (nonatomic) NSInteger carNumber;
 @property (strong, nonatomic) Car* currentCar;
+@property (weak,nonatomic) id<CarEditViewControllerProtocol> delegate;
 
 @property (weak, nonatomic) IBOutlet UITextField *makeTextField;
 @property (weak, nonatomic) IBOutlet UITextField *modelTextField;
