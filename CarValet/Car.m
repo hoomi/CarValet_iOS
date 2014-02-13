@@ -15,10 +15,10 @@
     self = [super init];
     if (self != nil)
     {
-        _model = [model copy];
-        _make = [make copy];
-        _year = year;
-        _fuelAmount = fuelAmount;
+        self.model = [model copy];
+        self.make = [make copy];
+        self.year = year;
+        self.fuelAmount = fuelAmount;
     }
     return self;
 }

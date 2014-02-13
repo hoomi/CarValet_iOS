@@ -12,10 +12,10 @@
 
     @property (readonly) BOOL isALemon;
     @property (readonly) NSString *carInfo;
-    @property NSString *make;
-    @property NSString *model;
-    @property int year;
-    @property (setter = setTheFuelAmountTo:,nonatomic) float fuelAmount;
+    @property NSString* make;
+    @property NSString* model;
+    @property NSInteger year;
+    @property (setter = setTheFuelAmountTo:,nonatomic)float fuelAmount;
     @property (getter = isShowingLitres) BOOL showLitres;
 
 

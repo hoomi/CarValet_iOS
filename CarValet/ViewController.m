@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "HybridCar.h"
 #import "ElectricCar.h"
+#import "CarEditViewController.h"
 
 
 @interface ViewController ()
@@ -67,6 +68,16 @@
     }
 }
 
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"EditSegue"]) {
+        CarEditViewController* nextController;
+        nextController = segue.destinationViewController;
+        nextController.carNumber = displayedCarIndex + 1;
+        Car *currentCar = arrayOfCars[displayedCarIndex];
+        nextController.currentCar = currentCar;
+    }
+}
+
 - (IBAction)newCar:(id)sender {
     Car* newCar = [[Car alloc] init];
     [arrayOfCars addObject:newCar];
@@ -80,4 +91,6 @@
 - (IBAction)prevCar:(id)sender {
     [self changeDisplayedCar:displayedCarIndex - 1];
 }
+
+
 @end
