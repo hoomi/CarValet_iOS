@@ -75,7 +75,8 @@
     if ([segue.identifier isEqualToString:@"EditSegue"]) {
         CarEditViewController* nextController;
         nextController = segue.destinationViewController;
-        nextController.delegate = self;
+        nextController.carNumber = displayedCarIndex + 1;
+        nextController.currentCar = [arrayOfCars objectAtIndex:displayedCarIndex];
     }
 }
 
@@ -94,21 +95,7 @@
     [self changeDisplayedCar:displayedCarIndex - 1];
 }
 
-- (void)editedCarUpdated
-{
-    [self displayCarInformation];
-    NSLog(@"Edited car updated called\n");
-}
 
-- (Car *)carToEdit
-{
-    return arrayOfCars[displayedCarIndex];
-}
-
-- (NSInteger)carNumber
-{
-    return displayedCarIndex + 1;
-}
 
 - (IBAction)editingDone:(UIStoryboardSegue*)segue
 {

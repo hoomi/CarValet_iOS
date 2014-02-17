@@ -26,17 +26,18 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     self.carNumberLabel.text = [NSString stringWithFormat:@"Car Number: %d",self.carNumber];
-    [self updateCurrentCar];
-    [self.delegate editedCarUpdated];
+    
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSString* carNumberText = [NSString stringWithFormat:@"Car number: %d",[self.delegate carNumber]];
-    self.carNumberLabel.text = carNumberText;
-    self.currentCar = [self.delegate carToEdit];
     self.makeTextField.text = self.currentCar.make;
     self.modelTextField.text = self.currentCar.model;
     self.yearTextField.text = [NSString stringWithFormat:@"%d",self.currentCar.year];
@@ -46,10 +47,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"EditDoneSegue"]) {
-        self.currentCar.make = self.makeTextField.text;
-        self.currentCar.model = self.modelTextField.text;
-        self.currentCar.year = [self.yearTextField.text integerValue];
-        self.currentCar.fuelAmount = [self.fuelAmountTextField.text floatValue];
+        [self updateCurrentCar];
     }
 }
 

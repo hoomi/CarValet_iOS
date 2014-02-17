@@ -15,7 +15,6 @@
 
 @property (nonatomic) NSInteger carNumber;
 @property (strong, nonatomic) Car* currentCar;
-@property (weak,nonatomic) id<CarEditViewControllerProtocol> delegate;
 
 @property (weak, nonatomic) IBOutlet UITextField *makeTextField;
 @property (weak, nonatomic) IBOutlet UITextField *modelTextField;
