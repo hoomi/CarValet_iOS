@@ -27,10 +27,7 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     self.carNumberLabel.text = [NSString stringWithFormat:@"Car Number: %d",self.carNumber];
-    self.currentCar.make = self.makeTextField.text;
-    self.currentCar.model = self.modelTextField.text;
-    self.currentCar.year = [self.yearTextField.text integerValue];
-    self.currentCar.fuelAmount = [self.fuelAmountTextField.text floatValue];
+    [self updateCurrentCar];
     [self.delegate editedCarUpdated];
 }
 
@@ -46,6 +43,22 @@
     self.fuelAmountTextField.text = [NSString stringWithFormat:@"%0.2f",self.currentCar.fuelAmount];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"EditDoneSegue"]) {
+        self.currentCar.make = self.makeTextField.text;
+        self.currentCar.model = self.modelTextField.text;
+        self.currentCar.year = [self.yearTextField.text integerValue];
+        self.currentCar.fuelAmount = [self.fuelAmountTextField.text floatValue];
+    }
+}
+
+- (void) updateCurrentCar {
+    self.currentCar.make = self.makeTextField.text;
+    self.currentCar.model = self.modelTextField.text;
+    self.currentCar.year = [self.yearTextField.text integerValue];
+    self.currentCar.fuelAmount = [self.fuelAmountTextField.text floatValue];
+}
 
 - (void)didReceiveMemoryWarning
 {

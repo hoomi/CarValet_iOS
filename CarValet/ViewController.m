@@ -96,6 +96,7 @@
 - (void)editedCarUpdated
 {
     [self displayCarInformation];
+    NSLog(@"Edited car updated called\n");
 }
 
 - (Car *)carToEdit
@@ -106,6 +107,12 @@
 - (NSInteger)carNumber
 {
     return displayedCarIndex + 1;
+}
+
+- (IBAction)editingDone:(UIStoryboardSegue*)segue
+{
+    NSLog(@"editingDone called \n");
+    [self displayCarInformation];
 }
 
 
