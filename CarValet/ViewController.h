@@ -12,6 +12,8 @@
 @interface ViewController : UIViewController <CarEditViewControllerProtocol>
 @property (weak, nonatomic) IBOutlet UILabel *carInfoLabel;
 @property (weak, nonatomic) IBOutlet UILabel *numberCarLabel;
+@property (weak, nonatomic) IBOutlet UIButton *prevCarButton;
+@property (weak, nonatomic) IBOutlet UIButton *nextCarButton;
 @property (weak, nonatomic) IBOutlet UILabel *totalCarLabel;
 - (IBAction)newCar:(id)sender;
 - (IBAction)nextCar:(id)sender;

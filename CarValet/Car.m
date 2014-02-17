@@ -57,7 +57,7 @@
 
 - (NSString*) carInfo {
     return [NSString stringWithFormat:
-            @"Name: %@\n Model: %@\n Year: %d\n Fuel Amount: %f\n",
+            @"Name: %@\nModel: %@\nYear: %d\nFuel Amount: %f\n",
             self.make ? self.make : @"Unknown make",
             self.model ? self.model : @"Unknown model",
             self.year,

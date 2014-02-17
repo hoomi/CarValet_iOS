@@ -37,7 +37,7 @@
 - (void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self displayCarInformation];
+    [self changeDisplayedCar:displayedCarIndex];
 }
 
 - (void) changeDisplayedCar : (NSInteger) displayCarIndex {
@@ -47,6 +47,8 @@
         displayCarIndex = [arrayOfCars count] - 1;
     }
     displayedCarIndex = displayCarIndex;
+    self.prevCarButton.enabled = displayedCarIndex > 0;
+    self.nextCarButton.enabled = displayedCarIndex < [arrayOfCars count] -1;
     [self displayCarInformation];
     
 }
@@ -81,8 +83,7 @@
     Car* newCar = [[Car alloc] init];
     [arrayOfCars addObject:newCar];
     [self updateLabel:self.totalCarLabel :@"Total Cars" :[arrayOfCars count]];
-    displayedCarIndex = [arrayOfCars count] - 1;
-    [self displayCarInformation];
+    [self changeDisplayedCar:[arrayOfCars count] - 1];
 }
 
 - (IBAction)nextCar:(id)sender {

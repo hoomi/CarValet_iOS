@@ -9,7 +9,7 @@
             <objects>
                 <viewController id="nJg-eM-NLq" customClass="InfoViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HY6-5t-EKL">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="This is the aobut page of the app. It is called from the info button of the home page" translatesAutoresizingMaskIntoConstraints="NO" id="2Fh-rp-NSa">
@@ -37,7 +37,7 @@
             <objects>
                 <viewController id="M8W-8W-jgQ" customClass="CarEditViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A7B-EM-Ue8">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6QY-eP-nyR">
@@ -164,7 +164,7 @@
             <objects>
                 <viewController id="2" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Total Cars: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9X8-fG-4R6">
@@ -192,7 +192,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Car info goes here" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jcm-6m-5UL">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Car info goes here" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="Jcm-6m-5UL">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -248,19 +248,19 @@
                             <constraint firstAttribute="bottom" secondItem="Hql-07-luR" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="2yq-bA-WKa"/>
                             <constraint firstAttribute="bottom" secondItem="a94-Gd-G9c" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="4jU-tq-tFa"/>
                             <constraint firstItem="Jcm-6m-5UL" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="9S7-ZK-YTi"/>
+                            <constraint firstItem="tuI-9q-9cG" firstAttribute="top" secondItem="3" secondAttribute="top" constant="138" id="A3s-0g-qqa"/>
                             <constraint firstItem="9X8-fG-4R6" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="B6Y-qO-G3u"/>
                             <constraint firstItem="9X8-fG-4R6" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="CwM-e9-rhd"/>
                             <constraint firstItem="Hql-07-luR" firstAttribute="centerX" secondItem="Jcm-6m-5UL" secondAttribute="centerX" type="default" id="Ibx-JA-5iJ"/>
                             <constraint firstAttribute="trailing" secondItem="Jcm-6m-5UL" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="MND-cw-zsR"/>
                             <constraint firstItem="tuI-9q-9cG" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="OyK-4I-4la"/>
                             <constraint firstItem="tuI-9q-9cG" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="TNu-Rc-vsd"/>
-                            <constraint firstItem="tuI-9q-9cG" firstAttribute="top" secondItem="3" secondAttribute="top" constant="156" id="V8N-mE-zBy"/>
+                            <constraint firstAttribute="bottom" secondItem="Jcm-6m-5UL" secondAttribute="bottom" constant="163" id="Ubn-Nh-SLq"/>
                             <constraint firstAttribute="trailing" secondItem="9X8-fG-4R6" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="VIU-RY-7hQ"/>
                             <constraint firstAttribute="trailing" secondItem="a94-Gd-G9c" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="W6w-bw-023"/>
                             <constraint firstItem="yhE-jg-PNu" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="WNh-zl-Zsr"/>
                             <constraint firstItem="oeF-x4-6da" firstAttribute="top" secondItem="3" secondAttribute="top" constant="57" id="YoY-aP-QmR"/>
                             <constraint firstItem="yhE-jg-PNu" firstAttribute="trailing" secondItem="oeF-x4-6da" secondAttribute="trailing" type="default" id="avG-BM-LwA"/>
-                            <constraint firstItem="Jcm-6m-5UL" firstAttribute="top" secondItem="3" secondAttribute="top" constant="249" id="fqm-aX-OxB"/>
                             <constraint firstAttribute="bottom" secondItem="yhE-jg-PNu" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="nTD-8S-5hd"/>
                             <constraint firstItem="oeF-x4-6da" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="vGD-20-Kjl"/>
                         </constraints>
@@ -274,7 +274,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="carInfoLabel" destination="Jcm-6m-5UL" id="JgR-tF-XIQ"/>
+                        <outlet property="nextCarButton" destination="a94-Gd-G9c" id="5gf-T3-1Qf"/>
                         <outlet property="numberCarLabel" destination="tuI-9q-9cG" id="tgt-fc-25v"/>
+                        <outlet property="prevCarButton" destination="yhE-jg-PNu" id="19y-Nh-iRY"/>
                         <outlet property="totalCarLabel" destination="9X8-fG-4R6" id="sFD-os-67s"/>
                     </connections>
                 </viewController>
@@ -301,42 +303,9 @@
             <point key="canvasLocation" x="-72" y="-276"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="CarEditViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CarEditViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="carNumberLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="fuelAmountTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="makeTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="modelTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="yearTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="InfoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/InfoViewController.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="UIStoryboardSegue" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="editingDone:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="action" name="newCar:"/>
-                <relationship kind="action" name="nextCar:"/>
-                <relationship kind="action" name="prevCar:"/>
-                <relationship kind="outlet" name="carInfoLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="numberCarLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="totalCarLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
 </document>
