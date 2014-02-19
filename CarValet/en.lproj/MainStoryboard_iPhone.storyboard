@@ -269,15 +269,13 @@
                                 <constraints>
                                     <constraint firstItem="yhE-jg-PNu" firstAttribute="leading" secondItem="8Qj-IM-hF0" secondAttribute="leading" type="default" id="1SV-AR-s1V"/>
                                     <constraint firstItem="Jcm-6m-5UL" firstAttribute="trailing" secondItem="8Qj-IM-hF0" secondAttribute="trailing" type="default" id="3Un-Ns-vRs"/>
-                                    <constraint firstAttribute="bottom" secondItem="Hql-07-luR" secondAttribute="bottom" constant="1" id="7oS-rq-uak"/>
                                     <constraint firstItem="Hql-07-luR" firstAttribute="centerX" secondItem="Jcm-6m-5UL" secondAttribute="centerX" type="default" id="JQH-dl-Ew0"/>
                                     <constraint firstItem="Jcm-6m-5UL" firstAttribute="top" secondItem="tuI-9q-9cG" secondAttribute="bottom" constant="35" type="user" id="RkZ-zc-XQa"/>
-                                    <constraint firstItem="Hql-07-luR" firstAttribute="baseline" secondItem="yhE-jg-PNu" secondAttribute="baseline" type="default" id="WqD-OF-Epo"/>
                                     <constraint firstItem="Jcm-6m-5UL" firstAttribute="leading" secondItem="8Qj-IM-hF0" secondAttribute="leading" type="default" id="ZGB-de-Qri"/>
                                     <constraint firstItem="tuI-9q-9cG" firstAttribute="trailing" secondItem="8Qj-IM-hF0" secondAttribute="trailing" type="default" id="ZKa-YI-aWF"/>
                                     <constraint firstItem="yhE-jg-PNu" firstAttribute="bottom" secondItem="8Qj-IM-hF0" secondAttribute="bottom" type="default" id="Zz3-yI-FMq"/>
+                                    <constraint firstItem="Hql-07-luR" firstAttribute="bottom" secondItem="8Qj-IM-hF0" secondAttribute="bottom" type="default" id="chO-re-Dvw"/>
                                     <constraint firstItem="tuI-9q-9cG" firstAttribute="leading" secondItem="8Qj-IM-hF0" secondAttribute="leading" type="default" id="dWI-zH-qkh"/>
-                                    <constraint firstItem="Hql-07-luR" firstAttribute="baseline" secondItem="a94-Gd-G9c" secondAttribute="baseline" type="default" id="gYe-NZ-4ph"/>
                                     <constraint firstItem="tuI-9q-9cG" firstAttribute="top" secondItem="8Qj-IM-hF0" secondAttribute="top" type="user" id="kUm-9w-CAW"/>
                                     <constraint firstItem="a94-Gd-G9c" firstAttribute="bottom" secondItem="8Qj-IM-hF0" secondAttribute="bottom" type="default" id="ncg-Zn-q6I"/>
                                     <constraint firstItem="a94-Gd-G9c" firstAttribute="trailing" secondItem="8Qj-IM-hF0" secondAttribute="trailing" type="default" id="ogv-TO-vGT"/>
@@ -316,6 +314,7 @@
                     <connections>
                         <outlet property="addCarView" destination="bnB-FL-knc" id="JTz-pq-9il"/>
                         <outlet property="carInfoLabel" destination="Jcm-6m-5UL" id="JgR-tF-XIQ"/>
+                        <outlet property="editCarButton" destination="Hql-07-luR" id="IFG-zy-YRG"/>
                         <outlet property="nextCarButton" destination="a94-Gd-G9c" id="5gf-T3-1Qf"/>
                         <outlet property="numberCarLabel" destination="tuI-9q-9cG" id="tgt-fc-25v"/>
                         <outlet property="prevCarButton" destination="yhE-jg-PNu" id="19y-Nh-iRY"/>
@@ -385,6 +384,7 @@
                 <relationship kind="action" name="nextCar:"/>
                 <relationship kind="action" name="prevCar:"/>
                 <relationship kind="outlet" name="carInfoLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="editCar" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="nextCarButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="numberCarLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="prevCarButton" candidateClass="UIButton"/>

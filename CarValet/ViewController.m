@@ -17,6 +17,9 @@
 @end
 
 @implementation ViewController {
+    
+    BOOL isShowingPortrait;
+    
     NSMutableArray *arrayOfCars;
     NSInteger displayedCarIndex;
     NSArray *rootViewLandscapeConstraints;
@@ -35,12 +38,34 @@
     [self setupLandscapeConstraints];
     arrayOfCars = [[NSMutableArray alloc] init];
     displayedCarIndex = 0;
+    isShowingPortrait = [self isPortrait];
 }
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
     [super willAnimateRotationToInterfaceOrientation:toInterfaceOrientation duration:duration];
-    if (UIInterfaceOrientationIsPortrait(toInterfaceOrientation)) {
+    isShowingPortrait = UIInterfaceOrientationIsPortrait(toInterfaceOrientation);
+    [self updateUiBasedOrientation];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self changeDisplayedCar:displayedCarIndex];
+    UIInterfaceOrientation currentOrientation = [[UIApplication sharedApplication] statusBarOrientation];
+    if (UIInterfaceOrientationIsPortrait(currentOrientation) ^ isShowingPortrait) {
+        [self willAnimateRotationToInterfaceOrientation:currentOrientation duration:0];
+    }
+}
+
+- (void) updateUiBasedOrientation
+{
+    if (isShowingPortrait) {
         [self.view removeConstraints:rootViewLandscapeConstraints];
         [addCarView removeConstraints:addCarViewLandscapeConstraints];
         [separatorView removeConstraints:separatorViewLandscapeConstraints];
@@ -57,17 +82,12 @@
         [addCarView addConstraints:addCarViewLandscapeConstraints];
         [separatorView addConstraints:separatorViewLandscapeConstraints];
     }
+
 }
 
-- (void)didReceiveMemoryWarning
+- (BOOL) isPortrait
 {
-    [super didReceiveMemoryWarning];
-}
-
-- (void) viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [self changeDisplayedCar:displayedCarIndex];
+    return UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation]);
 }
 
 - (void) changeDisplayedCar : (NSInteger) displayCarIndex {
@@ -79,6 +99,8 @@
     displayedCarIndex = displayCarIndex;
     self.prevCarButton.enabled = displayedCarIndex > 0;
     self.nextCarButton.enabled = displayedCarIndex < [arrayOfCars count] -1;
+    self.editCarButton.enabled = [arrayOfCars count] > 0;
+
     [self displayCarInformation];
     
 }

@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *numberCarLabel;
 @property (weak, nonatomic) IBOutlet UIButton *prevCarButton;
 @property (weak, nonatomic) IBOutlet UIButton *nextCarButton;
+@property (weak, nonatomic) IBOutlet UIButton *editCarButton;
 @property (weak, nonatomic) IBOutlet UILabel *totalCarLabel;
 @property (strong,nonatomic) IBOutletCollection(NSLayoutConstraint) NSArray *addCarViewPortraitConstraints;
 @property (strong,nonatomic) IBOutletCollection(NSLayoutConstraint) NSArray * separatorViewPortraitConstraints;
@@ -21,4 +22,5 @@
 - (IBAction)newCar:(id)sender;
 - (IBAction)nextCar:(id)sender;
 - (IBAction)prevCar:(id)sender;
+
 @end
