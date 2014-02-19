@@ -19,14 +19,44 @@
 @implementation ViewController {
     NSMutableArray *arrayOfCars;
     NSInteger displayedCarIndex;
+    NSArray *rootViewLandscapeConstraints;
+    NSArray *separatorViewLandscapeConstraints;
+    NSArray *addCarViewLandscapeConstraints;
+    
+    __weak IBOutlet UIView *addCarView;
+    __weak IBOutlet UIView *separatorView;
+    
+    __weak IBOutlet UIView *viewCarView;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    [self setupLandscapeConstraints];
     arrayOfCars = [[NSMutableArray alloc] init];
     displayedCarIndex = 0;
+}
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    [super willAnimateRotationToInterfaceOrientation:toInterfaceOrientation duration:duration];
+    if (UIInterfaceOrientationIsPortrait(toInterfaceOrientation)) {
+        [self.view removeConstraints:rootViewLandscapeConstraints];
+        [addCarView removeConstraints:addCarViewLandscapeConstraints];
+        [separatorView removeConstraints:separatorViewLandscapeConstraints];
+        
+        [self.view addConstraints:self.rootViewPortraitConstraints];
+        [addCarView addConstraints:self.addCarViewPortraitConstraints];
+        [separatorView addConstraints:self.separatorViewPortraitConstraints];
+    } else {
+        [self.view removeConstraints:self.rootViewPortraitConstraints];
+        [addCarView removeConstraints:self.addCarViewPortraitConstraints];
+        [separatorView removeConstraints:self.separatorViewPortraitConstraints];
+        
+        [self.view addConstraints:rootViewLandscapeConstraints];
+        [addCarView addConstraints:addCarViewLandscapeConstraints];
+        [separatorView addConstraints:separatorViewLandscapeConstraints];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,7 +92,7 @@
     if ([arrayOfCars count] == 0) {
         self.numberCarLabel.text = [NSString stringWithFormat:@"No Cars"];
         self.carInfoLabel.text = nil;
-    } else {        
+    } else {
         Car *currentCar = [arrayOfCars objectAtIndex:displayedCarIndex];
         self.numberCarLabel.text = [NSString stringWithFormat:@"Car Number: %d",displayedCarIndex];
         [self updateLabel:self.numberCarLabel :@"Car number" :displayedCarIndex + 1];
@@ -101,6 +131,54 @@
 {
     NSLog(@"editingDone called \n");
     [self displayCarInformation];
+}
+
+- (void) setupLandscapeConstraints
+{
+    NSDictionary *views = NSDictionaryOfVariableBindings(addCarView,separatorView,viewCarView);
+    NSMutableArray *tempRootViewConstraints = [NSMutableArray new];
+
+    NSArray *generateConstraints = [NSLayoutConstraint
+                                    constraintsWithVisualFormat:@"H:|-[addCarView]-2-[separatorView]-10-[viewCarView]-|"
+                                    options:0
+                                    metrics:nil
+                                    views:views];
+    [tempRootViewConstraints addObjectsFromArray:generateConstraints];
+    generateConstraints = [NSLayoutConstraint
+                           constraintsWithVisualFormat:@"V:|-[addCarView]-|"
+                           options:0
+                           metrics:nil
+                           views:views];
+    [tempRootViewConstraints addObjectsFromArray:generateConstraints];
+    
+    generateConstraints = [NSLayoutConstraint
+                           constraintsWithVisualFormat:@"V:|-[viewCarView]"
+                           options:0
+                           metrics:nil
+                           views:views];
+    [tempRootViewConstraints addObjectsFromArray:generateConstraints];
+    
+    generateConstraints = [NSLayoutConstraint
+                           constraintsWithVisualFormat:@"V:|-[separatorView]-|"
+                           options:0
+                           metrics:nil
+                           views:views];
+    [tempRootViewConstraints addObjectsFromArray:generateConstraints];
+
+
+  
+    
+    rootViewLandscapeConstraints = [NSArray arrayWithArray:tempRootViewConstraints];
+    addCarViewLandscapeConstraints = [NSLayoutConstraint
+                                     constraintsWithVisualFormat:@"H:[addCarView(112)]"
+                                     options:0
+                                     metrics:nil
+                                     views:views];
+    separatorViewLandscapeConstraints = [NSLayoutConstraint
+                                        constraintsWithVisualFormat:@"H:[separatorView(2)]"
+                                        options:0
+                                        metrics:nil
+                                        views:views];
 }
 
 
