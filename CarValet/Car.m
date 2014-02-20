@@ -46,7 +46,7 @@
         } else {
             message = !_make ? @"Make was not defined" : @"Model was not defined";
         }
-        NSLog(message);
+        NSLog(@"%@",message);
         return;
     }
     NSLog(@"---Car Make: %@",_make);

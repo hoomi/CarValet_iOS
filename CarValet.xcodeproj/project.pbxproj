@@ -44,6 +44,12 @@
 /* Begin PBXFileReference section */
 		150DE9AB188743870015DD7E /* ElectricCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElectricCar.h; sourceTree = "<group>"; };
 		150DE9AC188743870015DD7E /* ElectricCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElectricCar.m; sourceTree = "<group>"; };
+		159182A018B54BB6004403D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		159182A118B54BB7004403D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		159182A218B54BC2004403D4 /* nl */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = nl; path = nl.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		159182A318B54BC3004403D4 /* nl */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = nl; path = nl.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		159182A418B54BC3004403D4 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		159182A518B54BC3004403D4 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		15AD246B18A68B9900698408 /* CarEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarEditViewController.h; sourceTree = "<group>"; };
 		15AD246C18A68B9900698408 /* CarEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarEditViewController.m; sourceTree = "<group>"; };
 		15F001131885CB6E00800736 /* CarValet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarValet.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,8 +65,6 @@
 		15F001281885CB6E00800736 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		15F0012A1885CB6E00800736 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		15F0012C1885CB6E00800736 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		15F0012F1885CB6E00800736 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		15F001321885CB6E00800736 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		15F001341885CB6E00800736 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		15F001351885CB6E00800736 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		15F0013C1885CB6E00800736 /* CarValetTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarValetTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -266,6 +270,8 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
+				nl,
 			);
 			mainGroup = 15F0010A1885CB6E00800736;
 			productRefGroup = 15F001141885CB6E00800736 /* Products */;
@@ -357,6 +363,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				15F001201885CB6E00800736 /* en */,
+				159182A418B54BC3004403D4 /* nl */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -364,7 +371,8 @@
 		15F0012E1885CB6E00800736 /* MainStoryboard_iPhone.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				15F0012F1885CB6E00800736 /* en */,
+				159182A018B54BB6004403D4 /* Base */,
+				159182A218B54BC2004403D4 /* nl */,
 			);
 			name = MainStoryboard_iPhone.storyboard;
 			sourceTree = "<group>";
@@ -372,7 +380,8 @@
 		15F001311885CB6E00800736 /* MainStoryboard_iPad.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				15F001321885CB6E00800736 /* en */,
+				159182A118B54BB7004403D4 /* Base */,
+				159182A318B54BC3004403D4 /* nl */,
 			);
 			name = MainStoryboard_iPad.storyboard;
 			sourceTree = "<group>";
@@ -381,6 +390,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				15F001471885CB6E00800736 /* en */,
+				159182A518B54BC3004403D4 /* nl */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

@@ -35,7 +35,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setupLandscapeConstraints];
+    [self setupUi];
     arrayOfCars = [[NSMutableArray alloc] init];
     displayedCarIndex = 0;
     isShowingPortrait = [self isPortrait];
@@ -111,13 +111,17 @@
 }
 
 - (void) displayCarInformation {
-    if ([arrayOfCars count] == 0) {
-        self.numberCarLabel.text = [NSString stringWithFormat:@"No Cars"];
+    if ([arrayOfCars count] == 0) { 
+        self.numberCarLabel.text = [NSString stringWithFormat:NSLocalizedStringWithDefaultValue(@"NoCarString", nil, [NSBundle mainBundle], @"No Car",@"Text to be shown when there are no cars")];
         self.carInfoLabel.text = nil;
     } else {
         Car *currentCar = [arrayOfCars objectAtIndex:displayedCarIndex];
-        self.numberCarLabel.text = [NSString stringWithFormat:@"Car Number: %d",displayedCarIndex];
-        [self updateLabel:self.numberCarLabel :@"Car number" :displayedCarIndex + 1];
+        [self updateLabel:self.numberCarLabel :NSLocalizedStringWithDefaultValue(
+                                                                                 @"CarNumberLabel",
+                                                                                 nil,
+                                                                                 [NSBundle mainBundle],
+                                                                                 @"Car Number",
+                                                                                 @"Label for the index number of the current car") :displayedCarIndex + 1];
         self.carInfoLabel.text = [currentCar carInfo];
     }
 }
@@ -135,7 +139,11 @@
 - (IBAction)newCar:(id)sender {
     Car* newCar = [[Car alloc] init];
     [arrayOfCars addObject:newCar];
-    [self updateLabel:self.totalCarLabel :@"Total Cars" :[arrayOfCars count]];
+    [self updateLabel:self.totalCarLabel : NSLocalizedStringWithDefaultValue(
+                                                                             @"TotalCarLabel",
+                                                                             nil,
+                                                                             [NSBundle mainBundle],
+                                                                             @"Total Cars" , @"Label for showing the total number of cars"):[arrayOfCars count]];
     [self changeDisplayedCar:[arrayOfCars count] - 1];
 }
 
@@ -153,6 +161,46 @@
 {
     NSLog(@"editingDone called \n");
     [self displayCarInformation];
+}
+
+- (void) setupUi {
+    [self setupLandscapeConstraints];
+    [self setupLocalizedTexts];
+}
+
+- (void) setupLocalizedTexts {
+    NSString *localizedString = NSLocalizedStringWithDefaultValue(
+                                                                  @"NewCar",
+                                                                  nil,
+                                                                  [NSBundle mainBundle],
+                                                                  @"New Car", @"The text for the new car button");
+    [self.addCarButton setTitle:localizedString forState:UIControlStateNormal];
+    localizedString = NSLocalizedStringWithDefaultValue(
+                                                        @"Next",
+                                                        nil,
+                                                        [NSBundle mainBundle],
+                                                        @"Next", @"The text for the next car button");
+    [self.nextCarButton setTitle:localizedString forState:UIControlStateNormal];
+    localizedString = NSLocalizedStringWithDefaultValue(
+                                                        @"Previous",
+                                                        nil,
+                                                        [NSBundle mainBundle],
+                                                        @"Previous", @"The text for the previous car button");
+    [self.prevCarButton setTitle:localizedString forState:UIControlStateNormal];
+    localizedString = NSLocalizedStringWithDefaultValue(
+                                                        @"Edit",
+                                                        nil,
+                                                        [NSBundle mainBundle],
+                                                        @"Edit", @"The text for the edit button");
+    [self.editCarButton setTitle:localizedString forState:UIControlStateNormal];
+    
+    localizedString = NSLocalizedStringWithDefaultValue(
+                                                        @"info",
+                                                        nil,
+                                                        [NSBundle mainBundle],
+                                                        @"info", @"The text for the info button on the top right hand side");
+    [self.infoBarButton setTitle:localizedString];
+
 }
 
 - (void) setupLandscapeConstraints
