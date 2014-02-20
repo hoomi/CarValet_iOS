@@ -31,7 +31,8 @@
 - (void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.carNumberLabel.text = [NSString stringWithFormat:@"Car Number: %d",self.carNumber];
+     NSString *localizedString = NSLocalizedStringWithDefaultValue(@"CarNumberLabel",nil,[NSBundle mainBundle],@"Car Number",@"Label for the index number of the current car");
+    self.carNumberLabel.text = [NSString stringWithFormat:@"%@: %d",localizedString,self.carNumber];
     
 }
 
@@ -73,8 +74,6 @@
     localizedString= NSLocalizedStringWithDefaultValue(@"CarFuelLabel", nil, [NSBundle mainBundle], @"Fuel Amount", @"Fuel label for the fuel of the car");
     [self.fuelLabel setText:localizedString];
     [self.fuelAmountTextField setPlaceholder:localizedString];
-    localizedString = NSLocalizedStringWithDefaultValue(@"CarNumberLabel",nil,[NSBundle mainBundle],@"Car Number",@"Label for the index number of the current car");
-    [self.carNumberLabel setText:localizedString];
 }
 
 - (void)didReceiveMemoryWarning
