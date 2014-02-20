@@ -56,12 +56,20 @@
 }
 
 - (NSString*) carInfo {
+    NSString *makeLabel = NSLocalizedStringWithDefaultValue(@"CarMakeLabel", nil, [NSBundle mainBundle], @"Make", @"Make label for the model of the car");
+    NSString *modelLabel = NSLocalizedStringWithDefaultValue(@"CarModelLabel", nil, [NSBundle mainBundle], @"Model", @"Model label for the car model");
+    NSString *yearLabel = NSLocalizedStringWithDefaultValue(@"CarYearLabel", nil, [NSBundle mainBundle], @"Year", @"Year label of the car");
+    NSString *fuelLabel = NSLocalizedStringWithDefaultValue(@"CarFuelLabel", nil, [NSBundle mainBundle], @"Fuel Amount", @"Fuel label for the fuel of the car");
+    NSString *unknownModel = NSLocalizedStringWithDefaultValue(@"UnknownModel", nil, [NSBundle mainBundle], @"Unknown Model", @"Place holder for when the car model is empty");
+      NSString *unknownMake = NSLocalizedStringWithDefaultValue(@"UnknownMake", nil, [NSBundle mainBundle], @"Unknown Make", @"Place holder for when the make is empty");
+    
+    
     return [NSString stringWithFormat:
-            @"Name: %@\nModel: %@\nYear: %d\nFuel Amount: %f\n",
-            self.make ? self.make : @"Unknown make",
-            self.model ? self.model : @"Unknown model",
-            self.year,
-            self.fuelAmount];
+            @"%@: %@\n%@: %@\n%@: %d\n%@: %f\n",
+            makeLabel,self.make ? self.make : unknownMake,
+            modelLabel,self.model ? self.model : unknownModel,
+            yearLabel,self.year,
+            fuelLabel,self.fuelAmount];
 }
 
 -(void) shoutMake {

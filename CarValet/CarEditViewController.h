@@ -21,5 +21,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *fuelAmountTextField;
 @property (weak, nonatomic) IBOutlet UITextField *yearTextField;
 @property (weak, nonatomic) IBOutlet UILabel *carNumberLabel;
+@property (weak, nonatomic) IBOutlet UILabel *makeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *modelLabel;
+@property (weak, nonatomic) IBOutlet UILabel *fuelLabel;
+@property (weak, nonatomic) IBOutlet UILabel *yearLabel;
 
 @end

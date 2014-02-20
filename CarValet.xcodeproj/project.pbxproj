@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		150DE9AD188743870015DD7E /* ElectricCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 150DE9AC188743870015DD7E /* ElectricCar.m */; };
+		1580EF6318B6500300FB1355 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1580EF6118B6500300FB1355 /* Localizable.strings */; };
+		1580EF6818B6507A00FB1355 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1580EF6618B6507A00FB1355 /* InfoPlist.strings */; };
 		15AD246D18A68B9900698408 /* CarEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15AD246C18A68B9900698408 /* CarEditViewController.m */; };
 		15F001171885CB6E00800736 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F001161885CB6E00800736 /* UIKit.framework */; };
 		15F001191885CB6E00800736 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F001181885CB6E00800736 /* Foundation.framework */; };
 		15F0011B1885CB6E00800736 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F0011A1885CB6E00800736 /* CoreGraphics.framework */; };
-		15F001211885CB6E00800736 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 15F0011F1885CB6E00800736 /* InfoPlist.strings */; };
 		15F001231885CB6E00800736 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F001221885CB6E00800736 /* main.m */; };
 		15F001271885CB6E00800736 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F001261885CB6E00800736 /* AppDelegate.m */; };
 		15F001291885CB6E00800736 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 15F001281885CB6E00800736 /* Default.png */; };
@@ -24,7 +25,6 @@
 		15F0013E1885CB6E00800736 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F0013D1885CB6E00800736 /* SenTestingKit.framework */; };
 		15F0013F1885CB6E00800736 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F001161885CB6E00800736 /* UIKit.framework */; };
 		15F001401885CB6E00800736 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F001181885CB6E00800736 /* Foundation.framework */; };
-		15F001481885CB6E00800736 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 15F001461885CB6E00800736 /* InfoPlist.strings */; };
 		15F0014B1885CB6E00800736 /* CarValetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F0014A1885CB6E00800736 /* CarValetTests.m */; };
 		15F001561885CB9100800736 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F001551885CB9100800736 /* Car.m */; };
 		15F001591885E9B100800736 /* HybridCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F001581885E9B100800736 /* HybridCar.m */; };
@@ -44,12 +44,14 @@
 /* Begin PBXFileReference section */
 		150DE9AB188743870015DD7E /* ElectricCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElectricCar.h; sourceTree = "<group>"; };
 		150DE9AC188743870015DD7E /* ElectricCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElectricCar.m; sourceTree = "<group>"; };
+		1580EF6218B6500300FB1355 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1580EF6418B6502F00FB1355 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1580EF6518B6505200FB1355 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1580EF6718B6507A00FB1355 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1580EF6918B6507D00FB1355 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1580EF6A18B6507D00FB1355 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		159182A018B54BB6004403D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		159182A118B54BB7004403D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		159182A218B54BC2004403D4 /* nl */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = nl; path = nl.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		159182A318B54BC3004403D4 /* nl */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = nl; path = nl.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		159182A418B54BC3004403D4 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		159182A518B54BC3004403D4 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		15AD246B18A68B9900698408 /* CarEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarEditViewController.h; sourceTree = "<group>"; };
 		15AD246C18A68B9900698408 /* CarEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarEditViewController.m; sourceTree = "<group>"; };
 		15F001131885CB6E00800736 /* CarValet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarValet.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,7 +59,6 @@
 		15F001181885CB6E00800736 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		15F0011A1885CB6E00800736 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		15F0011E1885CB6E00800736 /* CarValet-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CarValet-Info.plist"; sourceTree = "<group>"; };
-		15F001201885CB6E00800736 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		15F001221885CB6E00800736 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		15F001241885CB6E00800736 /* CarValet-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CarValet-Prefix.pch"; sourceTree = "<group>"; };
 		15F001251885CB6E00800736 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -70,7 +71,6 @@
 		15F0013C1885CB6E00800736 /* CarValetTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarValetTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		15F0013D1885CB6E00800736 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		15F001451885CB6E00800736 /* CarValetTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CarValetTests-Info.plist"; sourceTree = "<group>"; };
-		15F001471885CB6E00800736 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		15F001491885CB6E00800736 /* CarValetTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CarValetTests.h; sourceTree = "<group>"; };
 		15F0014A1885CB6E00800736 /* CarValetTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CarValetTests.m; sourceTree = "<group>"; };
 		15F001541885CB9100800736 /* Car.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
@@ -186,8 +186,9 @@
 		15F0011D1885CB6E00800736 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1580EF6618B6507A00FB1355 /* InfoPlist.strings */,
+				1580EF6118B6500300FB1355 /* Localizable.strings */,
 				15F0011E1885CB6E00800736 /* CarValet-Info.plist */,
-				15F0011F1885CB6E00800736 /* InfoPlist.strings */,
 				15F001221885CB6E00800736 /* main.m */,
 				15F001241885CB6E00800736 /* CarValet-Prefix.pch */,
 				15F001281885CB6E00800736 /* Default.png */,
@@ -211,7 +212,6 @@
 			isa = PBXGroup;
 			children = (
 				15F001451885CB6E00800736 /* CarValetTests-Info.plist */,
-				15F001461885CB6E00800736 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -272,6 +272,7 @@
 				en,
 				Base,
 				nl,
+				de,
 			);
 			mainGroup = 15F0010A1885CB6E00800736;
 			productRefGroup = 15F001141885CB6E00800736 /* Products */;
@@ -289,12 +290,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15F001211885CB6E00800736 /* InfoPlist.strings in Resources */,
 				15F001291885CB6E00800736 /* Default.png in Resources */,
 				15F0012B1885CB6E00800736 /* Default@2x.png in Resources */,
 				15F0012D1885CB6E00800736 /* Default-568h@2x.png in Resources */,
 				15F001301885CB6E00800736 /* MainStoryboard_iPhone.storyboard in Resources */,
 				15F001331885CB6E00800736 /* MainStoryboard_iPad.storyboard in Resources */,
+				1580EF6318B6500300FB1355 /* Localizable.strings in Resources */,
+				1580EF6818B6507A00FB1355 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,7 +304,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15F001481885CB6E00800736 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,11 +360,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		15F0011F1885CB6E00800736 /* InfoPlist.strings */ = {
+		1580EF6118B6500300FB1355 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				15F001201885CB6E00800736 /* en */,
-				159182A418B54BC3004403D4 /* nl */,
+				1580EF6218B6500300FB1355 /* Base */,
+				1580EF6418B6502F00FB1355 /* de */,
+				1580EF6518B6505200FB1355 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		1580EF6618B6507A00FB1355 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1580EF6718B6507A00FB1355 /* Base */,
+				1580EF6918B6507D00FB1355 /* de */,
+				1580EF6A18B6507D00FB1355 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -372,7 +384,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				159182A018B54BB6004403D4 /* Base */,
-				159182A218B54BC2004403D4 /* nl */,
 			);
 			name = MainStoryboard_iPhone.storyboard;
 			sourceTree = "<group>";
@@ -381,18 +392,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				159182A118B54BB7004403D4 /* Base */,
-				159182A318B54BC3004403D4 /* nl */,
 			);
 			name = MainStoryboard_iPad.storyboard;
-			sourceTree = "<group>";
-		};
-		15F001461885CB6E00800736 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				15F001471885CB6E00800736 /* en */,
-				159182A518B54BC3004403D4 /* nl */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

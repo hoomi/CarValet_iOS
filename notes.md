@@ -6,6 +6,11 @@ In order to generate Base.lproj for localized strings use the following command 
 
 
 	genstrings -o Base.lproj *.m
+	
+In order to skip generating string for ome of the tables you could enter the following command:
+
+	getstring -skipTable <table>
+	
 
 
 ###Testing the text sizes
@@ -24,3 +29,13 @@ In order to double the text sizes so we can test the UI when the localization ch
 
 5. Make sure the box is checked and click OK to dismiss the pane.
 
+###Creating a localized file using ibtool
+
+1. From the terminal go to the Base.lproj directory
+2. Enter the following command from a terminal
+
+		ibtool MainStoryboard_iPhone.storyboard --generate-strings-file Main_iPhone.strings
+
+
+	
+	

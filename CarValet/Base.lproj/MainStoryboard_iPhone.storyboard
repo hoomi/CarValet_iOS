@@ -143,8 +143,12 @@
                     <connections>
                         <outlet property="carNumberLabel" destination="Tfm-zG-h2P" id="sFX-jS-xJF"/>
                         <outlet property="fuelAmountTextField" destination="ohF-bH-mQd" id="SuY-26-yFf"/>
+                        <outlet property="fuelLabel" destination="nkM-hh-0Yo" id="8go-pv-QR7"/>
+                        <outlet property="makeLabel" destination="saC-S4-0ah" id="Zio-lW-afe"/>
                         <outlet property="makeTextField" destination="JU3-3T-BtH" id="BiU-II-35a"/>
+                        <outlet property="modelLabel" destination="glZ-wa-Luz" id="WhE-NP-toh"/>
                         <outlet property="modelTextField" destination="dQe-vF-Oeo" id="qCI-kh-oQw"/>
+                        <outlet property="yearLabel" destination="eFM-pU-1Dj" id="fIo-T2-irj"/>
                         <outlet property="yearTextField" destination="A4G-J8-mNb" id="P0i-YE-GHA"/>
                     </connections>
                 </viewController>
@@ -364,8 +368,12 @@
             <relationships>
                 <relationship kind="outlet" name="carNumberLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="fuelAmountTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="fuelLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="makeLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="makeTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="modelLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="modelTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="yearLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="yearTextField" candidateClass="UITextField"/>
             </relationships>
         </class>

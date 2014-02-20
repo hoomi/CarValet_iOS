@@ -38,6 +38,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self localizeUI];
     self.makeTextField.text = self.currentCar.make;
     self.modelTextField.text = self.currentCar.model;
     self.yearTextField.text = [NSString stringWithFormat:@"%d",self.currentCar.year];
@@ -56,6 +57,24 @@
     self.currentCar.model = self.modelTextField.text;
     self.currentCar.year = [self.yearTextField.text integerValue];
     self.currentCar.fuelAmount = [self.fuelAmountTextField.text floatValue];
+}
+
+- (void) localizeUI
+{
+    NSString *localizedString = NSLocalizedStringWithDefaultValue(@"CarMakeLabel", nil, [NSBundle mainBundle], @"Make", @"Make label for the model of the car");
+    [self.makeLabel setText:localizedString];
+    [self.makeTextField setPlaceholder:localizedString];
+    localizedString = NSLocalizedStringWithDefaultValue(@"CarModelLabel", nil, [NSBundle mainBundle], @"Model", @"Model label for the car model");
+    [self.modelLabel setText:localizedString];
+    [self.modelTextField setPlaceholder:localizedString];
+    localizedString = NSLocalizedStringWithDefaultValue(@"CarYearLabel", nil, [NSBundle mainBundle], @"Year", @"Year label of the car");
+    [self.yearLabel setText:localizedString];
+    [self.yearTextField setPlaceholder:localizedString];
+    localizedString= NSLocalizedStringWithDefaultValue(@"CarFuelLabel", nil, [NSBundle mainBundle], @"Fuel Amount", @"Fuel label for the fuel of the car");
+    [self.fuelLabel setText:localizedString];
+    [self.fuelAmountTextField setPlaceholder:localizedString];
+    localizedString = NSLocalizedStringWithDefaultValue(@"CarNumberLabel",nil,[NSBundle mainBundle],@"Car Number",@"Label for the index number of the current car");
+    [self.carNumberLabel setText:localizedString];
 }
 
 - (void)didReceiveMemoryWarning
