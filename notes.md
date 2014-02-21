@@ -37,5 +37,22 @@ In order to double the text sizes so we can test the UI when the localization ch
 		ibtool MainStoryboard_iPhone.storyboard --generate-strings-file Main_iPhone.strings
 
 
-	
+###Multiline Label on iOS 6.1
+
+In order to have a multiline labe the following code seem to be necessary
+
+
+	- (void)viewWillLayoutSubviews
+	{
+    	[super viewWillLayoutSubviews];
+    	self.totalCarLabel.preferredMaxLayoutWidth = 0.0;
+	}
+
+	- (void)viewDidLayoutSubviews
+	{
+    	[super viewDidLayoutSubviews];
+    	self.totalCarLabel.preferredMaxLayoutWidth = addCarView.frame.size.width;
+    }
+   
+   
 	
