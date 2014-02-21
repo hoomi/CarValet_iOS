@@ -155,8 +155,6 @@
     [self changeDisplayedCar:displayedCarIndex - 1];
 }
 
-
-
 - (IBAction)editingDone:(UIStoryboardSegue*)segue
 {
     NSLog(@"editingDone called \n");
@@ -211,6 +209,18 @@
     
 }
 
+- (void)viewWillLayoutSubviews
+{
+    [super viewWillLayoutSubviews];
+    self.totalCarLabel.preferredMaxLayoutWidth = 0.0;
+}
+
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    self.totalCarLabel.preferredMaxLayoutWidth = addCarView.frame.size.width;
+    
+}
 - (void) setupLandscapeConstraints
 {
     NSDictionary *views = NSDictionaryOfVariableBindings(addCarView,separatorView,viewCarView);
