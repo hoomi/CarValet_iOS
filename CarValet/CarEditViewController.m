@@ -43,7 +43,7 @@
     self.makeTextField.text = self.currentCar.make;
     self.modelTextField.text = self.currentCar.model;
     self.yearTextField.text = [NSString stringWithFormat:@"%d",self.currentCar.year];
-    self.fuelAmountTextField.text = [NSString stringWithFormat:@"%0.2f",self.currentCar.fuelAmount];
+    self.fuelAmountTextField.text = [NSString localizedStringWithFormat:@"%0.2f",self.currentCar.fuelAmount];
     self.title = NSLocalizedStringWithDefaultValue(@"EditScreenTitle", nil, [NSBundle mainBundle], @"Edit Car", @"Title for the edit Screen");
 }
 
@@ -58,7 +58,11 @@
     self.currentCar.make = self.makeTextField.text;
     self.currentCar.model = self.modelTextField.text;
     self.currentCar.year = [self.yearTextField.text integerValue];
-    self.currentCar.fuelAmount = [self.fuelAmountTextField.text floatValue];
+    NSNumberFormatter *readFuel = [NSNumberFormatter new];
+    readFuel.locale = [NSLocale currentLocale];
+    [readFuel setNumberStyle:NSNumberFormatterDecimalStyle];
+    NSNumber *fuelAmount = [readFuel numberFromString:self.fuelAmountTextField.text];
+    self.currentCar.fuelAmount = [fuelAmount floatValue];
 }
 
 - (void) localizeUI
