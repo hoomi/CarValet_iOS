@@ -31,9 +31,27 @@
 - (void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-     NSString *localizedString = NSLocalizedStringWithDefaultValue(@"CarNumberLabel",nil,[NSBundle mainBundle],@"Car Number",@"Label for the index number of the current car");
+    [self updateTextAlignments];
+    NSString *localizedString = NSLocalizedStringWithDefaultValue(@"CarNumberLabel",nil,[NSBundle mainBundle],@"Car Number",@"Label for the index number of the current car");
     self.carNumberLabel.text = [NSString stringWithFormat:@"%@: %d",localizedString,self.carNumber];
     
+}
+
+- (void) updateTextAlignments
+{
+    NSLocaleLanguageDirection langDirection = [NSLocale characterDirectionForLanguage:[NSLocale preferredLanguages][0]];
+    if (langDirection == NSLocaleLanguageDirectionRightToLeft) {
+        self.makeLabel.textAlignment = NSTextAlignmentRight;
+        self.modelLabel.textAlignment = NSTextAlignmentRight;
+        self.yearLabel.textAlignment = NSTextAlignmentRight;
+        self.fuelLabel.textAlignment = NSTextAlignmentRight;
+    } else {
+        self.makeLabel.textAlignment = NSTextAlignmentLeft;
+        self.modelLabel.textAlignment = NSTextAlignmentLeft;
+        self.yearLabel.textAlignment = NSTextAlignmentLeft;
+        self.fuelLabel.textAlignment = NSTextAlignmentLeft;
+        
+    }
 }
 
 - (void)viewDidLoad

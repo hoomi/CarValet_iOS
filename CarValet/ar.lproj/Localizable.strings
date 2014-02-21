@@ -1,0 +1,48 @@
+/* Title for the main Screen */
+"AddViewScreenTitle" = "خادم السیاره";
+
+/* Fuel label for the fuel of the car */
+"CarFuelLabel" = "وقود";
+
+/* Make label for the model of the car */
+"CarMakeLabel" = "نوع";
+
+/* Model label for the car model */
+"CarModelLabel" = "نموذج";
+
+/* Label for the index number of the current car */
+"CarNumberLabel" = "السیاره رقم";
+
+/* Year label of the car */
+"CarYearLabel" = "عام";
+
+/* The text for the edit button */
+"Edit" = "تحریر";
+
+/* Title for the edit Screen */
+"EditScreenTitle" = "تحریر السیاره";
+
+/* The text for the info button on the top right hand side */
+"info" = "اطلاعات";
+
+/* The text for the new car button */
+"NewCar" = "سیاره جدید";
+
+/* The text for the next car button */
+"Next" = "تالی";
+
+/* Text to be shown when there are no cars */
+"NoCarString" = "لا السیاره";
+
+/* The text for the previous car button */
+"Previous" = "سابق";
+
+/* Label for showing the total number of cars */
+"TotalCarLabel" = "مجموع السیاره";
+
+/* Place holder for when the make is empty */
+"UnknownMake" = "نوع السیاره ‍غیر معروف";
+
+/* Place holder for when the car model is empty */
+"UnknownModel" = "نموذج السیاره غیر معروف";
+

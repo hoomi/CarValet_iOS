@@ -1,5 +1,6 @@
 <!-- Image resources -->
 [image_double_localize_string]:images/double_localized_string.png "Dobule Localized String size"
+[image_run_application_language]:images/run_application_language.png "Running Application in different languages"
 ###Localisation
 
 In order to generate Base.lproj for localized strings use the following command from within the CarValet folder where all the *.m & *.h file exist
@@ -11,8 +12,6 @@ In order to skip generating string for ome of the tables you could enter the fol
 
 	getstring -skipTable <table>
 	
-
-
 ###Testing the text sizes
 
 In order to double the text sizes so we can test the UI when the localization changes we do the follwoing from xcode:
@@ -53,6 +52,12 @@ In order to have a multiline labe the following code seem to be necessary
     	[super viewDidLayoutSubviews];
     	self.totalCarLabel.preferredMaxLayoutWidth = addCarView.frame.size.width;
     }
-   
-   
+
+###Scheme to run the aplication in a particular language
+Click on edit scheme and add the following aruguments. Similar to the image below:
+
+	-AppleLanguages "(German)"
+	-AppleLanguages "(Arabic)"
+	
+![image_run_application_language]
 	
