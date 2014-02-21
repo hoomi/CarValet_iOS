@@ -56,6 +56,7 @@
 - (void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self updateTextAlignments];
     [self changeDisplayedCar:displayedCarIndex];
     UIInterfaceOrientation currentOrientation = [[UIApplication sharedApplication] statusBarOrientation];
     if (UIInterfaceOrientationIsPortrait(currentOrientation) ^ isShowingPortrait) {
@@ -106,7 +107,7 @@
 }
 
 - (void) updateLabel :(UILabel *) label : (NSString*) withBaseString : (NSInteger) count {
-    NSString* newText = [NSString stringWithFormat:@"%@: %d",withBaseString,count];
+       NSString* newText = [NSString stringWithFormat:@"%@: %@",withBaseString,[Utils localizeLong:count]];
     label.text = newText;
 }
 
@@ -164,6 +165,20 @@
 - (void) setupUi {
     [self setupLandscapeConstraints];
     [self setupLocalizedTexts];
+}
+
+- (void) updateTextAlignments
+{
+    NSLocaleLanguageDirection languageDirection = [NSLocale characterDirectionForLanguage:[NSLocale preferredLanguages][0]];
+    if (languageDirection == NSLocaleLanguageDirectionRightToLeft) {
+        self.carInfoLabel.textAlignment = NSTextAlignmentRight;
+        self.totalCarLabel.textAlignment = NSTextAlignmentRight;
+        self.numberCarLabel.textAlignment = NSTextAlignmentRight;
+    } else {
+        self.carInfoLabel.textAlignment = NSTextAlignmentLeft;
+        self.totalCarLabel.textAlignment = NSTextAlignmentLeft;
+        self.numberCarLabel.textAlignment = NSTextAlignmentLeft;
+    }
 }
 
 - (void) setupLocalizedTexts {

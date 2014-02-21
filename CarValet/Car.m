@@ -10,6 +10,7 @@
 
 @implementation Car
 
+
 - (id)initWithMake:(NSString *)make model:(NSString *)model year:(int)year fuelAmount:(float)fuelAmount
 {
     self = [super init];
@@ -62,18 +63,12 @@
     NSString *fuelLabel = NSLocalizedStringWithDefaultValue(@"CarFuelLabel", nil, [NSBundle mainBundle], @"Fuel Amount", @"Fuel label for the fuel of the car");
     NSString *unknownModel = NSLocalizedStringWithDefaultValue(@"UnknownModel", nil, [NSBundle mainBundle], @"Unknown Model", @"Place holder for when the car model is empty");
     NSString *unknownMake = NSLocalizedStringWithDefaultValue(@"UnknownMake", nil, [NSBundle mainBundle], @"Unknown Make", @"Place holder for when the make is empty");
-    
-    NSNumberFormatter *formatter = [NSNumberFormatter new];
-    formatter.locale = [NSLocale currentLocale];
-    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-    [formatter setMaximumFractionDigits:2];
-    NSString *fuelAmount = [formatter stringFromNumber:[NSNumber numberWithFloat:self.fuelAmount]];
     NSString *carInfoString = [NSString stringWithFormat:
-                               @"%@: %@\n%@: %@\n%@: %d\n%@: %@\n",
+                               @"%@: %@\n%@: %@\n%@: %@\n%@: %@\n",
                                makeLabel,self.make ? self.make : unknownMake,
                                modelLabel,self.model ? self.model : unknownModel,
-                               yearLabel,self.year,
-                               fuelLabel,fuelAmount];
+                               yearLabel,[Utils localizeDateWithYear:self.year],
+                               fuelLabel,[Utils localizeDouble:self.fuelAmount]];
     NSLog(@"%@",carInfoString);
     return carInfoString;
 }

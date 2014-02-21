@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		150DE9AD188743870015DD7E /* ElectricCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 150DE9AC188743870015DD7E /* ElectricCar.m */; };
+		155A02E718B7A09C00312EAA /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 155A02E618B7A09C00312EAA /* Utils.m */; };
 		1580EF6818B6507A00FB1355 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1580EF6618B6507A00FB1355 /* InfoPlist.strings */; };
 		1580EF6C18B6604000FB1355 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1580EF6118B6500300FB1355 /* Localizable.strings */; };
 		15AD246D18A68B9900698408 /* CarEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15AD246C18A68B9900698408 /* CarEditViewController.m */; };
@@ -44,6 +45,8 @@
 /* Begin PBXFileReference section */
 		150DE9AB188743870015DD7E /* ElectricCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElectricCar.h; sourceTree = "<group>"; };
 		150DE9AC188743870015DD7E /* ElectricCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElectricCar.m; sourceTree = "<group>"; };
+		155A02E518B7A09C00312EAA /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		155A02E618B7A09C00312EAA /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		1580EF6218B6500300FB1355 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1580EF6418B6502F00FB1355 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1580EF6518B6505200FB1355 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -181,6 +184,8 @@
 				15F0012E1885CB6E00800736 /* MainStoryboard_iPhone.storyboard */,
 				15F001311885CB6E00800736 /* MainStoryboard_iPad.storyboard */,
 				15F0011D1885CB6E00800736 /* Supporting Files */,
+				155A02E518B7A09C00312EAA /* Utils.h */,
+				155A02E618B7A09C00312EAA /* Utils.m */,
 			);
 			path = CarValet;
 			sourceTree = "<group>";
@@ -341,6 +346,7 @@
 				150DE9AD188743870015DD7E /* ElectricCar.m in Sources */,
 				15AD246D18A68B9900698408 /* CarEditViewController.m in Sources */,
 				15F72BC718B244C6002C215A /* InfoViewController.m in Sources */,
+				155A02E718B7A09C00312EAA /* Utils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
