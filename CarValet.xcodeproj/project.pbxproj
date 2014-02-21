@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		150DE9AD188743870015DD7E /* ElectricCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 150DE9AC188743870015DD7E /* ElectricCar.m */; };
-		1580EF6318B6500300FB1355 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1580EF6118B6500300FB1355 /* Localizable.strings */; };
 		1580EF6818B6507A00FB1355 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1580EF6618B6507A00FB1355 /* InfoPlist.strings */; };
+		1580EF6C18B6604000FB1355 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1580EF6118B6500300FB1355 /* Localizable.strings */; };
 		15AD246D18A68B9900698408 /* CarEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15AD246C18A68B9900698408 /* CarEditViewController.m */; };
 		15F001171885CB6E00800736 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F001161885CB6E00800736 /* UIKit.framework */; };
 		15F001191885CB6E00800736 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F001181885CB6E00800736 /* Foundation.framework */; };
@@ -295,8 +295,8 @@
 				15F0012D1885CB6E00800736 /* Default-568h@2x.png in Resources */,
 				15F001301885CB6E00800736 /* MainStoryboard_iPhone.storyboard in Resources */,
 				15F001331885CB6E00800736 /* MainStoryboard_iPad.storyboard in Resources */,
-				1580EF6318B6500300FB1355 /* Localizable.strings in Resources */,
 				1580EF6818B6507A00FB1355 /* InfoPlist.strings in Resources */,
+				1580EF6C18B6604000FB1355 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

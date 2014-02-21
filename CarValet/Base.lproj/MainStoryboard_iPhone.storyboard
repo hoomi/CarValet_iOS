@@ -9,7 +9,7 @@
             <objects>
                 <viewController id="nJg-eM-NLq" customClass="InfoViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HY6-5t-EKL">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="This is the aobut page of the app. It is called from the info button of the home page" translatesAutoresizingMaskIntoConstraints="NO" id="2Fh-rp-NSa">
@@ -32,20 +32,20 @@
             </objects>
             <point key="canvasLocation" x="1118" y="-870"/>
         </scene>
-        <!--Car Edit View Controller - Edit-->
+        <!--Car Edit View Controller-->
         <scene sceneID="SWn-hS-Sir">
             <objects>
                 <viewController id="M8W-8W-jgQ" customClass="CarEditViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A7B-EM-Ue8">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6QY-eP-nyR">
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Make..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JU3-3T-BtH">
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="229" id="8qT-yM-zut"/>
                                             <constraint firstAttribute="height" constant="30" id="B3J-1w-qHO"/>
+                                            <constraint firstAttribute="width" constant="200" id="vbo-T9-viE"/>
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -53,16 +53,13 @@
                                     </textField>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Make" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="saC-S4-0ah">
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="43" id="Otd-iC-7dO"/>
+                                            <constraint firstAttribute="width" constant="77" id="Lsi-W4-ZsM"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Model" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="glZ-wa-Luz">
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="52" id="dI8-rw-blw"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -91,30 +88,31 @@
                                     </textField>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="JU3-3T-BtH" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="0Ge-PM-3xD"/>
-                                    <constraint firstItem="dQe-vF-Oeo" firstAttribute="leading" secondItem="JU3-3T-BtH" secondAttribute="leading" type="default" id="34w-6L-7FE"/>
-                                    <constraint firstAttribute="bottom" secondItem="A4G-J8-mNb" secondAttribute="bottom" constant="167" id="5jz-2X-4wP"/>
+                                    <constraint firstItem="nkM-hh-0Yo" firstAttribute="trailing" secondItem="eFM-pU-1Dj" secondAttribute="trailing" type="default" id="3cd-1P-W8b"/>
+                                    <constraint firstAttribute="trailing" secondItem="dQe-vF-Oeo" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="50r-fh-HPF"/>
                                     <constraint firstItem="glZ-wa-Luz" firstAttribute="top" secondItem="dQe-vF-Oeo" secondAttribute="top" type="default" id="5ng-cU-Dar"/>
-                                    <constraint firstAttribute="trailing" secondItem="ohF-bH-mQd" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="6Bs-jT-1SP"/>
-                                    <constraint firstItem="ohF-bH-mQd" firstAttribute="top" secondItem="6QY-eP-nyR" secondAttribute="top" constant="120" id="Cyl-Vb-h3V"/>
-                                    <constraint firstItem="ohF-bH-mQd" firstAttribute="leading" secondItem="nkM-hh-0Yo" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="E78-oR-bKo"/>
+                                    <constraint firstItem="saC-S4-0ah" firstAttribute="trailing" secondItem="glZ-wa-Luz" secondAttribute="trailing" type="default" id="EHg-e3-MFC"/>
                                     <constraint firstItem="A4G-J8-mNb" firstAttribute="top" secondItem="6QY-eP-nyR" secondAttribute="top" constant="170" id="FfY-mk-h8A"/>
                                     <constraint firstItem="JU3-3T-BtH" firstAttribute="top" secondItem="6QY-eP-nyR" secondAttribute="top" constant="20" symbolic="YES" type="default" id="HxF-bg-a1o"/>
-                                    <constraint firstAttribute="trailing" secondItem="A4G-J8-mNb" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Lhz-oH-82F"/>
-                                    <constraint firstItem="A4G-J8-mNb" firstAttribute="leading" secondItem="ohF-bH-mQd" secondAttribute="leading" type="default" id="Lua-gz-2DY"/>
-                                    <constraint firstAttribute="trailing" secondItem="dQe-vF-Oeo" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="M2Q-fZ-9lx"/>
+                                    <constraint firstItem="A4G-J8-mNb" firstAttribute="width" secondItem="ohF-bH-mQd" secondAttribute="width" type="user" id="JWl-1K-DPZ"/>
                                     <constraint firstItem="JU3-3T-BtH" firstAttribute="baseline" secondItem="saC-S4-0ah" secondAttribute="baseline" type="default" id="NJd-2b-vZb"/>
                                     <constraint firstItem="ohF-bH-mQd" firstAttribute="centerY" secondItem="nkM-hh-0Yo" secondAttribute="centerY" type="default" id="Neo-gf-6fV"/>
+                                    <constraint firstItem="glZ-wa-Luz" firstAttribute="trailing" secondItem="nkM-hh-0Yo" secondAttribute="trailing" type="default" id="OMl-rd-NyK"/>
                                     <constraint firstItem="glZ-wa-Luz" firstAttribute="leading" secondItem="6QY-eP-nyR" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Q4n-bH-tKl"/>
-                                    <constraint firstItem="JU3-3T-BtH" firstAttribute="leading" secondItem="saC-S4-0ah" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="QGu-2f-G2V"/>
-                                    <constraint firstItem="A4G-J8-mNb" firstAttribute="leading" secondItem="eFM-pU-1Dj" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="Wee-5y-tSC"/>
+                                    <constraint firstAttribute="bottom" secondItem="A4G-J8-mNb" secondAttribute="bottom" constant="167" id="T65-6a-jLb"/>
+                                    <constraint firstItem="dQe-vF-Oeo" firstAttribute="width" secondItem="ohF-bH-mQd" secondAttribute="width" type="user" id="W5H-hM-7Ui"/>
                                     <constraint firstItem="saC-S4-0ah" firstAttribute="leading" secondItem="6QY-eP-nyR" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="bUR-ga-URt"/>
+                                    <constraint firstAttribute="trailing" secondItem="ohF-bH-mQd" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="dAM-d5-WlD"/>
                                     <constraint firstItem="nkM-hh-0Yo" firstAttribute="leading" secondItem="6QY-eP-nyR" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="dS1-Uy-6kQ"/>
-                                    <constraint firstItem="dQe-vF-Oeo" firstAttribute="leading" secondItem="ohF-bH-mQd" secondAttribute="leading" type="default" id="dwq-jX-652"/>
+                                    <constraint firstItem="JU3-3T-BtH" firstAttribute="width" secondItem="ohF-bH-mQd" secondAttribute="width" type="user" id="g0z-QN-IMR"/>
+                                    <constraint firstItem="ohF-bH-mQd" firstAttribute="top" secondItem="6QY-eP-nyR" secondAttribute="top" constant="121" id="iPk-05-pOs"/>
                                     <constraint firstItem="eFM-pU-1Dj" firstAttribute="leading" secondItem="6QY-eP-nyR" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="lfn-x3-1a7"/>
                                     <constraint firstItem="glZ-wa-Luz" firstAttribute="top" secondItem="6QY-eP-nyR" secondAttribute="top" constant="70" id="nbo-U3-b1w"/>
+                                    <constraint firstItem="JU3-3T-BtH" firstAttribute="leading" secondItem="6QY-eP-nyR" secondAttribute="leading" constant="100" id="qsS-Fo-hlh"/>
                                     <constraint firstItem="saC-S4-0ah" firstAttribute="top" secondItem="6QY-eP-nyR" secondAttribute="top" constant="23" id="s4N-b2-GPF"/>
+                                    <constraint firstAttribute="trailing" secondItem="JU3-3T-BtH" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="t6d-Up-2BA"/>
                                     <constraint firstItem="eFM-pU-1Dj" firstAttribute="top" secondItem="6QY-eP-nyR" secondAttribute="top" constant="174" id="thX-Cm-cYs"/>
+                                    <constraint firstAttribute="trailing" secondItem="A4G-J8-mNb" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="xiF-c8-EL6"/>
                                 </constraints>
                             </scrollView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Car Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tfm-zG-h2P">
@@ -133,7 +131,7 @@
                             <constraint firstItem="6QY-eP-nyR" firstAttribute="top" secondItem="Tfm-zG-h2P" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="vsq-SI-lin"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Edit" id="DSt-Ab-o5x">
+                    <navigationItem key="navigationItem" id="DSt-Ab-o5x">
                         <barButtonItem key="rightBarButtonItem" title="Done" id="Udr-xz-cD0">
                             <connections>
                                 <segue destination="TXp-iA-3zr" kind="unwind" identifier="EditDoneSegue" unwindAction="editingDone:" id="QLB-XJ-uYr"/>
@@ -157,12 +155,12 @@
             </objects>
             <point key="canvasLocation" x="1118" y="-276"/>
         </scene>
-        <!--View Controller - Title-->
+        <!--View Controller - CarValet-->
         <scene sceneID="5">
             <objects>
                 <viewController id="2" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bnB-FL-knc" userLabel="AddNewCarViewGroup">
@@ -177,7 +175,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oeF-x4-6da">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="41" id="1cX-D2-e6b"/>
-                                            <constraint firstAttribute="width" constant="73" id="pZ6-JP-Z3T"/>
+                                            <constraint firstAttribute="width" constant="86" id="8L8-4d-lgT"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="New Car">
@@ -222,7 +220,7 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a94-Gd-G9c">
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="73" id="rTQ-l9-Xlu"/>
+                                            <constraint firstAttribute="width" constant="80" id="pWg-aA-Co6"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Next ">
@@ -238,7 +236,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hql-07-luR">
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="73" id="zI3-1o-yLS"/>
+                                            <constraint firstAttribute="width" constant="81" id="cZP-dZ-vjL"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Edit">
@@ -254,7 +252,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhE-jg-PNu">
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="73" id="wds-mt-v0J"/>
+                                            <constraint firstAttribute="width" constant="86" id="hcl-VC-e7r"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Previous">
@@ -273,17 +271,17 @@
                                 <constraints>
                                     <constraint firstItem="yhE-jg-PNu" firstAttribute="leading" secondItem="8Qj-IM-hF0" secondAttribute="leading" type="default" id="1SV-AR-s1V"/>
                                     <constraint firstItem="Jcm-6m-5UL" firstAttribute="trailing" secondItem="8Qj-IM-hF0" secondAttribute="trailing" type="default" id="3Un-Ns-vRs"/>
+                                    <constraint firstItem="Hql-07-luR" firstAttribute="bottom" secondItem="8Qj-IM-hF0" secondAttribute="bottom" type="default" id="IgA-yn-e8g"/>
                                     <constraint firstItem="Hql-07-luR" firstAttribute="centerX" secondItem="Jcm-6m-5UL" secondAttribute="centerX" type="default" id="JQH-dl-Ew0"/>
                                     <constraint firstItem="Jcm-6m-5UL" firstAttribute="top" secondItem="tuI-9q-9cG" secondAttribute="bottom" constant="35" type="user" id="RkZ-zc-XQa"/>
                                     <constraint firstItem="Jcm-6m-5UL" firstAttribute="leading" secondItem="8Qj-IM-hF0" secondAttribute="leading" type="default" id="ZGB-de-Qri"/>
                                     <constraint firstItem="tuI-9q-9cG" firstAttribute="trailing" secondItem="8Qj-IM-hF0" secondAttribute="trailing" type="default" id="ZKa-YI-aWF"/>
-                                    <constraint firstItem="yhE-jg-PNu" firstAttribute="bottom" secondItem="8Qj-IM-hF0" secondAttribute="bottom" type="default" id="Zz3-yI-FMq"/>
-                                    <constraint firstItem="Hql-07-luR" firstAttribute="bottom" secondItem="8Qj-IM-hF0" secondAttribute="bottom" type="default" id="chO-re-Dvw"/>
                                     <constraint firstItem="tuI-9q-9cG" firstAttribute="leading" secondItem="8Qj-IM-hF0" secondAttribute="leading" type="default" id="dWI-zH-qkh"/>
                                     <constraint firstItem="tuI-9q-9cG" firstAttribute="top" secondItem="8Qj-IM-hF0" secondAttribute="top" type="user" id="kUm-9w-CAW"/>
-                                    <constraint firstItem="a94-Gd-G9c" firstAttribute="bottom" secondItem="8Qj-IM-hF0" secondAttribute="bottom" type="default" id="ncg-Zn-q6I"/>
+                                    <constraint firstItem="yhE-jg-PNu" firstAttribute="bottom" secondItem="8Qj-IM-hF0" secondAttribute="bottom" type="default" id="nvB-gi-nS8"/>
                                     <constraint firstItem="a94-Gd-G9c" firstAttribute="trailing" secondItem="8Qj-IM-hF0" secondAttribute="trailing" type="default" id="ogv-TO-vGT"/>
                                     <constraint firstItem="Jcm-6m-5UL" firstAttribute="top" secondItem="8Qj-IM-hF0" secondAttribute="top" constant="55" type="user" id="rBW-WF-oH0"/>
+                                    <constraint firstItem="a94-Gd-G9c" firstAttribute="bottom" secondItem="8Qj-IM-hF0" secondAttribute="bottom" type="default" id="tcc-qO-fdO"/>
                                     <constraint firstItem="tuI-9q-9cG" firstAttribute="top" secondItem="8Qj-IM-hF0" secondAttribute="top" type="user" id="xGH-Qs-lt7"/>
                                 </constraints>
                             </view>
@@ -308,7 +306,7 @@
                             <constraint firstItem="bnB-FL-knc" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="user" id="vCz-2v-7M4"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="Na3-vf-dkE">
+                    <navigationItem key="navigationItem" title="CarValet" id="Na3-vf-dkE">
                         <barButtonItem key="rightBarButtonItem" title="info" id="mcR-hB-LFb">
                             <connections>
                                 <segue destination="nJg-eM-NLq" kind="push" id="7Vc-a0-wT8"/>
@@ -410,6 +408,6 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
+        <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
 </document>

@@ -44,6 +44,7 @@
     self.modelTextField.text = self.currentCar.model;
     self.yearTextField.text = [NSString stringWithFormat:@"%d",self.currentCar.year];
     self.fuelAmountTextField.text = [NSString stringWithFormat:@"%0.2f",self.currentCar.fuelAmount];
+    self.title = NSLocalizedStringWithDefaultValue(@"EditScreenTitle", nil, [NSBundle mainBundle], @"Edit Car", @"Title for the edit Screen");
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
