@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface Car : NSObject
-
     @property (readonly) BOOL isALemon;
     @property (readonly) NSString *carInfo;
     @property NSString* make;

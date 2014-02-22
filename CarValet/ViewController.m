@@ -11,7 +11,6 @@
 #import "ElectricCar.h"
 #import "CarEditViewController.h"
 
-
 @interface ViewController ()
 
 @end
@@ -119,7 +118,7 @@
         Car *currentCar = [arrayOfCars objectAtIndex:displayedCarIndex];
         [self updateLabel:self.numberCarLabel :NSLocalizedStringWithDefaultValue(
                                                                                  @"CarNumberLabel",
-                                                                                 nil,
+                                                                                 @"MainScreen",
                                                                                  [NSBundle mainBundle],
                                                                                  @"Car Number",
                                                                                  @"Label for the index number of the current car") :displayedCarIndex + 1];
@@ -142,7 +141,7 @@
     [arrayOfCars addObject:newCar];
     [self updateLabel:self.totalCarLabel : NSLocalizedStringWithDefaultValue(
                                                                              @"TotalCarLabel",
-                                                                             nil,
+                                                                             @"MainScreen",
                                                                              [NSBundle mainBundle],
                                                                              @"Total Cars" , @"Label for showing the total number of cars"):[arrayOfCars count]];
     [self changeDisplayedCar:[arrayOfCars count] - 1];
@@ -184,43 +183,43 @@
 - (void) setupLocalizedTexts {
     NSString *localizedString = NSLocalizedStringWithDefaultValue(
                                                                   @"NewCar",
-                                                                  nil,
+                                                                  @"MainScreen",
                                                                   [NSBundle mainBundle],
                                                                   @"New Car", @"The text for the new car button");
     [self.addCarButton setTitle:localizedString forState:UIControlStateNormal];
     localizedString = NSLocalizedStringWithDefaultValue(
                                                         @"Next",
-                                                        nil,
+                                                        @"MainScreen",
                                                         [NSBundle mainBundle],
                                                         @"Next", @"The text for the next car button");
     [self.nextCarButton setTitle:localizedString forState:UIControlStateNormal];
     localizedString = NSLocalizedStringWithDefaultValue(
                                                         @"Previous",
-                                                        nil,
+                                                        @"MainScreen",
                                                         [NSBundle mainBundle],
                                                         @"Previous", @"The text for the previous car button");
     [self.prevCarButton setTitle:localizedString forState:UIControlStateNormal];
     localizedString = NSLocalizedStringWithDefaultValue(
                                                         @"Edit",
-                                                        nil,
+                                                        @"MainScreen",
                                                         [NSBundle mainBundle],
                                                         @"Edit", @"The text for the edit button");
     [self.editCarButton setTitle:localizedString forState:UIControlStateNormal];
     
     localizedString = NSLocalizedStringWithDefaultValue(
                                                         @"info",
-                                                        nil,
+                                                        @"MainScreen",
                                                         [NSBundle mainBundle],
                                                         @"info", @"The text for the info button on the top right hand side");
     [self.infoBarButton setTitle:localizedString];
     
     localizedString = NSLocalizedStringWithDefaultValue(
                                       @"TotalCarLabel",
-                                      nil,
+                                      @"MainScreen",
                                       [NSBundle mainBundle],
                                       @"Total Cars" , @"Label for showing the total number of cars");
     [self.totalCarLabel setText:[NSString stringWithFormat:@"%@ : %d",localizedString,0]];
-    self.title = NSLocalizedStringWithDefaultValue(@"AddViewScreenTitle", nil, [NSBundle mainBundle], @"CarValet", @"Title for the main Screen");
+    self.title = NSLocalizedStringWithDefaultValue(@"AddViewScreenTitle", @"MainScreen", [NSBundle mainBundle], @"CarValet", @"Title for the main Screen");
     
 }
 

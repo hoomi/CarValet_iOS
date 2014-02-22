@@ -42,7 +42,7 @@
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Car Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tfm-zG-h2P">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="16" id="ODx-bZ-Arv"/>
+                                    <constraint firstAttribute="height" constant="25" type="user" id="ODx-bZ-Arv"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -107,7 +107,7 @@
                             <constraint firstItem="Qiq-02-w5V" firstAttribute="leading" secondItem="pYc-Tc-eZb" secondAttribute="leading" type="user" id="RQM-16-xgB"/>
                             <constraint firstItem="UNM-Rl-G6S" firstAttribute="centerY" secondItem="Qiq-02-w5V" secondAttribute="centerY" type="user" id="T7n-fz-bXV"/>
                             <constraint firstItem="UNM-Rl-G6S" firstAttribute="leading" secondItem="Qiq-02-w5V" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="TNm-Uf-iBA"/>
-                            <constraint firstItem="pYc-Tc-eZb" firstAttribute="top" secondItem="Tfm-zG-h2P" secondAttribute="bottom" constant="30" type="user" id="XhJ-NM-Bhy"/>
+                            <constraint firstItem="pYc-Tc-eZb" firstAttribute="top" secondItem="Tfm-zG-h2P" secondAttribute="bottom" constant="40" type="user" id="XhJ-NM-Bhy"/>
                             <constraint firstItem="Tfm-zG-h2P" firstAttribute="leading" secondItem="pYc-Tc-eZb" secondAttribute="leading" type="user" id="aJC-po-mpT"/>
                             <constraint firstItem="UNM-Rl-G6S" firstAttribute="leading" secondItem="TSm-Og-d0y" secondAttribute="leading" type="default" id="amM-GD-gZV"/>
                             <constraint firstAttribute="trailing" secondItem="jUF-LL-eKQ" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="blN-sW-oyZ"/>
