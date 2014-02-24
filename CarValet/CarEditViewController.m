@@ -14,6 +14,7 @@
 @end
 
 @implementation CarEditViewController
+CGFloat defaultScrollViewHeightConstraint;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,6 +27,9 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -58,11 +62,18 @@
 {
     [super viewDidLoad];
     [self localizeUI];
+    self.formView.translatesAutoresizingMaskIntoConstraints = YES;
+    [self.scrollView addSubview:self.formView];
+    self.formView.frame = CGRectMake(0.0, 0.0, self.scrollView.frame.size.width, self.formView.frame.size.height);
+    self.scrollView.contentSize = self.formView.bounds.size;
+    defaultScrollViewHeightConstraint = self.scrollViewHeightConstraint.constant;
     self.makeTextField.text = self.currentCar.make;
     self.modelTextField.text = self.currentCar.model;
     self.yearTextField.text = [Utils localizeDateWithYear:self.currentCar.year];
     self.fuelAmountTextField.text = [NSString localizedStringWithFormat:@"%0.2f",self.currentCar.fuelAmount];
     self.title = NSLocalizedStringWithDefaultValue(@"EditScreenTitle", @"EditScreen", [NSBundle mainBundle], @"Edit Car", @"Title for the edit Screen");
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -77,6 +88,23 @@
     self.currentCar.model = self.modelTextField.text;
     self.currentCar.year = [self.yearTextField.text integerValue];
     self.currentCar.fuelAmount = [[Utils localizeDouble:[self.fuelAmountTextField.text floatValue]] floatValue];
+}
+
+- (void) keyboardDidShow:(NSNotification*)notification
+{
+    NSDictionary *userInfo = [notification userInfo];
+    NSValue *aValue = userInfo[UIKeyboardFrameEndUserInfoKey];
+    CGRect keyboardRect = [aValue CGRectValue];
+    keyboardRect = [self.view convertRect:keyboardRect fromView:nil];
+    
+    CGRect intersect = CGRectIntersection(self.scrollView.frame, keyboardRect);
+    self.scrollViewHeightConstraint.constant -= intersect.size.height;
+    [self.view updateConstraints];
+}
+
+- (void) keyboardWillHide: (NSNotification*) notidcation {
+    self.scrollViewHeightConstraint.constant = defaultScrollViewHeightConstraint;
+    [self.view updateConstraints];
 }
 
 - (void) localizeUI
@@ -99,5 +127,4 @@
 {
     [super didReceiveMemoryWarning];
 }
-
 @end
