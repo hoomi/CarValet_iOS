@@ -61,6 +61,14 @@ Click on edit scheme and add the following aruguments. Similar to the image belo
 	
 ![image_run_application_language]
 
+### Scheme to run the application with texts being doubled
+Click on edit scheme and add the following aruguments. Similar to the image below:
+
+	-NSDoubleLocalizedStrings YES
+	
+
+
+
 ### Seeing the vieew structure exception
 
 Enter the following command
