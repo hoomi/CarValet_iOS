@@ -27,7 +27,6 @@
     
     __weak IBOutlet UIView *addCarView;
     __weak IBOutlet UIView *separatorView;
-    
     __weak IBOutlet UIView *viewCarView;
 }
 
@@ -237,7 +236,9 @@
 }
 - (void) setupLandscapeConstraints
 {
-    NSDictionary *views = NSDictionaryOfVariableBindings(addCarView,separatorView,viewCarView);
+    id topGuide = self.topLayoutGuide;
+    id bottomGuide = self.bottomLayoutGuide;
+    NSDictionary *views = NSDictionaryOfVariableBindings(addCarView,separatorView,viewCarView,topGuide, bottomGuide);
     NSMutableArray *tempRootViewConstraints = [NSMutableArray new];
     
     NSArray *generateConstraints = [NSLayoutConstraint
@@ -247,21 +248,21 @@
                                     views:views];
     [tempRootViewConstraints addObjectsFromArray:generateConstraints];
     generateConstraints = [NSLayoutConstraint
-                           constraintsWithVisualFormat:@"V:|-[addCarView]-|"
+                           constraintsWithVisualFormat:@"V:[topGuide]-[addCarView]-[bottomGuide]"
                            options:0
                            metrics:nil
                            views:views];
     [tempRootViewConstraints addObjectsFromArray:generateConstraints];
     
     generateConstraints = [NSLayoutConstraint
-                           constraintsWithVisualFormat:@"V:|-[viewCarView]"
+                           constraintsWithVisualFormat:@"V:[topGuide]-[viewCarView]-[bottomGuide]"
                            options:0
                            metrics:nil
                            views:views];
     [tempRootViewConstraints addObjectsFromArray:generateConstraints];
     
     generateConstraints = [NSLayoutConstraint
-                           constraintsWithVisualFormat:@"V:|-[separatorView]-|"
+                           constraintsWithVisualFormat:@"V:[topGuide]-[separatorView]-[bottomGuide]"
                            options:0
                            metrics:nil
                            views:views];

@@ -60,4 +60,10 @@ Click on edit scheme and add the following aruguments. Similar to the image belo
 	-AppleLanguages "(Arabic)"
 	
 ![image_run_application_language]
+
+### Seeing the vieew structure exception
+
+Enter the following command
+	
+		po [[UIWindow keyWindow] _autolayoutTrace]
 	
