@@ -62,6 +62,7 @@ CGFloat defaultScrollViewHeightConstraint;
 {
     [super viewDidLoad];
     [self localizeUI];
+    self.formView.translatesAutoresizingMaskIntoConstraints = YES;
     [self.scrollView addSubview:self.formView];
     self.formView.frame = CGRectMake(0.0, 0.0, self.scrollView.frame.size.width, self.formView.frame.size.height);
     self.scrollView.contentSize = self.formView.bounds.size;
@@ -99,11 +100,13 @@ CGFloat defaultScrollViewHeightConstraint;
     CGRect intersect = CGRectIntersection(self.scrollView.frame, keyboardRect);
     self.scrollViewHeightConstraint.constant -= intersect.size.height;
     [self.view updateConstraints];
+    self.scrollView.contentSize = self.formView.frame.size;
 }
 
 - (void) keyboardWillHide: (NSNotification*) notidcation {
     self.scrollViewHeightConstraint.constant = defaultScrollViewHeightConstraint;
     [self.view updateConstraints];
+    self.scrollView.contentSize = self.formView.frame.size;
 }
 
 - (void) localizeUI

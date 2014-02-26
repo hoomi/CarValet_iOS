@@ -25,6 +25,7 @@
     NSArray *separatorViewLandscapeConstraints;
     NSArray *addCarViewLandscapeConstraints;
     
+    __weak IBOutlet UIView *contentView;
     __weak IBOutlet UIView *addCarView;
     __weak IBOutlet UIView *separatorView;
     __weak IBOutlet UIView *viewCarView;
@@ -66,19 +67,19 @@
 - (void) updateUiBasedOrientation
 {
     if (isShowingPortrait) {
-        [self.view removeConstraints:rootViewLandscapeConstraints];
+        [contentView removeConstraints:rootViewLandscapeConstraints];
         [addCarView removeConstraints:addCarViewLandscapeConstraints];
         [separatorView removeConstraints:separatorViewLandscapeConstraints];
         
-        [self.view addConstraints:self.rootViewPortraitConstraints];
+        [contentView addConstraints:self.rootViewPortraitConstraints];
         [addCarView addConstraints:self.addCarViewPortraitConstraints];
         [separatorView addConstraints:self.separatorViewPortraitConstraints];
     } else {
-        [self.view removeConstraints:self.rootViewPortraitConstraints];
+        [contentView removeConstraints:self.rootViewPortraitConstraints];
         [addCarView removeConstraints:self.addCarViewPortraitConstraints];
         [separatorView removeConstraints:self.separatorViewPortraitConstraints];
         
-        [self.view addConstraints:rootViewLandscapeConstraints];
+        [contentView addConstraints:rootViewLandscapeConstraints];
         [addCarView addConstraints:addCarViewLandscapeConstraints];
         [separatorView addConstraints:separatorViewLandscapeConstraints];
     }
@@ -249,21 +250,21 @@
                                     views:views];
     [tempRootViewConstraints addObjectsFromArray:generateConstraints];
     generateConstraints = [NSLayoutConstraint
-                           constraintsWithVisualFormat:@"V:[topGuide]-[addCarView]-[bottomGuide]"
+                           constraintsWithVisualFormat:@"V:|-72-[addCarView]-|"
                            options:0
                            metrics:nil
                            views:views];
     [tempRootViewConstraints addObjectsFromArray:generateConstraints];
     
     generateConstraints = [NSLayoutConstraint
-                           constraintsWithVisualFormat:@"V:[topGuide]-[viewCarView]-[bottomGuide]"
+                           constraintsWithVisualFormat:@"V:|-72-[viewCarView]-|"
                            options:0
                            metrics:nil
                            views:views];
     [tempRootViewConstraints addObjectsFromArray:generateConstraints];
     
     generateConstraints = [NSLayoutConstraint
-                           constraintsWithVisualFormat:@"V:[topGuide]-[separatorView]-[bottomGuide]"
+                           constraintsWithVisualFormat:@"V:|-72-[separatorView]-|"
                            options:0
                            metrics:nil
                            views:views];
