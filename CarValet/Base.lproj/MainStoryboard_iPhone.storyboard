@@ -204,9 +204,12 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="toA-Qm-4Er">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="3" translatesAutoresizingMaskIntoConstraints="NO" id="toA-Qm-4Er">
                                 <rect key="frame" x="0.0" y="112" width="320" height="448"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="cAF-YY-P6w" id="tRC-kz-MO5"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -220,9 +223,16 @@
                             <constraint firstItem="6Lj-CV-Wtb" firstAttribute="top" secondItem="GJg-oh-Yos" secondAttribute="bottom" constant="15" id="wZP-yN-uAu"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Car Images" id="hTr-bZ-xZd"/>
+                    <navigationItem key="navigationItem" title="Car Images" id="hTr-bZ-xZd">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Reset Zoom" id="ISf-21-Cxg">
+                            <connections>
+                                <action selector="resetZoom:" destination="cAF-YY-P6w" id="sOZ-aC-zKV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="carNumberLabel" destination="6Lj-CV-Wtb" id="DFM-Sa-cIo"/>
+                        <outlet property="resetZoomButton" destination="ISf-21-Cxg" id="j6Q-tt-56x"/>
                         <outlet property="scrollView" destination="toA-Qm-4Er" id="uMx-bZ-Jik"/>
                     </connections>
                 </viewController>
@@ -246,11 +256,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6r1-jq-q7g" userLabel="ContentView">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6r1-jq-q7g" userLabel="ContentView">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H1n-51-VEQ" userLabel="addCarView">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H1n-51-VEQ" userLabel="addCarView">
                                                 <rect key="frame" x="20" y="72" width="280" height="102"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
@@ -281,7 +291,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CcC-oT-FOT" userLabel="sepratorView">
-                                                <rect key="frame" x="20" y="182" width="281" height="2"/>
+                                                <rect key="frame" x="20" y="182" width="280" height="2"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -289,7 +299,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NGc-wK-H7b" userLabel="carInfoView">
-                                                <rect key="frame" x="20" y="199" width="281" height="349"/>
+                                                <rect key="frame" x="20" y="199" width="280" height="349"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pjR-rJ-neb" userLabel="PrevButton">
@@ -313,7 +323,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wl0-hk-Qo7" userLabel="NextButton">
-                                                        <rect key="frame" x="221" y="309" width="60" height="30"/>
+                                                        <rect key="frame" x="220" y="309" width="60" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <state key="normal" title="Next">
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -328,8 +338,8 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Car Info" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="281" translatesAutoresizingMaskIntoConstraints="NO" id="99Y-gX-3dJ" userLabel="carInfoLabel">
-                                                        <rect key="frame" x="0.0" y="67" width="281" height="21"/>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Car Info" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="99Y-gX-3dJ" userLabel="carInfoLabel">
+                                                        <rect key="frame" x="0.0" y="67" width="280" height="21"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="highlightedColor"/>

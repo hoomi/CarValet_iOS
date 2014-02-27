@@ -15,6 +15,7 @@
 @implementation CarImageViewController
 {
     NSArray* carImagesArray;
+    UIView *carImageContainerView;
 }
 
 - (void) setupScrollContent
@@ -22,7 +23,7 @@
     CGFloat scrollWidth = self.scrollView.frame.size.width;
     CGFloat totalWidth = scrollWidth * [carImagesArray count];
     
-    UIView* carImageContainerView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, totalWidth,self.scrollView.frame.size.height)];
+    carImageContainerView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, totalWidth,self.scrollView.frame.size.height)];
     
     CGFloat atX = 0.0;
     CGFloat maxHeight = 0.0;
@@ -63,6 +64,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.resetZoomButton.enabled = NO;
 	// Do any additional setup after loading the view.
     carImagesArray = @[ @"Acura-16.jpg", @"BMW-11.jpg", @"BMW-13.jpg",
                        @"Cadillac-13.jpg", @"Car-39.jpg",
@@ -78,4 +80,22 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma UIScrollViewDelegate
+
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
+{
+    return carImageContainerView;
+}
+
+- (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale
+{
+    self.resetZoomButton.enabled = scale != 1.0;
+}
+
+#pragma Actions
+
+- (IBAction)resetZoom:(id)sender {
+    [self.scrollView setZoomScale:1.0 animated:YES];
+    [self.resetZoomButton setEnabled:NO];
+}
 @end
