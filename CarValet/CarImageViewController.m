@@ -20,9 +20,13 @@
 
 - (void) setupScrollContent
 {
+    
     CGFloat scrollWidth = self.scrollView.frame.size.width;
     CGFloat totalWidth = scrollWidth * [carImagesArray count];
     
+    if (carImageContainerView != nil) {
+        [carImageContainerView removeFromSuperview];
+    }
     carImageContainerView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, totalWidth,self.scrollView.frame.size.height)];
     
     CGFloat atX = 0.0;
@@ -78,6 +82,12 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    [super willAnimateRotationToInterfaceOrientation:toInterfaceOrientation duration:duration];
+    [self setupScrollContent];
 }
 
 #pragma UIScrollViewDelegate
