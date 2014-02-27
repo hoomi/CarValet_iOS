@@ -14,6 +14,18 @@
 		155A02F018B90E4F00312EAA /* MainScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = 155A02EC18B90E4F00312EAA /* MainScreen.strings */; };
 		1580EF6818B6507A00FB1355 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1580EF6618B6507A00FB1355 /* InfoPlist.strings */; };
 		1580EF6C18B6604000FB1355 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1580EF6118B6500300FB1355 /* Localizable.strings */; };
+		159AC8D018BE4F6300785A5D /* Acura-16.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 159AC8C518BE4F6300785A5D /* Acura-16.jpg */; };
+		159AC8D118BE4F6300785A5D /* BMW-11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 159AC8C618BE4F6300785A5D /* BMW-11.jpg */; };
+		159AC8D218BE4F6300785A5D /* BMW-13.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 159AC8C718BE4F6300785A5D /* BMW-13.jpg */; };
+		159AC8D318BE4F6300785A5D /* Cadillac-13.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 159AC8C818BE4F6300785A5D /* Cadillac-13.jpg */; };
+		159AC8D418BE4F6300785A5D /* Car-39.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 159AC8C918BE4F6300785A5D /* Car-39.jpg */; };
+		159AC8D518BE4F6300785A5D /* Lexus-15.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 159AC8CA18BE4F6300785A5D /* Lexus-15.jpg */; };
+		159AC8D618BE4F6300785A5D /* Mercedes Benz-106.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 159AC8CB18BE4F6300785A5D /* Mercedes Benz-106.jpg */; };
+		159AC8D718BE4F6300785A5D /* Mini-11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 159AC8CC18BE4F6300785A5D /* Mini-11.jpg */; };
+		159AC8D818BE4F6300785A5D /* Nissan Leaf-4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 159AC8CD18BE4F6300785A5D /* Nissan Leaf-4.jpg */; };
+		159AC8D918BE4F6300785A5D /* Nissan Maxima-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 159AC8CE18BE4F6300785A5D /* Nissan Maxima-2.jpg */; };
+		159AC8DA18BE4F6300785A5D /* Tractor-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 159AC8CF18BE4F6300785A5D /* Tractor-1.jpg */; };
+		159AC8DD18BE500500785A5D /* CarImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 159AC8DC18BE500500785A5D /* CarImageViewController.m */; };
 		15AD246D18A68B9900698408 /* CarEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15AD246C18A68B9900698408 /* CarEditViewController.m */; };
 		15F001171885CB6E00800736 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F001161885CB6E00800736 /* UIKit.framework */; };
 		15F001191885CB6E00800736 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F001181885CB6E00800736 /* Foundation.framework */; };
@@ -67,6 +79,19 @@
 		1580EF6A18B6507D00FB1355 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		159182A018B54BB6004403D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		159182A118B54BB7004403D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		159AC8C518BE4F6300785A5D /* Acura-16.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Acura-16.jpg"; sourceTree = "<group>"; };
+		159AC8C618BE4F6300785A5D /* BMW-11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "BMW-11.jpg"; sourceTree = "<group>"; };
+		159AC8C718BE4F6300785A5D /* BMW-13.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "BMW-13.jpg"; sourceTree = "<group>"; };
+		159AC8C818BE4F6300785A5D /* Cadillac-13.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Cadillac-13.jpg"; sourceTree = "<group>"; };
+		159AC8C918BE4F6300785A5D /* Car-39.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Car-39.jpg"; sourceTree = "<group>"; };
+		159AC8CA18BE4F6300785A5D /* Lexus-15.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Lexus-15.jpg"; sourceTree = "<group>"; };
+		159AC8CB18BE4F6300785A5D /* Mercedes Benz-106.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Mercedes Benz-106.jpg"; sourceTree = "<group>"; };
+		159AC8CC18BE4F6300785A5D /* Mini-11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Mini-11.jpg"; sourceTree = "<group>"; };
+		159AC8CD18BE4F6300785A5D /* Nissan Leaf-4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Nissan Leaf-4.jpg"; sourceTree = "<group>"; };
+		159AC8CE18BE4F6300785A5D /* Nissan Maxima-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Nissan Maxima-2.jpg"; sourceTree = "<group>"; };
+		159AC8CF18BE4F6300785A5D /* Tractor-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Tractor-1.jpg"; sourceTree = "<group>"; };
+		159AC8DB18BE500500785A5D /* CarImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarImageViewController.h; sourceTree = "<group>"; };
+		159AC8DC18BE500500785A5D /* CarImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarImageViewController.m; sourceTree = "<group>"; };
 		15AD246B18A68B9900698408 /* CarEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarEditViewController.h; sourceTree = "<group>"; };
 		15AD246C18A68B9900698408 /* CarEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarEditViewController.m; sourceTree = "<group>"; };
 		15C6522E18B76B0B00DC03DA /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -131,6 +156,8 @@
 				15AD246C18A68B9900698408 /* CarEditViewController.m */,
 				15F72BC518B244C6002C215A /* InfoViewController.h */,
 				15F72BC618B244C6002C215A /* InfoViewController.m */,
+				159AC8DB18BE500500785A5D /* CarImageViewController.h */,
+				159AC8DC18BE500500785A5D /* CarImageViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -153,6 +180,24 @@
 			children = (
 			);
 			name = Protocols;
+			sourceTree = "<group>";
+		};
+		159AC8C418BE4F6300785A5D /* images */ = {
+			isa = PBXGroup;
+			children = (
+				159AC8C518BE4F6300785A5D /* Acura-16.jpg */,
+				159AC8C618BE4F6300785A5D /* BMW-11.jpg */,
+				159AC8C718BE4F6300785A5D /* BMW-13.jpg */,
+				159AC8C818BE4F6300785A5D /* Cadillac-13.jpg */,
+				159AC8C918BE4F6300785A5D /* Car-39.jpg */,
+				159AC8CA18BE4F6300785A5D /* Lexus-15.jpg */,
+				159AC8CB18BE4F6300785A5D /* Mercedes Benz-106.jpg */,
+				159AC8CC18BE4F6300785A5D /* Mini-11.jpg */,
+				159AC8CD18BE4F6300785A5D /* Nissan Leaf-4.jpg */,
+				159AC8CE18BE4F6300785A5D /* Nissan Maxima-2.jpg */,
+				159AC8CF18BE4F6300785A5D /* Tractor-1.jpg */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 		15F0010A1885CB6E00800736 = {
@@ -188,6 +233,7 @@
 		15F0011C1885CB6E00800736 /* CarValet */ = {
 			isa = PBXGroup;
 			children = (
+				159AC8C418BE4F6300785A5D /* images */,
 				1550CF5818ACFA34006A01FC /* Protocols */,
 				1550CF5718ACFA22006A01FC /* Models */,
 				1550CF5618ACFA07006A01FC /* ViewControllers */,
@@ -315,14 +361,25 @@
 			files = (
 				15F001291885CB6E00800736 /* Default.png in Resources */,
 				15F0012B1885CB6E00800736 /* Default@2x.png in Resources */,
+				159AC8D118BE4F6300785A5D /* BMW-11.jpg in Resources */,
+				159AC8D218BE4F6300785A5D /* BMW-13.jpg in Resources */,
+				159AC8D318BE4F6300785A5D /* Cadillac-13.jpg in Resources */,
 				15F0012D1885CB6E00800736 /* Default-568h@2x.png in Resources */,
+				159AC8DA18BE4F6300785A5D /* Tractor-1.jpg in Resources */,
+				159AC8D618BE4F6300785A5D /* Mercedes Benz-106.jpg in Resources */,
+				159AC8D018BE4F6300785A5D /* Acura-16.jpg in Resources */,
+				159AC8D418BE4F6300785A5D /* Car-39.jpg in Resources */,
 				15F001301885CB6E00800736 /* MainStoryboard_iPhone.storyboard in Resources */,
 				15F001331885CB6E00800736 /* MainStoryboard_iPad.storyboard in Resources */,
+				159AC8D818BE4F6300785A5D /* Nissan Leaf-4.jpg in Resources */,
 				1580EF6818B6507A00FB1355 /* InfoPlist.strings in Resources */,
 				1580EF6C18B6604000FB1355 /* Localizable.strings in Resources */,
 				155A02EE18B90E4F00312EAA /* CarTable.strings in Resources */,
 				155A02EF18B90E4F00312EAA /* EditScreen.strings in Resources */,
 				155A02F018B90E4F00312EAA /* MainScreen.strings in Resources */,
+				159AC8D718BE4F6300785A5D /* Mini-11.jpg in Resources */,
+				159AC8D918BE4F6300785A5D /* Nissan Maxima-2.jpg in Resources */,
+				159AC8D518BE4F6300785A5D /* Lexus-15.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +418,7 @@
 				15F001361885CB6E00800736 /* ViewController.m in Sources */,
 				15F001561885CB9100800736 /* Car.m in Sources */,
 				15F001591885E9B100800736 /* HybridCar.m in Sources */,
+				159AC8DD18BE500500785A5D /* CarImageViewController.m in Sources */,
 				150DE9AD188743870015DD7E /* ElectricCar.m in Sources */,
 				15AD246D18A68B9900698408 /* CarEditViewController.m in Sources */,
 				15F72BC718B244C6002C215A /* InfoViewController.m in Sources */,

@@ -66,6 +66,9 @@ Click on edit scheme and add the following aruguments. Similar to the image belo
 
 	-NSDoubleLocalizedStrings YES
 	
+###ScrollView issue when rotating to landscape
+Uncheck the Auto resize subviews in IB of scrollView:
+	
 
 
 

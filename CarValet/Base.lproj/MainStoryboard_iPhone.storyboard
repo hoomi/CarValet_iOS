@@ -38,7 +38,7 @@
             </objects>
             <point key="canvasLocation" x="1118" y="-870"/>
         </scene>
-        <!--Car Edit View Controller-->
+        <!--Car Edit View Controller - Edit-->
         <scene sceneID="SWn-hS-Sir">
             <objects>
                 <viewController id="M8W-8W-jgQ" customClass="CarEditViewController" sceneMemberID="viewController">
@@ -76,7 +76,7 @@
                             <constraint firstItem="NxL-sn-0iD" firstAttribute="leading" secondItem="A7B-EM-Ue8" secondAttribute="leading" id="fuo-sf-pxr"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="DSt-Ab-o5x">
+                    <navigationItem key="navigationItem" title="Edit" id="DSt-Ab-o5x">
                         <barButtonItem key="rightBarButtonItem" title="Done" id="Udr-xz-cD0">
                             <connections>
                                 <segue destination="TXp-iA-3zr" kind="unwind" identifier="EditDoneSegue" unwindAction="editingDone:" id="QLB-XJ-uYr"/>
@@ -183,6 +183,53 @@
             </objects>
             <point key="canvasLocation" x="1118" y="-276"/>
         </scene>
+        <!--CarImageViewContorller-->
+        <scene sceneID="UPi-cp-Dly">
+            <objects>
+                <viewController id="cAF-YY-P6w" userLabel="CarImageViewContorller" customClass="CarImageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GJg-oh-Yos"/>
+                        <viewControllerLayoutGuide type="bottom" id="KeU-4D-9v4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4Ko-0t-FEz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Car Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Lj-CV-Wtb">
+                                <rect key="frame" x="20" y="79" width="280" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="2BJ-P2-ZRO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="toA-Qm-4Er">
+                                <rect key="frame" x="0.0" y="112" width="320" height="448"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6Lj-CV-Wtb" firstAttribute="leading" secondItem="4Ko-0t-FEz" secondAttribute="leading" constant="20" id="JDQ-UT-VKa"/>
+                            <constraint firstItem="KeU-4D-9v4" firstAttribute="top" secondItem="toA-Qm-4Er" secondAttribute="bottom" constant="20" symbolic="YES" id="R46-G9-LCd"/>
+                            <constraint firstItem="toA-Qm-4Er" firstAttribute="leading" secondItem="4Ko-0t-FEz" secondAttribute="leading" id="RDS-pb-wZy"/>
+                            <constraint firstItem="toA-Qm-4Er" firstAttribute="top" secondItem="6Lj-CV-Wtb" secondAttribute="bottom" constant="8" id="ba6-LH-rPi"/>
+                            <constraint firstAttribute="trailing" secondItem="6Lj-CV-Wtb" secondAttribute="trailing" constant="20" symbolic="YES" id="cWt-JB-Oof"/>
+                            <constraint firstAttribute="trailing" secondItem="toA-Qm-4Er" secondAttribute="trailing" id="iUu-oK-EAq"/>
+                            <constraint firstItem="6Lj-CV-Wtb" firstAttribute="top" secondItem="GJg-oh-Yos" secondAttribute="bottom" constant="15" id="wZP-yN-uAu"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Car Images" id="hTr-bZ-xZd"/>
+                    <connections>
+                        <outlet property="carNumberLabel" destination="6Lj-CV-Wtb" id="DFM-Sa-cIo"/>
+                        <outlet property="scrollView" destination="toA-Qm-4Er" id="uMx-bZ-Jik"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d2N-Uf-tjh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1118" y="449"/>
+        </scene>
         <!--View Controller - CarValet-->
         <scene sceneID="5">
             <objects>
@@ -199,11 +246,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6r1-jq-q7g" userLabel="ContentView">
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6r1-jq-q7g" userLabel="ContentView">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H1n-51-VEQ" userLabel="addCarView">
+                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H1n-51-VEQ" userLabel="addCarView">
                                                 <rect key="frame" x="20" y="72" width="280" height="102"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
@@ -233,7 +280,7 @@
                                                     <constraint firstItem="B54-dO-0zm" firstAttribute="top" secondItem="H1n-51-VEQ" secondAttribute="top" constant="20" id="pq7-O9-AsW"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CcC-oT-FOT" userLabel="sepratorView">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CcC-oT-FOT" userLabel="sepratorView">
                                                 <rect key="frame" x="20" y="182" width="281" height="2"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -241,7 +288,7 @@
                                                     <constraint firstAttribute="height" constant="2" id="8V8-jA-Qub"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NGc-wK-H7b" userLabel="carInfoView">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NGc-wK-H7b" userLabel="carInfoView">
                                                 <rect key="frame" x="20" y="199" width="281" height="349"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
@@ -265,7 +312,7 @@
                                                             <segue destination="M8W-8W-jgQ" kind="push" id="T8H-iE-ecQ"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wl0-hk-Qo7" userLabel="NextButton">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wl0-hk-Qo7" userLabel="NextButton">
                                                         <rect key="frame" x="221" y="309" width="60" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <state key="normal" title="Next">
@@ -281,7 +328,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Car Info" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="281" translatesAutoresizingMaskIntoConstraints="NO" id="99Y-gX-3dJ" userLabel="carInfoLabel">
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Car Info" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="281" translatesAutoresizingMaskIntoConstraints="NO" id="99Y-gX-3dJ" userLabel="carInfoLabel">
                                                         <rect key="frame" x="0.0" y="67" width="281" height="21"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -346,6 +393,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="CarValet" id="Na3-vf-dkE">
+                        <barButtonItem key="leftBarButtonItem" title="Car Images" id="S4h-fN-XTn">
+                            <connections>
+                                <segue destination="cAF-YY-P6w" kind="push" identifier="carImagesSegue" id="Zz8-F4-nI3"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="info" id="mcR-hB-LFb">
                             <connections>
                                 <segue destination="nJg-eM-NLq" kind="push" id="7Vc-a0-wT8"/>
