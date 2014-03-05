@@ -40,6 +40,11 @@
     arrayOfCars = [[NSMutableArray alloc] init];
     displayedCarIndex = 0;
     isShowingPortrait = [self isPortrait];
+    UIColor *toolbarColor = [UIColor colorWithRed:102.0/255.0
+                                   green:204.0/255.0
+                                    blue:0.0/255.0
+                                   alpha:1.0];
+    self.navigationController.toolbar.barTintColor = toolbarColor;
 }
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
@@ -57,6 +62,7 @@
 - (void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    self.navigationController.toolbarHidden = NO;
     [self updateTextAlignments];
     [self changeDisplayedCar:displayedCarIndex];
     UIInterfaceOrientation currentOrientation = [[UIApplication sharedApplication] statusBarOrientation];
@@ -102,9 +108,9 @@
     NSLocaleLanguageDirection langDirection = [NSLocale characterDirectionForLanguage:[NSLocale preferredLanguages][0]];
     if (langDirection == NSLocaleLanguageDirectionLeftToRight) {
         self.prevCarButton.enabled = displayCarIndex > 0;
-        self.nextCarButton.enabled = displayedCarIndex < [arrayOfCars count] -1;
+        self.nextCarButton.enabled = displayedCarIndex < (int)[arrayOfCars count] -1;
     } else {
-        self.prevCarButton.enabled = displayedCarIndex < [arrayOfCars count] -1;
+        self.prevCarButton.enabled = displayedCarIndex < (int)[arrayOfCars count] -1;
         self.nextCarButton.enabled = displayCarIndex > 0;
     }
     self.editCarButton.enabled = [arrayOfCars count] > 0;

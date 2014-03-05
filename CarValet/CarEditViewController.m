@@ -63,6 +63,7 @@ CGFloat defaultScrollViewHeightConstraint;
     [super viewDidLoad];
     [self localizeUI];
     self.formView.translatesAutoresizingMaskIntoConstraints = YES;
+    self.navigationController.toolbarHidden = YES;
     [self.scrollView addSubview:self.formView];
     self.formView.frame = CGRectMake(0.0, 0.0, self.scrollView.frame.size.width, self.formView.frame.size.height);
     self.scrollView.contentSize = self.formView.bounds.size;
