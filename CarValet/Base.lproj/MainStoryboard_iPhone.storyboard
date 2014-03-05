@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="iQm-Cr-kKb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="h2Q-Ea-1Wq">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
@@ -14,7 +14,7 @@
                         <viewControllerLayoutGuide type="bottom" id="0F3-RZ-lE3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="A7B-EM-Ue8">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="436"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Car Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tfm-zG-h2P">
@@ -26,8 +26,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NxL-sn-0iD">
-                                <rect key="frame" x="0.0" y="24" width="320" height="200"/>
+                            <scrollView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NxL-sn-0iD">
+                                <rect key="frame" x="0.0" y="112" width="320" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="ppj-5M-jce"/>
@@ -148,7 +148,7 @@
                 </view>
                 <exit id="TXp-iA-3zr" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1118" y="-276"/>
+            <point key="canvasLocation" x="2170" y="-276"/>
         </scene>
         <!--CarImageViewContorller-->
         <scene sceneID="UPi-cp-Dly">
@@ -159,11 +159,11 @@
                         <viewControllerLayoutGuide type="bottom" id="KeU-4D-9v4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="4Ko-0t-FEz">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Car Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Lj-CV-Wtb">
-                                <rect key="frame" x="20" y="79" width="280" height="25"/>
+                                <rect key="frame" x="20" y="35" width="94" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="2BJ-P2-ZRO"/>
                                 </constraints>
@@ -171,41 +171,50 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.75" maximumZoomScale="3" translatesAutoresizingMaskIntoConstraints="NO" id="toA-Qm-4Er">
-                                <rect key="frame" x="0.0" y="112" width="320" height="404"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" minimumZoomScale="0.75" maximumZoomScale="3" translatesAutoresizingMaskIntoConstraints="NO" id="toA-Qm-4Er">
+                                <rect key="frame" x="1" y="68" width="320" height="355"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="cAF-YY-P6w" id="tRC-kz-MO5"/>
                                 </connections>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zoX-Ki-Cz1">
+                                <rect key="frame" x="216" y="33" width="84" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="84" id="FdN-V5-CkC"/>
+                                </constraints>
+                                <state key="normal" title="Reset Zoom">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetZoom:" destination="cAF-YY-P6w" eventType="touchUpInside" id="Q30-XZ-3yr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="6Lj-CV-Wtb" firstAttribute="leading" secondItem="4Ko-0t-FEz" secondAttribute="leading" constant="20" id="JDQ-UT-VKa"/>
                             <constraint firstItem="KeU-4D-9v4" firstAttribute="top" secondItem="toA-Qm-4Er" secondAttribute="bottom" constant="20" symbolic="YES" id="R46-G9-LCd"/>
                             <constraint firstItem="toA-Qm-4Er" firstAttribute="leading" secondItem="4Ko-0t-FEz" secondAttribute="leading" id="RDS-pb-wZy"/>
+                            <constraint firstItem="zoX-Ki-Cz1" firstAttribute="top" secondItem="GJg-oh-Yos" secondAttribute="bottom" constant="13" id="VDf-KK-dRa"/>
                             <constraint firstItem="toA-Qm-4Er" firstAttribute="top" secondItem="6Lj-CV-Wtb" secondAttribute="bottom" constant="8" id="ba6-LH-rPi"/>
-                            <constraint firstAttribute="trailing" secondItem="6Lj-CV-Wtb" secondAttribute="trailing" constant="20" symbolic="YES" id="cWt-JB-Oof"/>
                             <constraint firstAttribute="trailing" secondItem="toA-Qm-4Er" secondAttribute="trailing" id="iUu-oK-EAq"/>
+                            <constraint firstAttribute="trailing" secondItem="zoX-Ki-Cz1" secondAttribute="trailing" constant="20" id="jtd-mm-7MW"/>
                             <constraint firstItem="6Lj-CV-Wtb" firstAttribute="top" secondItem="GJg-oh-Yos" secondAttribute="bottom" constant="15" id="wZP-yN-uAu"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Car Images" id="hTr-bZ-xZd">
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Reset Zoom" id="ISf-21-Cxg">
-                            <connections>
-                                <action selector="resetZoom:" destination="cAF-YY-P6w" id="sOZ-aC-zKV"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <tabBarItem key="tabBarItem" title="Car Iamges" image="photo" id="Ag7-Jp-VTv"/>
+                    <navigationItem key="navigationItem" title="Car Images" id="hTr-bZ-xZd"/>
                     <connections>
                         <outlet property="carNumberLabel" destination="6Lj-CV-Wtb" id="DFM-Sa-cIo"/>
-                        <outlet property="resetZoomButton" destination="ISf-21-Cxg" id="j6Q-tt-56x"/>
+                        <outlet property="resetZoomButton" destination="zoX-Ki-Cz1" id="946-LO-JKq"/>
                         <outlet property="scrollView" destination="toA-Qm-4Er" id="uMx-bZ-Jik"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d2N-Uf-tjh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1118" y="449"/>
+            <point key="canvasLocation" x="980" y="513"/>
         </scene>
         <!--View Controller - CarValet-->
         <scene sceneID="5">
@@ -216,15 +225,15 @@
                         <viewControllerLayoutGuide type="bottom" id="afc-VS-Cxs"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ohc-f8-340">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="436"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fgb-Vr-NA0">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="436"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6r1-jq-q7g" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="436"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H1n-51-VEQ" userLabel="addCarView">
@@ -266,7 +275,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NGc-wK-H7b" userLabel="carInfoView">
-                                                <rect key="frame" x="20" y="199" width="280" height="305"/>
+                                                <rect key="frame" x="20" y="199" width="280" height="217"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Car Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nBF-3h-qrP" userLabel="carNumberLabel">
@@ -279,7 +288,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Car Info" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="99Y-gX-3dJ" userLabel="carInfoLabel">
-                                                        <rect key="frame" x="0.0" y="71" width="280" height="234"/>
+                                                        <rect key="frame" x="0.0" y="71" width="280" height="146"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="highlightedColor"/>
@@ -350,11 +359,6 @@
                         </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="CarValet" id="Na3-vf-dkE">
-                        <barButtonItem key="leftBarButtonItem" title="Car Images" id="S4h-fN-XTn">
-                            <connections>
-                                <segue destination="cAF-YY-P6w" kind="push" identifier="carImagesSegue" id="Zz8-F4-nI3"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="About" id="mcR-hB-LFb">
                             <connections>
                                 <action selector="aboutCareValet:" destination="2" id="dGC-yb-pfD"/>
@@ -389,14 +393,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="454" y="-276"/>
+            <point key="canvasLocation" x="1506" y="-276"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Navigation Controller - Add/View-->
         <scene sceneID="H1S-Qj-rOp">
             <objects>
                 <navigationController toolbarHidden="NO" id="iQm-Cr-kKb" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Add/View" image="car" id="8A3-JJ-ACU"/>
                     <toolbarItems/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics" barStyle="black" translucent="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qRc-g8-kq0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -407,8 +412,8 @@
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <toolbar key="toolbar" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" id="qUH-Ip-iI7">
-                        <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                    <toolbar key="toolbar" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translucent="NO" id="qUH-Ip-iI7">
+                        <rect key="frame" x="0.0" y="436" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
@@ -417,16 +422,38 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8kt-Oy-tfb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-72" y="-276"/>
+            <point key="canvasLocation" x="980" y="-276"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="9kD-Ru-EJ9">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="h2Q-Ea-1Wq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="EO2-Ez-6hi">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.0" green="1" blue="0.26274511220000002" alpha="1" colorSpace="deviceRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="iQm-Cr-kKb" kind="relationship" relationship="viewControllers" id="Rr0-Xj-Ke4"/>
+                        <segue destination="cAF-YY-P6w" kind="relationship" relationship="viewControllers" id="MIz-bG-qcl"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="osC-SI-prv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="454" y="-276"/>
         </scene>
     </scenes>
     <resources>
         <image name="arrow-left" width="22" height="22"/>
         <image name="arrow-right" width="22" height="22"/>
+        <image name="car" width="28" height="25"/>
+        <image name="photo" width="28" height="23"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
+        <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
 </document>

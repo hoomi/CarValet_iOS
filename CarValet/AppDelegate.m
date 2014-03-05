@@ -17,7 +17,7 @@
     UIColor *mochaPressed = [UIColor colorWithRed:128.0/255.0 green:64.0/255.0         // 1
                                       blue:1.0 alpha:1.0];
     [[UIButton appearance] setTitleColor:mocha forState:UIControlStateNormal];
-    [[UIButton appearance] setTitleColor:mocha forState:UIControlStateSelected];
+    [[UIButton appearance] setTitleColor:mochaPressed forState:UIControlStateSelected];
     [[UIBarButtonItem appearance] setTintColor:mocha];
     // Override point for customization after application launch.
     return YES;
