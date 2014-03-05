@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		150DE9AD188743870015DD7E /* ElectricCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 150DE9AC188743870015DD7E /* ElectricCar.m */; };
+		1555F96418C47CB6008A9D90 /* Yellow-Lamborghini.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1555F96318C47CB6008A9D90 /* Yellow-Lamborghini.jpg */; };
 		155A02E718B7A09C00312EAA /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 155A02E618B7A09C00312EAA /* Utils.m */; };
 		155A02EE18B90E4F00312EAA /* CarTable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 155A02E818B90E4F00312EAA /* CarTable.strings */; };
 		155A02EF18B90E4F00312EAA /* EditScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = 155A02EA18B90E4F00312EAA /* EditScreen.strings */; };
@@ -60,6 +61,7 @@
 /* Begin PBXFileReference section */
 		150DE9AB188743870015DD7E /* ElectricCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElectricCar.h; sourceTree = "<group>"; };
 		150DE9AC188743870015DD7E /* ElectricCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElectricCar.m; sourceTree = "<group>"; };
+		1555F96318C47CB6008A9D90 /* Yellow-Lamborghini.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Yellow-Lamborghini.jpg"; sourceTree = "<group>"; };
 		155A02E518B7A09C00312EAA /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		155A02E618B7A09C00312EAA /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		155A02E918B90E4F00312EAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/CarTable.strings; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 		159AC8C418BE4F6300785A5D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				1555F96318C47CB6008A9D90 /* Yellow-Lamborghini.jpg */,
 				159AC8C518BE4F6300785A5D /* Acura-16.jpg */,
 				159AC8C618BE4F6300785A5D /* BMW-11.jpg */,
 				159AC8C718BE4F6300785A5D /* BMW-13.jpg */,
@@ -371,6 +374,7 @@
 				159AC8D418BE4F6300785A5D /* Car-39.jpg in Resources */,
 				15F001301885CB6E00800736 /* MainStoryboard_iPhone.storyboard in Resources */,
 				15F001331885CB6E00800736 /* MainStoryboard_iPad.storyboard in Resources */,
+				1555F96418C47CB6008A9D90 /* Yellow-Lamborghini.jpg in Resources */,
 				159AC8D818BE4F6300785A5D /* Nissan Leaf-4.jpg in Resources */,
 				1580EF6818B6507A00FB1355 /* InfoPlist.strings in Resources */,
 				1580EF6C18B6604000FB1355 /* Localizable.strings in Resources */,

@@ -16,6 +16,7 @@
 {
     NSArray* carImagesArray;
     UIView *carImageContainerView;
+    NSInteger currentCarIndex;
 }
 
 - (void) setupScrollContent
@@ -69,25 +70,54 @@
 {
     [super viewDidLoad];
     self.resetZoomButton.enabled = NO;
-	// Do any additional setup after loading the view.
-    carImagesArray = @[ @"Acura-16.jpg", @"BMW-11.jpg", @"BMW-13.jpg",
+    carImagesArray = @[ @"Yellow-Lamborghini.jpg",@"Acura-16.jpg", @"BMW-11.jpg", @"BMW-13.jpg",
                        @"Cadillac-13.jpg", @"Car-39.jpg",
                        @"Lexus-15.jpg", @"Mercedes Benz-106.jpg",
                        @"Mini-11.jpg", @"Nissan Leaf-4.jpg",
                        @"Nissan Maxima-2.jpg" ];
     [self setupScrollContent];
+    [self updateCarNumberLabel];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
     [super willAnimateRotationToInterfaceOrientation:toInterfaceOrientation duration:duration];
     [self setupScrollContent];
+    [self scrollToCarIndex:currentCarIndex];
+}
+
+- (void) updateCarNumberLabel
+{
+    NSInteger carIndex = [self carIndexForPoint:self.scrollView.contentOffset];
+    
+    NSString *localizedString = NSLocalizedStringWithDefaultValue(@"CarNumberLabel",@"EditScreen",[NSBundle mainBundle],@"Car Number",@"Label for the index number of the current car");
+
+    NSString *carNumberText = [NSString stringWithFormat:@"%@: %d",localizedString,carIndex + 1];
+    self.carNumberLabel.text = carNumberText;
+    currentCarIndex = carIndex;
+}
+
+- (NSInteger) carIndexForPoint:(CGPoint) thePoint
+{
+    if (thePoint.x == 0) {
+        return 0;
+    }
+    CGFloat pageWidth = self.scrollView.frame.size.width;
+    pageWidth *= self.scrollView.zoomScale;
+    
+    return (NSInteger)(thePoint.x/pageWidth);
+}
+
+- (void) scrollToCarIndex:(NSInteger) carIndex
+{
+    UIView *scrolledToView = [[carImageContainerView subviews] objectAtIndex:carIndex];
+    float x = scrolledToView.frame.origin.x * self.scrollView.zoomScale;
+    [self.scrollView scrollRectToVisible:CGRectMake(x,0.0,scrolledToView.frame.size.width,self.scrollView.frame.size.height)  animated:YES];
 }
 
 #pragma UIScrollViewDelegate
@@ -100,6 +130,10 @@
 - (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale
 {
     self.resetZoomButton.enabled = scale != 1.0;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self updateCarNumberLabel];
 }
 
 #pragma Actions
