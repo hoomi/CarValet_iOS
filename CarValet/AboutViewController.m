@@ -1,18 +1,18 @@
 //
-//  InfoViewController.m
+//  AboutViewController.m
 //  CarValet
 //
-//  Created by Hooman Ostovari on 17/02/2014.
+//  Created by Hooman Ostovari on 05/03/2014.
 //  Copyright (c) 2014 Hooman Ostovari. All rights reserved.
 //
 
-#import "InfoViewController.h"
+#import "AboutViewController.h"
 
-@interface InfoViewController ()
+@interface AboutViewController ()
 
 @end
 
-@implementation InfoViewController
+@implementation AboutViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,7 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning

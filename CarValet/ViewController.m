@@ -10,6 +10,7 @@
 #import "HybridCar.h"
 #import "ElectricCar.h"
 #import "CarEditViewController.h"
+#import "AboutViewController.h"
 
 @interface ViewController ()
 
@@ -98,8 +99,14 @@
         displayCarIndex = [arrayOfCars count] - 1;
     }
     displayedCarIndex = displayCarIndex;
-    self.prevCarButton.enabled = displayedCarIndex > 0;
-    self.nextCarButton.enabled = displayedCarIndex < [arrayOfCars count] -1;
+    NSLocaleLanguageDirection langDirection = [NSLocale characterDirectionForLanguage:[NSLocale preferredLanguages][0]];
+    if (langDirection == NSLocaleLanguageDirectionLeftToRight) {
+        self.prevCarButton.enabled = displayCarIndex > 0;
+        self.nextCarButton.enabled = displayedCarIndex < [arrayOfCars count] -1;
+    } else {
+        self.prevCarButton.enabled = displayedCarIndex < [arrayOfCars count] -1;
+        self.nextCarButton.enabled = displayCarIndex > 0;
+    }
     self.editCarButton.enabled = [arrayOfCars count] > 0;
     
     [self displayCarInformation];
@@ -149,11 +156,19 @@
 }
 
 - (IBAction)nextCar:(id)sender {
-    [self changeDisplayedCar:displayedCarIndex + 1];
+        NSInteger indexShift  = 1;
+    if ([NSLocale characterDirectionForLanguage:[NSLocale preferredLanguages][0]] == NSLocaleLanguageDirectionRightToLeft) {
+        indexShift = -1;
+    }
+    [self changeDisplayedCar:displayedCarIndex + indexShift];
 }
 
 - (IBAction)prevCar:(id)sender {
-    [self changeDisplayedCar:displayedCarIndex - 1];
+    NSInteger indexShift  = -1;
+    if ([NSLocale characterDirectionForLanguage:[NSLocale preferredLanguages][0]] == NSLocaleLanguageDirectionRightToLeft) {
+        indexShift = 1;
+    }
+    [self changeDisplayedCar:displayedCarIndex + indexShift];
 }
 
 - (IBAction)editingDone:(UIStoryboardSegue*)segue
@@ -189,30 +204,18 @@
                                                                   @"New Car", @"The text for the new car button");
     [self.addCarButton setTitle:localizedString forState:UIControlStateNormal];
     localizedString = NSLocalizedStringWithDefaultValue(
-                                                        @"Next",
-                                                        @"MainScreen",
-                                                        [NSBundle mainBundle],
-                                                        @"Next", @"The text for the next car button");
-    [self.nextCarButton setTitle:localizedString forState:UIControlStateNormal];
-    localizedString = NSLocalizedStringWithDefaultValue(
-                                                        @"Previous",
-                                                        @"MainScreen",
-                                                        [NSBundle mainBundle],
-                                                        @"Previous", @"The text for the previous car button");
-    [self.prevCarButton setTitle:localizedString forState:UIControlStateNormal];
-    localizedString = NSLocalizedStringWithDefaultValue(
                                                         @"Edit",
                                                         @"MainScreen",
                                                         [NSBundle mainBundle],
                                                         @"Edit", @"The text for the edit button");
-    [self.editCarButton setTitle:localizedString forState:UIControlStateNormal];
+    self.editCarButton.title = localizedString;
     
     localizedString = NSLocalizedStringWithDefaultValue(
                                                         @"info",
                                                         @"MainScreen",
                                                         [NSBundle mainBundle],
                                                         @"info", @"The text for the info button on the top right hand side");
-    [self.infoBarButton setTitle:localizedString];
+    [self.aboutBarButton setTitle:localizedString];
     
     localizedString = NSLocalizedStringWithDefaultValue(
                                       @"TotalCarLabel",
@@ -287,4 +290,16 @@
 }
 
 
+- (IBAction)aboutCareValet:(id)sender {
+    AboutViewController *aboutViewController = [[AboutViewController alloc]
+                                                initWithNibName:@"AboutViewController"
+                                                bundle:[NSBundle mainBundle] ];
+    aboutViewController.title = NSLocalizedStringWithDefaultValue(
+                                                                   @"AboutCarValet",
+                                                                   @"MainScreen",
+                                                                   [NSBundle mainBundle],
+                                                                   @"About CarValet",
+                                                                   @"Title for the about screen");
+    [self.navigationController pushViewController:aboutViewController animated:YES];
+}
 @end

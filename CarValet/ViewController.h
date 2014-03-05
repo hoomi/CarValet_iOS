@@ -12,12 +12,13 @@
 @interface ViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *carInfoLabel;
 @property (weak, nonatomic) IBOutlet UILabel *numberCarLabel;
-@property (weak, nonatomic) IBOutlet UIButton *prevCarButton;
-@property (weak, nonatomic) IBOutlet UIButton *nextCarButton;
-@property (weak, nonatomic) IBOutlet UIButton *editCarButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *nextCarButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *editCarButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *prevCarButton;
 @property (weak, nonatomic) IBOutlet UIButton *addCarButton;
 @property (weak, nonatomic) IBOutlet UILabel *totalCarLabel;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *infoBarButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *aboutBarButton;
+- (IBAction)aboutCareValet:(id)sender;
 @property (strong,nonatomic) IBOutletCollection(NSLayoutConstraint) NSArray *addCarViewPortraitConstraints;
 @property (strong,nonatomic) IBOutletCollection(NSLayoutConstraint) NSArray * separatorViewPortraitConstraints;
 @property (strong, nonatomic) IBOutletCollection(NSLayoutConstraint) NSArray *rootViewPortraitConstraints;

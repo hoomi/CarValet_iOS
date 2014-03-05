@@ -70,6 +70,7 @@
 {
     [super viewDidLoad];
     self.resetZoomButton.enabled = NO;
+    self.navigationController.toolbarHidden = YES;
     carImagesArray = @[ @"Yellow-Lamborghini.jpg",@"Acura-16.jpg", @"BMW-11.jpg", @"BMW-13.jpg",
                        @"Cadillac-13.jpg", @"Car-39.jpg",
                        @"Lexus-15.jpg", @"Mercedes Benz-106.jpg",
