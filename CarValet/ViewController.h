@@ -17,8 +17,6 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *prevCarButton;
 @property (weak, nonatomic) IBOutlet UIButton *addCarButton;
 @property (weak, nonatomic) IBOutlet UILabel *totalCarLabel;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *aboutBarButton;
-- (IBAction)aboutCareValet:(id)sender;
 @property (strong,nonatomic) IBOutletCollection(NSLayoutConstraint) NSArray *addCarViewPortraitConstraints;
 @property (strong,nonatomic) IBOutletCollection(NSLayoutConstraint) NSArray * separatorViewPortraitConstraints;
 @property (strong, nonatomic) IBOutletCollection(NSLayoutConstraint) NSArray *rootViewPortraitConstraints;

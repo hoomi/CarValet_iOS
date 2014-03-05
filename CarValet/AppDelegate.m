@@ -7,11 +7,23 @@
 //
 
 #import "AppDelegate.h"
+#import "AboutViewController.h"
+
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    UITabBarController *tabBarController = (UITabBarController*)self.window.rootViewController;
+    AboutViewController *aboutViewController = [[AboutViewController alloc]
+                                                initWithNibName:@"AboutViewController"
+                                                bundle:[NSBundle mainBundle]];
+    NSString *localizedAbout = NSLocalizedStringWithDefaultValue(@"About", nil, [NSBundle mainBundle], @"About", @"About tab title");
+    UITabBarItem *aboutTabItem = [[UITabBarItem alloc] initWithTitle:localizedAbout image:[UIImage imageNamed:@"info"] tag:0];
+    [aboutViewController setTabBarItem:aboutTabItem];
+    NSMutableArray *currentItems = [NSMutableArray arrayWithArray:tabBarController.viewControllers];
+    [currentItems addObject:aboutViewController];
+    [tabBarController setViewControllers:currentItems animated:NO];
     UIColor *mocha = [UIColor colorWithRed:128.0/255.0 green:64.0/255.0         // 1
                                       blue:0.0 alpha:1.0];
     UIColor *mochaPressed = [UIColor colorWithRed:128.0/255.0 green:64.0/255.0         // 1

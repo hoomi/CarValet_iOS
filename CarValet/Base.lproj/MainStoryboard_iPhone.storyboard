@@ -171,8 +171,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" minimumZoomScale="0.75" maximumZoomScale="3" translatesAutoresizingMaskIntoConstraints="NO" id="toA-Qm-4Er">
-                                <rect key="frame" x="1" y="68" width="320" height="355"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.75" maximumZoomScale="3" translatesAutoresizingMaskIntoConstraints="NO" id="toA-Qm-4Er">
+                                <rect key="frame" x="0.0" y="68" width="320" height="355"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="cAF-YY-P6w" id="tRC-kz-MO5"/>
@@ -358,15 +358,8 @@
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" title="CarValet" id="Na3-vf-dkE">
-                        <barButtonItem key="rightBarButtonItem" title="About" id="mcR-hB-LFb">
-                            <connections>
-                                <action selector="aboutCareValet:" destination="2" id="dGC-yb-pfD"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="CarValet" id="Na3-vf-dkE"/>
                     <connections>
-                        <outlet property="aboutBarButton" destination="mcR-hB-LFb" id="6UL-8G-v5N"/>
                         <outlet property="addCarButton" destination="Xix-ZH-2Nm" id="ffb-Fd-kVl"/>
                         <outlet property="addCarView" destination="H1n-51-VEQ" id="405-l1-QQJ"/>
                         <outlet property="carInfoLabel" destination="99Y-gX-3dJ" id="WwV-ZQ-3yT"/>

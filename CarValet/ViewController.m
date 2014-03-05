@@ -10,7 +10,6 @@
 #import "HybridCar.h"
 #import "ElectricCar.h"
 #import "CarEditViewController.h"
-#import "AboutViewController.h"
 
 @interface ViewController ()
 
@@ -217,13 +216,6 @@
     self.editCarButton.title = localizedString;
     
     localizedString = NSLocalizedStringWithDefaultValue(
-                                                        @"info",
-                                                        @"MainScreen",
-                                                        [NSBundle mainBundle],
-                                                        @"info", @"The text for the info button on the top right hand side");
-    [self.aboutBarButton setTitle:localizedString];
-    
-    localizedString = NSLocalizedStringWithDefaultValue(
                                       @"TotalCarLabel",
                                       @"MainScreen",
                                       [NSBundle mainBundle],
@@ -293,19 +285,5 @@
                                          options:0
                                          metrics:nil
                                          views:views];
-}
-
-
-- (IBAction)aboutCareValet:(id)sender {
-    AboutViewController *aboutViewController = [[AboutViewController alloc]
-                                                initWithNibName:@"AboutViewController"
-                                                bundle:[NSBundle mainBundle] ];
-    aboutViewController.title = NSLocalizedStringWithDefaultValue(
-                                                                   @"AboutCarValet",
-                                                                   @"MainScreen",
-                                                                   [NSBundle mainBundle],
-                                                                   @"About CarValet",
-                                                                   @"Title for the about screen");
-    [self.navigationController pushViewController:aboutViewController animated:YES];
 }
 @end
