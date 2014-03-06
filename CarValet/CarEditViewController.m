@@ -79,7 +79,7 @@ CGFloat defaultScrollViewHeightConstraint;
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"EditDoneSegue"]) {
+    if ([segue.identifier isEqualToString:@"DoneSegue"]) {
         [self updateCurrentCar];
     }
 }

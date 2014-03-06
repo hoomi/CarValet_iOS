@@ -33,6 +33,10 @@ static inline BOOL IsNSNumber(id number) {
     return (!IsEmpty(number) && [number isKindOfClass:[NSNumber class]]);
 }
 
+static inline BOOL IsEmptyString (NSString* string) {
+    return (string != nil && [string length]>0);
+}
+
 @interface Utils : NSObject
 
 + (NSString*)localizeDouble:(double) floatValue;

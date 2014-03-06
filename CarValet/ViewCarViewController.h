@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MakeModelEditProtocol.h"
 
-@interface ViewCarViewController : UITableViewController
+@interface ViewCarViewController : UITableViewController <MakeModelEditProtocol> 
 @property (strong,nonatomic) NSMutableArray* arrayOfCars;
 @property  NSInteger displayedCarIndex;
 @property (weak, nonatomic) IBOutlet UILabel *makeLabel;

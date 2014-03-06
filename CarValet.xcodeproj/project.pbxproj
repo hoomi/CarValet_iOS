@@ -33,6 +33,7 @@
 		15D762C918C8932C004CA7B0 /* CarTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D762C818C8932C004CA7B0 /* CarTableViewController.m */; };
 		15D762CC18C894B2004CA7B0 /* CarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D762CB18C894B2004CA7B0 /* CarTableViewCell.m */; };
 		15D762D218C8B2CB004CA7B0 /* ViewCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D762D118C8B2CB004CA7B0 /* ViewCarViewController.m */; };
+		15D762D518C8C750004CA7B0 /* MakeModelEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D762D418C8C750004CA7B0 /* MakeModelEditViewController.m */; };
 		15F001171885CB6E00800736 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F001161885CB6E00800736 /* UIKit.framework */; };
 		15F001191885CB6E00800736 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F001181885CB6E00800736 /* Foundation.framework */; };
 		15F0011B1885CB6E00800736 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F0011A1885CB6E00800736 /* CoreGraphics.framework */; };
@@ -43,7 +44,6 @@
 		15F0012D1885CB6E00800736 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15F0012C1885CB6E00800736 /* Default-568h@2x.png */; };
 		15F001301885CB6E00800736 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15F0012E1885CB6E00800736 /* MainStoryboard_iPhone.storyboard */; };
 		15F001331885CB6E00800736 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15F001311885CB6E00800736 /* MainStoryboard_iPad.storyboard */; };
-		15F001361885CB6E00800736 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F001351885CB6E00800736 /* ViewController.m */; };
 		15F0013E1885CB6E00800736 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F0013D1885CB6E00800736 /* SenTestingKit.framework */; };
 		15F0013F1885CB6E00800736 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F001161885CB6E00800736 /* UIKit.framework */; };
 		15F001401885CB6E00800736 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F001181885CB6E00800736 /* Foundation.framework */; };
@@ -111,6 +111,9 @@
 		15D762CB18C894B2004CA7B0 /* CarTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarTableViewCell.m; sourceTree = "<group>"; };
 		15D762D018C8B2CB004CA7B0 /* ViewCarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewCarViewController.h; sourceTree = "<group>"; };
 		15D762D118C8B2CB004CA7B0 /* ViewCarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewCarViewController.m; sourceTree = "<group>"; };
+		15D762D318C8C750004CA7B0 /* MakeModelEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MakeModelEditViewController.h; sourceTree = "<group>"; };
+		15D762D418C8C750004CA7B0 /* MakeModelEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MakeModelEditViewController.m; sourceTree = "<group>"; };
+		15D762D618C8C91F004CA7B0 /* MakeModelEditProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MakeModelEditProtocol.h; sourceTree = "<group>"; };
 		15F001131885CB6E00800736 /* CarValet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarValet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15F001161885CB6E00800736 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		15F001181885CB6E00800736 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -123,8 +126,6 @@
 		15F001281885CB6E00800736 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		15F0012A1885CB6E00800736 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		15F0012C1885CB6E00800736 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		15F001341885CB6E00800736 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		15F001351885CB6E00800736 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		15F0013C1885CB6E00800736 /* CarValetTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarValetTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		15F0013D1885CB6E00800736 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		15F001451885CB6E00800736 /* CarValetTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CarValetTests-Info.plist"; sourceTree = "<group>"; };
@@ -163,8 +164,6 @@
 		1550CF5618ACFA07006A01FC /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				15F001341885CB6E00800736 /* ViewController.h */,
-				15F001351885CB6E00800736 /* ViewController.m */,
 				15AD246B18A68B9900698408 /* CarEditViewController.h */,
 				15AD246C18A68B9900698408 /* CarEditViewController.m */,
 				159AC8DB18BE500500785A5D /* CarImageViewController.h */,
@@ -175,6 +174,8 @@
 				15D762C818C8932C004CA7B0 /* CarTableViewController.m */,
 				15D762D018C8B2CB004CA7B0 /* ViewCarViewController.h */,
 				15D762D118C8B2CB004CA7B0 /* ViewCarViewController.m */,
+				15D762D318C8C750004CA7B0 /* MakeModelEditViewController.h */,
+				15D762D418C8C750004CA7B0 /* MakeModelEditViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -251,6 +252,7 @@
 		15F0011C1885CB6E00800736 /* CarValet */ = {
 			isa = PBXGroup;
 			children = (
+				15D762D618C8C91F004CA7B0 /* MakeModelEditProtocol.h */,
 				15ACDAAE18C773BB0075564F /* Images.xcassets */,
 				159AC8C418BE4F6300785A5D /* images */,
 				1550CF5818ACFA34006A01FC /* Protocols */,
@@ -438,8 +440,8 @@
 			files = (
 				15F001231885CB6E00800736 /* main.m in Sources */,
 				15F001271885CB6E00800736 /* AppDelegate.m in Sources */,
-				15F001361885CB6E00800736 /* ViewController.m in Sources */,
 				15D762C918C8932C004CA7B0 /* CarTableViewController.m in Sources */,
+				15D762D518C8C750004CA7B0 /* MakeModelEditViewController.m in Sources */,
 				15F001561885CB9100800736 /* Car.m in Sources */,
 				15F001591885E9B100800736 /* HybridCar.m in Sources */,
 				159AC8DD18BE500500785A5D /* CarImageViewController.m in Sources */,
