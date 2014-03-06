@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface CarTableViewController : UITableViewController
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *editButton;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *doneButton;
+- (IBAction)editTableView:(id)sender;
 
 @end

@@ -9,6 +9,7 @@
 #import "CarTableViewController.h"
 #import "Car.h"
 #import "CarTableViewCell.h"
+#import "ViewCarViewController.h"
 
 @interface CarTableViewController ()
 
@@ -31,6 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationItem.leftBarButtonItem = self.editButton;
     arrayOfCars = [NSMutableArray new];
     [self newCar:nil];
 
@@ -81,28 +83,50 @@
 }
 
 
-/*
+- (void) editTableView:(id)sender
+{
+    BOOL startEdit = (sender == self.editButton);
+    
+    UIBarButtonItem *nextButton = startEdit ? self.doneButton : self.editButton;
+    
+    [self.navigationItem setLeftBarButtonItem:nextButton animated:YES];
+    [self.tableView setEditing:startEdit animated:YES];
+}
+
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return  YES;
 }
-*/
 
-/*
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"ViewCarSegue"]) {
+        ViewCarViewController *nextController = segue.destinationViewController;
+        NSInteger index = [self.tableView indexPathForSelectedRow].row;
+        nextController.arrayOfCars = arrayOfCars;
+        nextController.displayedCarIndex = index;
+    }
+}
+
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+        [arrayOfCars removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.
@@ -131,5 +155,4 @@
 }
 
  */
-
 @end
