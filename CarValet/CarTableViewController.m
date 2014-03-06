@@ -50,6 +50,8 @@
 - (IBAction)newCar:(id)sender {
     Car* newCar = [[Car alloc] init];
     [arrayOfCars addObject:newCar];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationRight];
 }
 
 #pragma mark - Table view data source

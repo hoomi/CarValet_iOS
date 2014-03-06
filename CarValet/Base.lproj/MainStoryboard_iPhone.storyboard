@@ -189,7 +189,13 @@
                             <outlet property="delegate" destination="E1k-VN-nhc" id="jcg-xq-ArT"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="DEg-dp-iNl"/>
+                    <navigationItem key="navigationItem" id="DEg-dp-iNl">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="lns-Rx-3gC">
+                            <connections>
+                                <action selector="newCar:" destination="E1k-VN-nhc" id="Eg7-xk-3bX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u4u-EF-SW8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
