@@ -34,7 +34,7 @@ static inline BOOL IsNSNumber(id number) {
 }
 
 static inline BOOL IsEmptyString (NSString* string) {
-    return (string != nil && [string length]>0);
+    return (string != nil && [string length]<=0);
 }
 
 @interface Utils : NSObject
