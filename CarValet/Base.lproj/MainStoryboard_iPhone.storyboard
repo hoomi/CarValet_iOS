@@ -388,6 +388,41 @@
             </objects>
             <point key="canvasLocation" x="1506" y="-276"/>
         </scene>
+        <!--About View Controller - About-->
+        <scene sceneID="Nhl-se-cDj">
+            <objects>
+                <viewController id="QYM-BO-nrL" customClass="AboutViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qZP-tc-jlg"/>
+                        <viewControllerLayoutGuide type="bottom" id="Wvx-6k-WyV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VLa-Aw-ic0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CarValet is brought to you by Hooman Ostovari" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="9i5-fC-LOn">
+                                <rect key="frame" x="20" y="28" width="280" height="395"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="9i5-fC-LOn" secondAttribute="trailing" constant="20" symbolic="YES" id="4pS-3Z-mW9"/>
+                            <constraint firstItem="9i5-fC-LOn" firstAttribute="top" secondItem="qZP-tc-jlg" secondAttribute="bottom" constant="20" symbolic="YES" id="E9a-RI-h0X"/>
+                            <constraint firstItem="Wvx-6k-WyV" firstAttribute="top" secondItem="9i5-fC-LOn" secondAttribute="bottom" constant="20" symbolic="YES" id="O3b-zX-79H"/>
+                            <constraint firstItem="9i5-fC-LOn" firstAttribute="leading" secondItem="VLa-Aw-ic0" secondAttribute="leading" constant="20" symbolic="YES" id="Xxj-AM-Hxg"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="About" image="info" id="76e-NK-WZa"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r9f-MH-Xp2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="980" y="-930"/>
+        </scene>
         <!--Navigation Controller - Add/View-->
         <scene sceneID="H1S-Qj-rOp">
             <objects>
@@ -431,6 +466,7 @@
                     <connections>
                         <segue destination="iQm-Cr-kKb" kind="relationship" relationship="viewControllers" id="Rr0-Xj-Ke4"/>
                         <segue destination="cAF-YY-P6w" kind="relationship" relationship="viewControllers" id="MIz-bG-qcl"/>
+                        <segue destination="QYM-BO-nrL" kind="relationship" relationship="viewControllers" id="4uv-Et-tKT"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="osC-SI-prv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -442,6 +478,7 @@
         <image name="arrow-left" width="22" height="22"/>
         <image name="arrow-right" width="22" height="22"/>
         <image name="car" width="28" height="25"/>
+        <image name="info" width="28" height="28"/>
         <image name="photo" width="28" height="23"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

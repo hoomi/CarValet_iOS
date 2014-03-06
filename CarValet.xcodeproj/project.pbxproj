@@ -29,7 +29,6 @@
 		159AC8DD18BE500500785A5D /* CarImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 159AC8DC18BE500500785A5D /* CarImageViewController.m */; };
 		15ACDAAF18C773BB0075564F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15ACDAAE18C773BB0075564F /* Images.xcassets */; };
 		15ACDAB318C77F1C0075564F /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15ACDAB118C77F1C0075564F /* AboutViewController.m */; };
-		15ACDAB418C77F1C0075564F /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15ACDAB218C77F1C0075564F /* AboutViewController.xib */; };
 		15AD246D18A68B9900698408 /* CarEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15AD246C18A68B9900698408 /* CarEditViewController.m */; };
 		15F001171885CB6E00800736 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F001161885CB6E00800736 /* UIKit.framework */; };
 		15F001191885CB6E00800736 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F001181885CB6E00800736 /* Foundation.framework */; };
@@ -99,7 +98,6 @@
 		15ACDAAE18C773BB0075564F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		15ACDAB018C77F1C0075564F /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		15ACDAB118C77F1C0075564F /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
-		15ACDAB218C77F1C0075564F /* AboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
 		15AD246B18A68B9900698408 /* CarEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarEditViewController.h; sourceTree = "<group>"; };
 		15AD246C18A68B9900698408 /* CarEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarEditViewController.m; sourceTree = "<group>"; };
 		15C6522E18B76B0B00DC03DA /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -164,7 +162,6 @@
 				159AC8DC18BE500500785A5D /* CarImageViewController.m */,
 				15ACDAB018C77F1C0075564F /* AboutViewController.h */,
 				15ACDAB118C77F1C0075564F /* AboutViewController.m */,
-				15ACDAB218C77F1C0075564F /* AboutViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -378,7 +375,6 @@
 				159AC8DA18BE4F6300785A5D /* Tractor-1.jpg in Resources */,
 				159AC8D618BE4F6300785A5D /* Mercedes Benz-106.jpg in Resources */,
 				159AC8D018BE4F6300785A5D /* Acura-16.jpg in Resources */,
-				15ACDAB418C77F1C0075564F /* AboutViewController.xib in Resources */,
 				159AC8D418BE4F6300785A5D /* Car-39.jpg in Resources */,
 				15F001301885CB6E00800736 /* MainStoryboard_iPhone.storyboard in Resources */,
 				15F001331885CB6E00800736 /* MainStoryboard_iPad.storyboard in Resources */,
