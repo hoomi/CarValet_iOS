@@ -16,6 +16,7 @@
     @property NSInteger year;
     @property (setter = setTheFuelAmountTo:,nonatomic)float fuelAmount;
     @property (getter = isShowingLitres) BOOL showLitres;
+    @property NSDate* dateCreated;
 
 
 - (id)initWithMake:(NSString *)make

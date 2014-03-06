@@ -30,6 +30,8 @@
 		15ACDAAF18C773BB0075564F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15ACDAAE18C773BB0075564F /* Images.xcassets */; };
 		15ACDAB318C77F1C0075564F /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15ACDAB118C77F1C0075564F /* AboutViewController.m */; };
 		15AD246D18A68B9900698408 /* CarEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15AD246C18A68B9900698408 /* CarEditViewController.m */; };
+		15D762C918C8932C004CA7B0 /* CarTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D762C818C8932C004CA7B0 /* CarTableViewController.m */; };
+		15D762CC18C894B2004CA7B0 /* CarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D762CB18C894B2004CA7B0 /* CarTableViewCell.m */; };
 		15F001171885CB6E00800736 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F001161885CB6E00800736 /* UIKit.framework */; };
 		15F001191885CB6E00800736 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F001181885CB6E00800736 /* Foundation.framework */; };
 		15F0011B1885CB6E00800736 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F0011A1885CB6E00800736 /* CoreGraphics.framework */; };
@@ -102,6 +104,10 @@
 		15AD246C18A68B9900698408 /* CarEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarEditViewController.m; sourceTree = "<group>"; };
 		15C6522E18B76B0B00DC03DA /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		15C6522F18B76B0B00DC03DA /* ar */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		15D762C718C8932C004CA7B0 /* CarTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarTableViewController.h; sourceTree = "<group>"; };
+		15D762C818C8932C004CA7B0 /* CarTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarTableViewController.m; sourceTree = "<group>"; };
+		15D762CA18C894B2004CA7B0 /* CarTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarTableViewCell.h; sourceTree = "<group>"; };
+		15D762CB18C894B2004CA7B0 /* CarTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarTableViewCell.m; sourceTree = "<group>"; };
 		15F001131885CB6E00800736 /* CarValet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarValet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15F001161885CB6E00800736 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		15F001181885CB6E00800736 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -162,6 +168,8 @@
 				159AC8DC18BE500500785A5D /* CarImageViewController.m */,
 				15ACDAB018C77F1C0075564F /* AboutViewController.h */,
 				15ACDAB118C77F1C0075564F /* AboutViewController.m */,
+				15D762C718C8932C004CA7B0 /* CarTableViewController.h */,
+				15D762C818C8932C004CA7B0 /* CarTableViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -250,6 +258,8 @@
 				15F0011D1885CB6E00800736 /* Supporting Files */,
 				155A02E518B7A09C00312EAA /* Utils.h */,
 				155A02E618B7A09C00312EAA /* Utils.m */,
+				15D762CA18C894B2004CA7B0 /* CarTableViewCell.h */,
+				15D762CB18C894B2004CA7B0 /* CarTableViewCell.m */,
 			);
 			path = CarValet;
 			sourceTree = "<group>";
@@ -424,12 +434,14 @@
 				15F001231885CB6E00800736 /* main.m in Sources */,
 				15F001271885CB6E00800736 /* AppDelegate.m in Sources */,
 				15F001361885CB6E00800736 /* ViewController.m in Sources */,
+				15D762C918C8932C004CA7B0 /* CarTableViewController.m in Sources */,
 				15F001561885CB9100800736 /* Car.m in Sources */,
 				15F001591885E9B100800736 /* HybridCar.m in Sources */,
 				159AC8DD18BE500500785A5D /* CarImageViewController.m in Sources */,
 				15ACDAB318C77F1C0075564F /* AboutViewController.m in Sources */,
 				150DE9AD188743870015DD7E /* ElectricCar.m in Sources */,
 				15AD246D18A68B9900698408 /* CarEditViewController.m in Sources */,
+				15D762CC18C894B2004CA7B0 /* CarTableViewCell.m in Sources */,
 				155A02E718B7A09C00312EAA /* Utils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

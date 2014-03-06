@@ -19,6 +19,7 @@
         self.make = [make copy];
         self.year = year;
         self.fuelAmount = fuelAmount;
+        self.dateCreated = [NSDate date];
     }
     return self;
 }
