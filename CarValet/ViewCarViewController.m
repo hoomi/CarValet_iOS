@@ -9,6 +9,7 @@
 #import "ViewCarViewController.h"
 #import "CarEditViewController.h"
 #import "MakeModelEditViewController.h"
+#import "YearEditViewController.h"
 #import "Car.h"
 
 #define kCurrentEditMake 0
@@ -126,6 +127,9 @@
         MakeModelEditViewController *nextController = segue.destinationViewController;
         nextController.delegate = self;
         currentEditType = [identifier isEqualToString:@"MakeEditSegue"] ? kCurrentEditMake : kCurrentEditModel;
+    } else if ([identifier isEqualToString:@"YearEditSegue"]) {
+        YearEditViewController *yearEditController =segue.destinationViewController;
+        yearEditController.delegate = self;
     }
 }
 
@@ -173,12 +177,14 @@
             return @"Enter:";
     }
 }
+
 - (NSString*) editFieldText
 {
     Car *car = [self.arrayOfCars objectAtIndex:self.displayedCarIndex];
     return currentEditType == kCurrentEditModel ? car.model : car.make;
     
 }
+
 - (NSString*) editFieldPlaceholderText
 {
     switch (currentEditType) {
@@ -190,6 +196,26 @@
             return @"...";
     }
 }
+
+-(NSInteger)editValueYear
+{
+    Car *car = self.arrayOfCars[self.displayedCarIndex];
+    return car.year;
+}
+
+- (void)editYearDone:(NSInteger)editValueYear
+{
+    Car *car = self.arrayOfCars[self.displayedCarIndex];
+    if (editValueYear < kModelTYear || editValueYear == car.year) {
+        return;
+    }
+    dataUpdated = YES;
+    car.year = editValueYear;
+    NSString *string = [Utils localizeDateWithYear:editValueYear];
+    self.yearLabel.text = string;
+    [self.tableView reloadData];
+}
+
 - (void) editDone: (NSString*) textFieldValue
 {
     if (IsEmptyString(textFieldValue)) {

@@ -46,5 +46,6 @@ static inline BOOL IsEmptyString (NSString* string) {
 + (NSString *)localizeDateWithYear:(long)year month:(NSInteger)month day:(NSInteger)day;
 + (NSString *)localizeDateWithYear:(long)year month:(NSInteger)month;
 + (NSString *)localizeDateWithYear:(long)year;
++ (NSInteger) getYearFromDate: (NSDate*) date;
 
 @end

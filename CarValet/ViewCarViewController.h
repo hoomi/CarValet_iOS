@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "MakeModelEditProtocol.h"
+#include "EditYearProtocol.h"
 #import "ViewCarProtocol.h"
 
-@interface ViewCarViewController : UITableViewController <MakeModelEditProtocol, UINavigationControllerDelegate>
+@interface ViewCarViewController : UITableViewController <MakeModelEditProtocol,EditYearProtocol, UINavigationControllerDelegate>
 @property (weak, nonatomic) id <ViewCarProtocol> delegate;
 @property (strong,nonatomic) NSMutableArray* arrayOfCars;
 @property  NSInteger displayedCarIndex;

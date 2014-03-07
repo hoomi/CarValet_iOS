@@ -63,6 +63,12 @@
     return [Utils localizeDateWithYear:year month:1 day:1 format:@"YYYY"];
 }
 
++(NSInteger)getYearFromDate:(NSDate *)date
+{
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *dateComponents = [calendar components:NSYearCalendarUnit fromDate:date];
+    return dateComponents.year;
+}
 
 
 

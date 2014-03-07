@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1503A8DD18C9E6B800E968CE /* YearEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1503A8DC18C9E6B800E968CE /* YearEditViewController.m */; };
 		150DE9AD188743870015DD7E /* ElectricCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 150DE9AC188743870015DD7E /* ElectricCar.m */; };
 		1555F96418C47CB6008A9D90 /* Yellow-Lamborghini.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1555F96318C47CB6008A9D90 /* Yellow-Lamborghini.jpg */; };
 		155A02E718B7A09C00312EAA /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 155A02E618B7A09C00312EAA /* Utils.m */; };
@@ -64,6 +65,9 @@
 
 /* Begin PBXFileReference section */
 		1503A8DA18C9C92800E968CE /* ViewCarProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewCarProtocol.h; sourceTree = "<group>"; };
+		1503A8DB18C9E6B700E968CE /* YearEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YearEditViewController.h; sourceTree = "<group>"; };
+		1503A8DC18C9E6B800E968CE /* YearEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YearEditViewController.m; sourceTree = "<group>"; };
+		1503A8DE18C9F65F00E968CE /* EditYearProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditYearProtocol.h; sourceTree = "<group>"; };
 		150DE9AB188743870015DD7E /* ElectricCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElectricCar.h; sourceTree = "<group>"; };
 		150DE9AC188743870015DD7E /* ElectricCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElectricCar.m; sourceTree = "<group>"; };
 		1555F96318C47CB6008A9D90 /* Yellow-Lamborghini.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Yellow-Lamborghini.jpg"; sourceTree = "<group>"; };
@@ -177,6 +181,8 @@
 				15D762D118C8B2CB004CA7B0 /* ViewCarViewController.m */,
 				15D762D318C8C750004CA7B0 /* MakeModelEditViewController.h */,
 				15D762D418C8C750004CA7B0 /* MakeModelEditViewController.m */,
+				1503A8DB18C9E6B700E968CE /* YearEditViewController.h */,
+				1503A8DC18C9E6B800E968CE /* YearEditViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -269,6 +275,7 @@
 				15D762CA18C894B2004CA7B0 /* CarTableViewCell.h */,
 				15D762CB18C894B2004CA7B0 /* CarTableViewCell.m */,
 				1503A8DA18C9C92800E968CE /* ViewCarProtocol.h */,
+				1503A8DE18C9F65F00E968CE /* EditYearProtocol.h */,
 			);
 			path = CarValet;
 			sourceTree = "<group>";
@@ -441,6 +448,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				15F001231885CB6E00800736 /* main.m in Sources */,
+				1503A8DD18C9E6B800E968CE /* YearEditViewController.m in Sources */,
 				15F001271885CB6E00800736 /* AppDelegate.m in Sources */,
 				15D762C918C8932C004CA7B0 /* CarTableViewController.m in Sources */,
 				15D762D518C8C750004CA7B0 /* MakeModelEditViewController.m in Sources */,

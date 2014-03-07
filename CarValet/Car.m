@@ -17,7 +17,7 @@
     {
         self.model = [model copy];
         self.make = [make copy];
-        self.year = year;
+        self.year = kModelTYear;
         self.fuelAmount = fuelAmount;
         self.dateCreated = [NSDate date];
     }
