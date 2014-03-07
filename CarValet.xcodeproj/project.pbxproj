@@ -63,6 +63,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1503A8DA18C9C92800E968CE /* ViewCarProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewCarProtocol.h; sourceTree = "<group>"; };
 		150DE9AB188743870015DD7E /* ElectricCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElectricCar.h; sourceTree = "<group>"; };
 		150DE9AC188743870015DD7E /* ElectricCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElectricCar.m; sourceTree = "<group>"; };
 		1555F96318C47CB6008A9D90 /* Yellow-Lamborghini.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Yellow-Lamborghini.jpg"; sourceTree = "<group>"; };
@@ -267,6 +268,7 @@
 				155A02E618B7A09C00312EAA /* Utils.m */,
 				15D762CA18C894B2004CA7B0 /* CarTableViewCell.h */,
 				15D762CB18C894B2004CA7B0 /* CarTableViewCell.m */,
+				1503A8DA18C9C92800E968CE /* ViewCarProtocol.h */,
 			);
 			path = CarValet;
 			sourceTree = "<group>";

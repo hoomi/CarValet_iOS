@@ -32,6 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationController.toolbarHidden = YES;
     self.navigationItem.leftBarButtonItem = self.editButton;
     arrayOfCars = [NSMutableArray new];
     [self newCar:nil];
@@ -106,9 +107,8 @@
 {
     if ([segue.identifier isEqualToString:@"ViewCarSegue"]) {
         ViewCarViewController *nextController = segue.destinationViewController;
-        NSInteger index = [self.tableView indexPathForSelectedRow].row;
         nextController.arrayOfCars = arrayOfCars;
-        nextController.displayedCarIndex = index;
+        nextController.delegate = self;
     }
 }
 
@@ -125,6 +125,18 @@
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
+}
+
+- (NSInteger) carToView
+{
+    return [self.tableView indexPathForSelectedRow].row;
+}
+
+- (void) carViewDone:(BOOL) dataUpdated
+{
+    if (dataUpdated) {
+        [self.tableView reloadRowsAtIndexPaths:[self.tableView indexPathsForVisibleRows]  withRowAnimation:UITableViewRowAnimationMiddle];
+    }
 }
 
 

@@ -21,6 +21,7 @@
 @implementation ViewCarViewController
 {
     NSInteger currentEditType;
+    BOOL dataUpdated;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -35,6 +36,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    dataUpdated = NO;
+    self.displayedCarIndex = [self.delegate carToView];
     UIColor *toolbarColor = [UIColor colorWithRed:102.0/255.0
                                             green:204.0/255.0
                                              blue:0.0/255.0
@@ -48,6 +51,13 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.navigationController.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -75,6 +85,16 @@
     self.editButton.enabled = count > 0;
     [self displayCarInformation];
     
+}
+
+- (void) navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    if (viewController == (UIViewController*) self.delegate) {
+        if (dataUpdated) {
+            [self.delegate carViewDone:dataUpdated];
+        }
+        navigationController.delegate = nil;
+    }
 }
 
 - (void) displayCarInformation {
@@ -178,10 +198,12 @@
     Car *displayedCar = self.arrayOfCars[self.displayedCarIndex];
     switch (currentEditType) {
         case kCurrentEditMake:
+            dataUpdated = dataUpdated || ![displayedCar.make isEqualToString:textFieldValue];
             displayedCar.make = textFieldValue;
             self.makeLabel.text = textFieldValue;
             break;
         case kCurrentEditModel:
+            dataUpdated = dataUpdated || ![displayedCar.make isEqualToString:textFieldValue];
             displayedCar.model = textFieldValue;
             self.modelLabel.text = textFieldValue;
             break;
