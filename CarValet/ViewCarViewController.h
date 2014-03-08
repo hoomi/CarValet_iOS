@@ -13,7 +13,7 @@
 
 @interface ViewCarViewController : UITableViewController <MakeModelEditProtocol,EditYearProtocol, UINavigationControllerDelegate>
 @property (weak, nonatomic) id <ViewCarProtocol> delegate;
-@property (strong,nonatomic) NSMutableArray* arrayOfCars;
+@property (strong,nonatomic) NSArray* arrayOfCars;
 @property  NSInteger displayedCarIndex;
 @property (weak, nonatomic) IBOutlet UILabel *makeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *modelLabel;

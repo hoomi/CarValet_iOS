@@ -16,6 +16,9 @@
 		155A02F018B90E4F00312EAA /* MainScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = 155A02EC18B90E4F00312EAA /* MainScreen.strings */; };
 		1580EF6818B6507A00FB1355 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1580EF6618B6507A00FB1355 /* InfoPlist.strings */; };
 		1580EF6C18B6604000FB1355 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1580EF6118B6500300FB1355 /* Localizable.strings */; };
+		1582D0D018CB80A70028F81E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1582D0CF18CB80A70028F81E /* CoreData.framework */; };
+		1582D0D318CB80F80028F81E /* CarValet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1582D0D118CB80F80028F81E /* CarValet.xcdatamodeld */; };
+		1582D0D918CB943E0028F81E /* CDCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1582D0D818CB943E0028F81E /* CDCar.m */; };
 		159AC8D018BE4F6300785A5D /* Acura-16.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 159AC8C518BE4F6300785A5D /* Acura-16.jpg */; };
 		159AC8D118BE4F6300785A5D /* BMW-11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 159AC8C618BE4F6300785A5D /* BMW-11.jpg */; };
 		159AC8D218BE4F6300785A5D /* BMW-13.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 159AC8C718BE4F6300785A5D /* BMW-13.jpg */; };
@@ -88,6 +91,11 @@
 		1580EF6718B6507A00FB1355 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1580EF6918B6507D00FB1355 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1580EF6A18B6507D00FB1355 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1582D0CF18CB80A70028F81E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		1582D0D218CB80F80028F81E /* CarValet.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CarValet.xcdatamodel; sourceTree = "<group>"; };
+		1582D0D718CB943E0028F81E /* CDCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDCar.h; sourceTree = "<group>"; };
+		1582D0D818CB943E0028F81E /* CDCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDCar.m; sourceTree = "<group>"; };
+		1582D0DA18CB965E0028F81E /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		159182A018B54BB6004403D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		159182A118B54BB7004403D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		159AC8C518BE4F6300785A5D /* Acura-16.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Acura-16.jpg"; sourceTree = "<group>"; };
@@ -147,6 +155,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1582D0D018CB80A70028F81E /* CoreData.framework in Frameworks */,
 				15F001171885CB6E00800736 /* UIKit.framework in Frameworks */,
 				15F001191885CB6E00800736 /* Foundation.framework in Frameworks */,
 				15F0011B1885CB6E00800736 /* CoreGraphics.framework in Frameworks */,
@@ -196,6 +205,9 @@
 				15F001581885E9B100800736 /* HybridCar.m */,
 				150DE9AB188743870015DD7E /* ElectricCar.h */,
 				150DE9AC188743870015DD7E /* ElectricCar.m */,
+				1582D0D718CB943E0028F81E /* CDCar.h */,
+				1582D0D818CB943E0028F81E /* CDCar.m */,
+				1582D0D118CB80F80028F81E /* CarValet.xcdatamodeld */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -248,6 +260,7 @@
 		15F001151885CB6E00800736 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1582D0CF18CB80A70028F81E /* CoreData.framework */,
 				15F001161885CB6E00800736 /* UIKit.framework */,
 				15F001181885CB6E00800736 /* Foundation.framework */,
 				15F0011A1885CB6E00800736 /* CoreGraphics.framework */,
@@ -276,6 +289,7 @@
 				15D762CB18C894B2004CA7B0 /* CarTableViewCell.m */,
 				1503A8DA18C9C92800E968CE /* ViewCarProtocol.h */,
 				1503A8DE18C9F65F00E968CE /* EditYearProtocol.h */,
+				1582D0DA18CB965E0028F81E /* Constants.h */,
 			);
 			path = CarValet;
 			sourceTree = "<group>";
@@ -459,8 +473,10 @@
 				150DE9AD188743870015DD7E /* ElectricCar.m in Sources */,
 				15AD246D18A68B9900698408 /* CarEditViewController.m in Sources */,
 				15D762CC18C894B2004CA7B0 /* CarTableViewCell.m in Sources */,
+				1582D0D318CB80F80028F81E /* CarValet.xcdatamodeld in Sources */,
 				155A02E718B7A09C00312EAA /* Utils.m in Sources */,
 				15D762D218C8B2CB004CA7B0 /* ViewCarViewController.m in Sources */,
+				1582D0D918CB943E0028F81E /* CDCar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -703,6 +719,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1582D0D118CB80F80028F81E /* CarValet.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1582D0D218CB80F80028F81E /* CarValet.xcdatamodel */,
+			);
+			currentVersion = 1582D0D218CB80F80028F81E /* CarValet.xcdatamodel */;
+			path = CarValet.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 15F0010B1885CB6E00800736 /* Project object */;
 }

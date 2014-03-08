@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-#define kModelTYear 1908
-
 @interface Car : NSObject
     @property (readonly) BOOL isALemon;
     @property (readonly) NSString *carInfo;

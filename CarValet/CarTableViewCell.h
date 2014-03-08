@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class Car;
+@class CDCar;
 
 @interface CarTableViewCell : UITableViewCell
 
-@property (strong,nonatomic) Car *displayedCar;
+@property (strong,nonatomic) CDCar *displayedCar;
 
 
 -  (void) configureCell;

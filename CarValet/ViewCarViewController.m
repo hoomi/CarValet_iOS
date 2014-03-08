@@ -10,7 +10,7 @@
 #import "CarEditViewController.h"
 #import "MakeModelEditViewController.h"
 #import "YearEditViewController.h"
-#import "Car.h"
+#import "CDCar.h"
 
 #define kCurrentEditMake 0
 #define kCurrentEditModel 1
@@ -100,22 +100,22 @@
 
 - (void) displayCarInformation {
     
-    Car * displayedCar = [self.arrayOfCars objectAtIndex:self.displayedCarIndex];
+    CDCar * displayedCar = [self.arrayOfCars objectAtIndex:self.displayedCarIndex];
     self.makeLabel.text = (displayedCar.make == nil) ? @"Unknown" : displayedCar.make;
     
     self.modelLabel.text = (displayedCar.model == nil) ? @"Unknown" : displayedCar.model;
     
-    self.yearLabel.text = [NSString stringWithFormat:@"%d", displayedCar.year];
+    self.yearLabel.text = [NSString stringWithFormat:@"%@", displayedCar.year];
     
-    self.fuelLabel.text = [NSString stringWithFormat:@"%0.2f",displayedCar.fuelAmount];
+    self.fuelLabel.text = [NSString stringWithFormat:@"%0.2f",[displayedCar.fuel floatValue]];
     
     self.dateLabel.text = [NSDateFormatter
-                           localizedStringFromDate:displayedCar.dateCreated
+                           localizedStringFromDate:displayedCar.createdAt
                            dateStyle:NSDateFormatterMediumStyle
                            timeStyle:NSDateFormatterNoStyle];
     
     self.timeLabel.text = [NSDateFormatter
-                           localizedStringFromDate:displayedCar.dateCreated
+                           localizedStringFromDate:displayedCar.createdAt
                            dateStyle:NSDateFormatterNoStyle
                            timeStyle:NSDateFormatterMediumStyle];
 }
@@ -180,7 +180,7 @@
 
 - (NSString*) editFieldText
 {
-    Car *car = [self.arrayOfCars objectAtIndex:self.displayedCarIndex];
+    CDCar *car = [self.arrayOfCars objectAtIndex:self.displayedCarIndex];
     return currentEditType == kCurrentEditModel ? car.model : car.make;
     
 }
@@ -199,18 +199,18 @@
 
 -(NSInteger)editValueYear
 {
-    Car *car = self.arrayOfCars[self.displayedCarIndex];
-    return car.year;
+    CDCar *car = self.arrayOfCars[self.displayedCarIndex];
+    return [car.year integerValue];
 }
 
 - (void)editYearDone:(NSInteger)editValueYear
 {
-    Car *car = self.arrayOfCars[self.displayedCarIndex];
-    if (editValueYear < kModelTYear || editValueYear == car.year) {
+    CDCar *car = self.arrayOfCars[self.displayedCarIndex];
+    if (editValueYear < kModelTYear || editValueYear == [car.year integerValue]) {
         return;
     }
     dataUpdated = YES;
-    car.year = editValueYear;
+    car.year = [NSNumber numberWithInteger:editValueYear];
     NSString *string = [Utils localizeDateWithYear:editValueYear];
     self.yearLabel.text = string;
     [self.tableView reloadData];
@@ -221,7 +221,7 @@
     if (IsEmptyString(textFieldValue)) {
         return;
     }
-    Car *displayedCar = self.arrayOfCars[self.displayedCarIndex];
+    CDCar *displayedCar = self.arrayOfCars[self.displayedCarIndex];
     switch (currentEditType) {
         case kCurrentEditMake:
             dataUpdated = dataUpdated || ![displayedCar.make isEqualToString:textFieldValue];

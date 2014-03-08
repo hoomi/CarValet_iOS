@@ -7,7 +7,7 @@
 //
 
 #import "CarTableViewCell.h"
-#import "Car.h"
+#import "CDCar.h"
 #import "Utils.h"
 
 @implementation CarTableViewCell
@@ -34,9 +34,9 @@
     NSString *make = (self.displayedCar.make == nil) ? unknownString : self.displayedCar.make;
     NSString *model = (self.displayedCar.model == nil) ? unknownString : self.displayedCar.model;
     self.textLabel.text = [NSString stringWithFormat:@"%@ %@ %@",
-                           [Utils localizeDateWithYear:self.displayedCar.year],make,model];
+                           [Utils localizeDateWithYear:[self.displayedCar.year integerValue]],make,model];
     
-    NSString *dateStr = [NSDateFormatter localizedStringFromDate:self.displayedCar.dateCreated dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
+    NSString *dateStr = [NSDateFormatter localizedStringFromDate:self.displayedCar.createdAt dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
     
     self.detailTextLabel.text = dateStr;
 
