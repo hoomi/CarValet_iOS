@@ -11,6 +11,7 @@
 #import "MakeModelEditViewController.h"
 #import "YearEditViewController.h"
 #import "CDCar.h"
+#import "AppDelegate.h"
 
 #define kCurrentEditMake 0
 #define kCurrentEditModel 1
@@ -21,7 +22,10 @@
 
 @implementation ViewCarViewController
 {
+    NSArray *arrayOfCars;
+    NSFetchRequest *fetchRequest;
     NSInteger currentEditType;
+    NSManagedObjectContext *managedObjectContext;
     BOOL dataUpdated;
 }
 
@@ -38,6 +42,21 @@
 {
     [super viewDidLoad];
     dataUpdated = NO;
+    
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    managedObjectContext = appDelegate.managedObjectContext;
+    
+    NSError *error = nil;
+    fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"CDCar"];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"createdAt" ascending:NO];
+    [fetchRequest setSortDescriptors:@[sortDescriptor]];
+
+    arrayOfCars = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    if (error != nil) {
+        NSLog(@"Unresolved error %@, %@",error, [error userInfo]);
+        abort();
+    }
     self.displayedCarIndex = [self.delegate carToView];
     UIColor *toolbarColor = [UIColor colorWithRed:102.0/255.0
                                             green:204.0/255.0
@@ -69,7 +88,7 @@
 
 - (void) changeDisplayedCar:(NSInteger) index
 {
-    NSInteger count = [self.arrayOfCars count];
+    NSInteger count = [arrayOfCars count];
     if (index >= count || index < 0) {
         return;
     }
@@ -100,7 +119,7 @@
 
 - (void) displayCarInformation {
     
-    CDCar * displayedCar = [self.arrayOfCars objectAtIndex:self.displayedCarIndex];
+    CDCar * displayedCar = [arrayOfCars objectAtIndex:self.displayedCarIndex];
     self.makeLabel.text = (displayedCar.make == nil) ? @"Unknown" : displayedCar.make;
     
     self.modelLabel.text = (displayedCar.model == nil) ? @"Unknown" : displayedCar.model;
@@ -180,7 +199,7 @@
 
 - (NSString*) editFieldText
 {
-    CDCar *car = [self.arrayOfCars objectAtIndex:self.displayedCarIndex];
+    CDCar *car = [arrayOfCars objectAtIndex:self.displayedCarIndex];
     return currentEditType == kCurrentEditModel ? car.model : car.make;
     
 }
@@ -199,13 +218,13 @@
 
 -(NSInteger)editValueYear
 {
-    CDCar *car = self.arrayOfCars[self.displayedCarIndex];
+    CDCar *car = arrayOfCars[self.displayedCarIndex];
     return [car.year integerValue];
 }
 
 - (void)editYearDone:(NSInteger)editValueYear
 {
-    CDCar *car = self.arrayOfCars[self.displayedCarIndex];
+    CDCar *car = arrayOfCars[self.displayedCarIndex];
     if (editValueYear < kModelTYear || editValueYear == [car.year integerValue]) {
         return;
     }
@@ -221,7 +240,7 @@
     if (IsEmptyString(textFieldValue)) {
         return;
     }
-    CDCar *displayedCar = self.arrayOfCars[self.displayedCarIndex];
+    CDCar *displayedCar = arrayOfCars[self.displayedCarIndex];
     switch (currentEditType) {
         case kCurrentEditMake:
             dataUpdated = dataUpdated || ![displayedCar.make isEqualToString:textFieldValue];

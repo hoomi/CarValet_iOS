@@ -18,8 +18,8 @@
 
 @implementation CarTableViewController
 {
-    NSArray *arrayOfCars;
     NSManagedObjectContext *managedObjectContext;
+    NSFetchedResultsController *fetchedResultController;
     NSFetchRequest *fetchRequest;
 }
 
@@ -41,14 +41,23 @@
     
     NSError *error = nil;
     fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"CDCar"];
-    arrayOfCars = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"createdAt" ascending:NO];
+    [fetchRequest setSortDescriptors:@[sortDescriptor]];
+    fetchedResultController = [[NSFetchedResultsController alloc]
+                               initWithFetchRequest:fetchRequest
+                               managedObjectContext:managedObjectContext
+                               sectionNameKeyPath:nil
+                               cacheName:nil];
+    
+    [fetchedResultController performFetch:&error];
     
     if (error != nil) {
         NSLog(@"Unresolved error %@, %@",error, [error userInfo]);
         abort();
     }
+    fetchedResultController.delegate = self;
     self.navigationItem.leftBarButtonItem = self.editButton;
-    [self newCar:nil];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -74,14 +83,12 @@
     newCar.createdAt = [NSDate date];
     NSError *error = nil;
     
-    arrayOfCars = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    [managedObjectContext save:&error];
     
     if (error != nil) {
         NSLog(@"Unresolved error %@, %@",error, [error userInfo]);
         abort();
     }
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationRight];
 }
 
 #pragma mark - Table view data source
@@ -89,20 +96,21 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return [[fetchedResultController sections] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    id <NSFetchedResultsSectionInfo> sectionInfo = [fetchedResultController sections][section];
     // Return the number of rows in the section.
-    return [arrayOfCars count];
+    return [sectionInfo numberOfObjects];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"CarCell";
     CarTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    cell.displayedCar = [arrayOfCars objectAtIndex:indexPath.row];
+    cell.displayedCar = [fetchedResultController objectAtIndexPath:indexPath];
     [cell configureCell];
     
     // Configure the cell...
@@ -134,7 +142,6 @@
 {
     if ([segue.identifier isEqualToString:@"ViewCarSegue"]) {
         ViewCarViewController *nextController = segue.destinationViewController;
-        nextController.arrayOfCars = arrayOfCars;
         nextController.delegate = self;
     }
 }
@@ -144,16 +151,15 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        CDCar *car = arrayOfCars[indexPath.row];
-        [managedObjectContext deleteObject:car];
+        
         NSError *error;
-        arrayOfCars = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+        [managedObjectContext deleteObject:[fetchedResultController objectAtIndexPath:indexPath]];
+        [managedObjectContext save:&error];
         
         if (error != nil) {
             NSLog(@"Unresolved error %@, %@",error, [error userInfo]);
             abort();
         }
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
@@ -170,6 +176,38 @@
 {
     if (dataUpdated) {
         [self.tableView reloadRowsAtIndexPaths:[self.tableView indexPathsForVisibleRows]  withRowAnimation:UITableViewRowAnimationMiddle];
+    }
+}
+
+#pragma - NSFetchResultControllerDelegate
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
+{
+    [self.tableView beginUpdates];
+}
+
+-(void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+{
+    [self.tableView endUpdates];
+}
+
+-(void)controller:(NSFetchedResultsController *)controller
+  didChangeObject:(id)anObject
+      atIndexPath:(NSIndexPath *)indexPath
+    forChangeType:(NSFetchedResultsChangeType)type
+     newIndexPath:(NSIndexPath *)newIndexPath
+{
+    UITableView* tableView = self.tableView;
+    
+    switch (type) {
+        case NSFetchedResultsChangeInsert:
+            [tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationRight];
+            break;
+        case NSFetchedResultsChangeDelete:
+            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+            break;
+        default:
+            break;
     }
 }
 
