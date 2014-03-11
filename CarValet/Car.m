@@ -52,7 +52,7 @@
     }
     NSLog(@"---Car Make: %@",_make);
     NSLog(@"---Car Model: %@", _model);
-    NSLog(@"---Car was Built in %d", _year);
+    NSLog(@"---Car was Built in %ld", (long)_year);
     NSLog(@"---Car  fuel level is at %0.2f", self.fuelAmount);
 }
 

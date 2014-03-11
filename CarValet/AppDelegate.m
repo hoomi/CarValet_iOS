@@ -47,7 +47,7 @@
     NSInteger lastScene = [defaults integerForKey:@"LastSceneShown"] ;
     tabController.selectedIndex = lastScene;
     
-     NSLog(@"didFinishLaunchingWithOptions --> The tab index was: %d",  lastScene);
+     NSLog(@"didFinishLaunchingWithOptions --> The tab index was: %ld",  (long)lastScene);
 
     // Override point for customization after application launch.
     return YES;
@@ -76,7 +76,7 @@
     // make sure to synchronize so the defaults are saved
     [defaults synchronize];
     
-    NSLog(@"applicationDidEnterBackground --> The tab index was: %d",  tabBarController.selectedIndex);
+    NSLog(@"applicationDidEnterBackground --> The tab index was: %lu",  (unsigned long)tabBarController.selectedIndex);
 
 }
 

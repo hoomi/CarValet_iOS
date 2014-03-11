@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Hooman Ostovari. All rights reserved.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
-@interface CarValetTests : SenTestCase
+@interface CarValetTests : XCTestCase
 
 @end

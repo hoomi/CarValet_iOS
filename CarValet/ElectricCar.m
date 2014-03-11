@@ -29,6 +29,6 @@
 
 - (void) printCarInfo {
     NSLog(@"Make ---- Model ---- Year ---- Battery Level ----- Batteries");
-    NSLog(@"%@ ----- %@ ----- %d ----- %0.2f ----- %d", self.make, self.model,self.year, self.fuelAmount, self.numberOfBatteries);
+    NSLog(@"%@ ----- %@ ----- %ld ----- %0.2f ----- %d", self.make, self.model,(long)self.year, self.fuelAmount, self.numberOfBatteries);
 }
 @end

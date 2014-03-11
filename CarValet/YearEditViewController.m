@@ -55,7 +55,7 @@
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    return [NSString stringWithFormat:@"%d", kModelTYear + row];
+    return [NSString stringWithFormat:@"%ld", kModelTYear + row];
 }
 - (IBAction)editCancelled:(id)sender {
     [self dismissViewControllerAnimated:YES completion:^{

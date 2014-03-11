@@ -98,7 +98,7 @@
     
     NSString *localizedString = NSLocalizedStringWithDefaultValue(@"CarNumberLabel",@"EditScreen",[NSBundle mainBundle],@"Car Number",@"Label for the index number of the current car");
 
-    NSString *carNumberText = [NSString stringWithFormat:@"%@: %d",localizedString,carIndex + 1];
+    NSString *carNumberText = [NSString stringWithFormat:@"%@: %ld",localizedString,carIndex + 1];
     self.carNumberLabel.text = carNumberText;
     currentCarIndex = carIndex;
 }

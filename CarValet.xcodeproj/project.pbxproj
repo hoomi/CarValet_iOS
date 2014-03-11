@@ -48,7 +48,6 @@
 		15F0012D1885CB6E00800736 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15F0012C1885CB6E00800736 /* Default-568h@2x.png */; };
 		15F001301885CB6E00800736 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15F0012E1885CB6E00800736 /* MainStoryboard_iPhone.storyboard */; };
 		15F001331885CB6E00800736 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15F001311885CB6E00800736 /* MainStoryboard_iPad.storyboard */; };
-		15F0013E1885CB6E00800736 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F0013D1885CB6E00800736 /* SenTestingKit.framework */; };
 		15F0013F1885CB6E00800736 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F001161885CB6E00800736 /* UIKit.framework */; };
 		15F001401885CB6E00800736 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F001181885CB6E00800736 /* Foundation.framework */; };
 		15F0014B1885CB6E00800736 /* CarValetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F0014A1885CB6E00800736 /* CarValetTests.m */; };
@@ -139,8 +138,7 @@
 		15F001281885CB6E00800736 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		15F0012A1885CB6E00800736 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		15F0012C1885CB6E00800736 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		15F0013C1885CB6E00800736 /* CarValetTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarValetTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		15F0013D1885CB6E00800736 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		15F0013C1885CB6E00800736 /* CarValetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarValetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		15F001451885CB6E00800736 /* CarValetTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CarValetTests-Info.plist"; sourceTree = "<group>"; };
 		15F001491885CB6E00800736 /* CarValetTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CarValetTests.h; sourceTree = "<group>"; };
 		15F0014A1885CB6E00800736 /* CarValetTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CarValetTests.m; sourceTree = "<group>"; };
@@ -166,7 +164,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15F0013E1885CB6E00800736 /* SenTestingKit.framework in Frameworks */,
 				15F0013F1885CB6E00800736 /* UIKit.framework in Frameworks */,
 				15F001401885CB6E00800736 /* Foundation.framework in Frameworks */,
 			);
@@ -252,7 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				15F001131885CB6E00800736 /* CarValet.app */,
-				15F0013C1885CB6E00800736 /* CarValetTests.octest */,
+				15F0013C1885CB6E00800736 /* CarValetTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -264,7 +261,6 @@
 				15F001161885CB6E00800736 /* UIKit.framework */,
 				15F001181885CB6E00800736 /* Foundation.framework */,
 				15F0011A1885CB6E00800736 /* CoreGraphics.framework */,
-				15F0013D1885CB6E00800736 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -366,8 +362,8 @@
 			);
 			name = CarValetTests;
 			productName = CarValetTests;
-			productReference = 15F0013C1885CB6E00800736 /* CarValetTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productReference = 15F0013C1885CB6E00800736 /* CarValetTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -375,6 +371,7 @@
 		15F0010B1885CB6E00800736 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastTestingUpgradeCheck = 0510;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Hooman Ostovari";
 			};
@@ -595,7 +592,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -620,7 +617,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -661,15 +658,15 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CarValet.app/CarValet";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\\\"$(SDKROOT)/Developer/Library/Frameworks\\\"",
+					"\\\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\\\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CarValet/CarValet-Prefix.pch";
 				INFOPLIST_FILE = "CarValetTests/CarValetTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
@@ -678,15 +675,15 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CarValet.app/CarValet";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\\\"$(SDKROOT)/Developer/Library/Frameworks\\\"",
+					"\\\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\\\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CarValet/CarValet-Prefix.pch";
 				INFOPLIST_FILE = "CarValetTests/CarValetTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};

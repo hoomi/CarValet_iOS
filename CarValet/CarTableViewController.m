@@ -44,6 +44,15 @@
     
     [self carSortChanged:nil];
     
+    UIColor *magnesium = [UIColor colorWithRed:204.0/255.0 green:204.0/255.0 blue:204.0/255.0 alpha:1.0];
+    self.tableView.sectionIndexColor = magnesium;
+    
+    UIColor *mercuryWithAlpha = [UIColor colorWithRed:230.0/255.0 green:233.0/255.0 blue:230.0/255.0 alpha:0.1];
+    
+    self.tableView.sectionIndexBackgroundColor = mercuryWithAlpha;
+    
+    UIColor *mercury = [UIColor colorWithRed:230.0/255.0 green:233.0/255.0 blue:230.0/255.0 alpha:1.0];
+    self.tableView.sectionIndexTrackingBackgroundColor = mercury;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -138,11 +147,21 @@
 
 -(NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
 {
+    if (self.carSortControl.selectedSegmentIndex == kCarsTableSortYear) {
+        NSMutableArray *indices = [NSMutableArray new];
+        for (id<NSFetchedResultsSectionInfo> sectionInfo in fetchedResultController.sections) {
+            [indices insertObject:[sectionInfo name] atIndex:[indices count]];
+        }
+        return indices;
+    }
     return [fetchedResultController sectionIndexTitles];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
 {
+    if (self.carSortControl.selectedSegmentIndex == kCarsTableSortYear) {
+        return index;
+    }
     return [fetchedResultController sectionForSectionIndexTitle:title atIndex:index];
 }
 
@@ -156,7 +175,7 @@
         selectedCarIndexTableView += [self tableView:self.tableView numberOfRowsInSection:i];
     }
     selectedCarIndexTableView += selectedIndexPath.row;
-    NSLog(@"selected row: %d",selectedCarIndexTableView);
+    NSLog(@"selected row: %ld",(long)selectedCarIndexTableView);
     return selectedCarIndexTableView;
 }
 
