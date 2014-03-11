@@ -631,6 +631,7 @@
 		15F0014F1885CB6E00800736 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CarValet/CarValet-Prefix.pch";
 				INFOPLIST_FILE = "CarValet/CarValet-Info.plist";
@@ -644,6 +645,7 @@
 		15F001501885CB6E00800736 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CarValet/CarValet-Prefix.pch";
 				INFOPLIST_FILE = "CarValet/CarValet-Info.plist";

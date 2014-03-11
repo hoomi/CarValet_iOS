@@ -47,7 +47,7 @@
     fetchedResultController = [[NSFetchedResultsController alloc]
                                initWithFetchRequest:fetchRequest
                                managedObjectContext:managedObjectContext
-                               sectionNameKeyPath:nil
+                               sectionNameKeyPath:@"make"
                                cacheName:nil];
     
     [fetchedResultController performFetch:&error];
@@ -81,6 +81,7 @@
 - (IBAction)newCar:(id)sender {
     CDCar *newCar = [NSEntityDescription insertNewObjectForEntityForName:@"CDCar" inManagedObjectContext:managedObjectContext];
     newCar.createdAt = [NSDate date];
+    newCar.make = @"Unknown";
     NSError *error = nil;
     
     [managedObjectContext save:&error];
@@ -97,6 +98,12 @@
 {
     // Return the number of sections.
     return [[fetchedResultController sections] count];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    id <NSFetchedResultsSectionInfo> sectionInfo = [fetchedResultController sections][section];
+    return [sectionInfo name];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -205,6 +212,24 @@
             break;
         case NSFetchedResultsChangeDelete:
             [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+            break;
+        case NSFetchedResultsChangeMove:
+            [tableView moveRowAtIndexPath:indexPath toIndexPath:newIndexPath];
+            break;
+        default:
+            break;
+    }
+}
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
+{
+    NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:sectionIndex];
+    switch (type) {
+        case NSFetchedResultsChangeInsert:
+            [self.tableView insertSections:indexSet withRowAnimation:UITableViewRowAnimationRight];
+            break;
+        case NSFetchedResultsChangeDelete:
+            [self.tableView deleteSections:indexSet withRowAnimation:UITableViewRowAnimationLeft];
             break;
         default:
             break;
