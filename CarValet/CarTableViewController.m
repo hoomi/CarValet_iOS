@@ -39,25 +39,11 @@
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     managedObjectContext = appDelegate.managedObjectContext;
     
-    NSError *error = nil;
     fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"CDCar"];
-    
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"make" ascending:YES];
-    [fetchRequest setSortDescriptors:@[sortDescriptor]];
-    fetchedResultController = [[NSFetchedResultsController alloc]
-                               initWithFetchRequest:fetchRequest
-                               managedObjectContext:managedObjectContext
-                               sectionNameKeyPath:@"make"
-                               cacheName:nil];
-    
-    [fetchedResultController performFetch:&error];
-    
-    if (error != nil) {
-        NSLog(@"Unresolved error %@, %@",error, [error userInfo]);
-        abort();
-    }
-    fetchedResultController.delegate = self;
     self.navigationItem.leftBarButtonItem = self.editButton;
+    
+    [self carSortChanged:nil];
+    
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -81,7 +67,6 @@
 - (IBAction)newCar:(id)sender {
     CDCar *newCar = [NSEntityDescription insertNewObjectForEntityForName:@"CDCar" inManagedObjectContext:managedObjectContext];
     newCar.createdAt = [NSDate date];
-    newCar.make = @"Unknown";
     NSError *error = nil;
     
     [managedObjectContext save:&error];
@@ -149,6 +134,8 @@
 {
     if ([segue.identifier isEqualToString:@"ViewCarSegue"]) {
         ViewCarViewController *nextController = segue.destinationViewController;
+        nextController.fetchRequest = fetchRequest;
+        nextController.managedObjectContext = managedObjectContext;
         nextController.delegate = self;
     }
 }
@@ -176,7 +163,14 @@
 
 - (NSInteger) carToView
 {
-    return [self.tableView indexPathForSelectedRow].row;
+    NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
+    NSInteger selectedCarIndexTableView = 0;
+    for (NSInteger i = 0; i < selectedIndexPath.section; i++) {
+        selectedCarIndexTableView += [self tableView:self.tableView numberOfRowsInSection:i];
+    }
+    selectedCarIndexTableView += selectedIndexPath.row;
+    NSLog(@"selected row: %d",selectedCarIndexTableView);
+    return selectedCarIndexTableView;
 }
 
 - (void) carViewDone:(BOOL) dataUpdated
@@ -264,4 +258,59 @@
  }
  
  */
+- (IBAction)carSortChanged:(id)sender {
+    
+    NSString *sortKey;
+    NSString *keyPath;
+    BOOL isAscending;
+    SEL compareSelector = nil;
+    
+    switch (self.carSortControl.selectedSegmentIndex) {
+        case kCarsTableSortMake:
+            sortKey = @"make";
+            keyPath = sortKey;
+            isAscending = YES;
+            compareSelector = @selector(localizedCaseInsensitiveCompare:);
+            break;
+        case kCarsTableSortModel:
+            sortKey = @"model";
+            keyPath = sortKey;
+            isAscending = YES;
+            compareSelector = @selector(localizedCaseInsensitiveCompare:);
+            break;
+        case kCarsTableSortYear:
+            sortKey = @"year";
+            keyPath = sortKey;
+            isAscending = NO;
+            break;
+        default:
+            sortKey = @"createdAt";
+            keyPath = nil;
+            isAscending = NO;
+            break;
+    }
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:sortKey ascending:isAscending selector:compareSelector];
+    
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    
+    fetchedResultController = [[NSFetchedResultsController alloc]
+                               initWithFetchRequest:fetchRequest
+                               managedObjectContext:managedObjectContext
+                               sectionNameKeyPath:keyPath
+                               cacheName:nil];
+    
+    fetchedResultController.delegate = self;
+    NSError *error = nil;
+    
+    [fetchedResultController performFetch:&error];
+    
+    if (error != nil) {
+        NSLog(@"Unresolved error %@, %@",error, [error userInfo]);
+        abort();
+    }
+    
+    [self.tableView reloadData];
+}
 @end

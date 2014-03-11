@@ -7,13 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 #import "MakeModelEditProtocol.h"
-#include "EditYearProtocol.h"
+#import "EditYearProtocol.h"
 #import "ViewCarProtocol.h"
 
 @interface ViewCarViewController : UITableViewController <MakeModelEditProtocol,EditYearProtocol, UINavigationControllerDelegate>
 @property (weak, nonatomic) id <ViewCarProtocol> delegate;
 @property  NSInteger displayedCarIndex;
+@property NSFetchRequest *fetchRequest;
+@property NSManagedObjectContext *managedObjectContext;
 @property (weak, nonatomic) IBOutlet UILabel *makeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *modelLabel;
 @property (weak, nonatomic) IBOutlet UILabel *yearLabel;

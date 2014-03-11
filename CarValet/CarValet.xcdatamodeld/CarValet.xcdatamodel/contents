@@ -3,8 +3,8 @@
     <entity name="CDCar" representedClassName="CDCar" syncable="YES">
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="fuel" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="make" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="model" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="make" optional="YES" attributeType="String" defaultValueString="Unknown" syncable="YES"/>
+        <attribute name="model" optional="YES" attributeType="String" defaultValueString="Unknown" syncable="YES"/>
         <attribute name="year" optional="YES" attributeType="Integer 16" defaultValueString="1908" syncable="YES"/>
     </entity>
     <elements>

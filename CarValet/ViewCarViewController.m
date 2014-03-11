@@ -23,9 +23,7 @@
 @implementation ViewCarViewController
 {
     NSArray *arrayOfCars;
-    NSFetchRequest *fetchRequest;
     NSInteger currentEditType;
-    NSManagedObjectContext *managedObjectContext;
     BOOL dataUpdated;
 }
 
@@ -42,16 +40,10 @@
 {
     [super viewDidLoad];
     dataUpdated = NO;
-    
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    managedObjectContext = appDelegate.managedObjectContext;
-    
     NSError *error = nil;
-    fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"CDCar"];
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"make" ascending:YES];
-    [fetchRequest setSortDescriptors:@[sortDescriptor]];
+    
+    arrayOfCars = [self.managedObjectContext executeFetchRequest:self.fetchRequest error:&error];
 
-    arrayOfCars = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
     if (error != nil) {
         NSLog(@"Unresolved error %@, %@",error, [error userInfo]);
@@ -120,9 +112,9 @@
 - (void) displayCarInformation {
     
     CDCar * displayedCar = [arrayOfCars objectAtIndex:self.displayedCarIndex];
-    self.makeLabel.text = (displayedCar.make == nil) ? @"Unknown" : displayedCar.make;
+    self.makeLabel.text = displayedCar.make;
     
-    self.modelLabel.text = (displayedCar.model == nil) ? @"Unknown" : displayedCar.model;
+    self.modelLabel.text = displayedCar.model;
     
     self.yearLabel.text = [NSString stringWithFormat:@"%@", displayedCar.year];
     

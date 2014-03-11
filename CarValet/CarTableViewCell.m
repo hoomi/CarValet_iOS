@@ -30,11 +30,8 @@
 
 -(void)configureCell
 {
-    NSString *unknownString = NSLocalizedStringWithDefaultValue(@"Unknown", nil, [NSBundle mainBundle], @"Unknown", @"Localized string for unknown");
-    NSString *make = (self.displayedCar.make == nil) ? unknownString : self.displayedCar.make;
-    NSString *model = (self.displayedCar.model == nil) ? unknownString : self.displayedCar.model;
     self.makeModelLabel.text = [NSString stringWithFormat:@"%@ %@ %@",
-                           [Utils localizeDateWithYear:[self.displayedCar.year integerValue]],make,model];
+                           [Utils localizeDateWithYear:[self.displayedCar.year integerValue]],self.displayedCar.make,self.displayedCar.model];
     
     NSString *dateStr = [NSDateFormatter localizedStringFromDate:self.displayedCar.createdAt dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
     

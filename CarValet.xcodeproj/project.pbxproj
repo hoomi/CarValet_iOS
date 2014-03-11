@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1503A8DD18C9E6B800E968CE /* YearEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1503A8DC18C9E6B800E968CE /* YearEditViewController.m */; };
+		150AC97718CF142B00F99CF0 /* CDCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 150AC97618CF142B00F99CF0 /* CDCar.m */; };
 		150DE9AD188743870015DD7E /* ElectricCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 150DE9AC188743870015DD7E /* ElectricCar.m */; };
 		1555F96418C47CB6008A9D90 /* Yellow-Lamborghini.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1555F96318C47CB6008A9D90 /* Yellow-Lamborghini.jpg */; };
 		155A02E718B7A09C00312EAA /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 155A02E618B7A09C00312EAA /* Utils.m */; };
@@ -18,7 +19,6 @@
 		1580EF6C18B6604000FB1355 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1580EF6118B6500300FB1355 /* Localizable.strings */; };
 		1582D0D018CB80A70028F81E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1582D0CF18CB80A70028F81E /* CoreData.framework */; };
 		1582D0D318CB80F80028F81E /* CarValet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1582D0D118CB80F80028F81E /* CarValet.xcdatamodeld */; };
-		1582D0D918CB943E0028F81E /* CDCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1582D0D818CB943E0028F81E /* CDCar.m */; };
 		159AC8D018BE4F6300785A5D /* Acura-16.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 159AC8C518BE4F6300785A5D /* Acura-16.jpg */; };
 		159AC8D118BE4F6300785A5D /* BMW-11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 159AC8C618BE4F6300785A5D /* BMW-11.jpg */; };
 		159AC8D218BE4F6300785A5D /* BMW-13.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 159AC8C718BE4F6300785A5D /* BMW-13.jpg */; };
@@ -71,6 +71,8 @@
 		1503A8DB18C9E6B700E968CE /* YearEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YearEditViewController.h; sourceTree = "<group>"; };
 		1503A8DC18C9E6B800E968CE /* YearEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YearEditViewController.m; sourceTree = "<group>"; };
 		1503A8DE18C9F65F00E968CE /* EditYearProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditYearProtocol.h; sourceTree = "<group>"; };
+		150AC97518CF142B00F99CF0 /* CDCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDCar.h; sourceTree = "<group>"; };
+		150AC97618CF142B00F99CF0 /* CDCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDCar.m; sourceTree = "<group>"; };
 		150DE9AB188743870015DD7E /* ElectricCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElectricCar.h; sourceTree = "<group>"; };
 		150DE9AC188743870015DD7E /* ElectricCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElectricCar.m; sourceTree = "<group>"; };
 		1555F96318C47CB6008A9D90 /* Yellow-Lamborghini.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Yellow-Lamborghini.jpg"; sourceTree = "<group>"; };
@@ -93,8 +95,6 @@
 		1580EF6A18B6507D00FB1355 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1582D0CF18CB80A70028F81E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		1582D0D218CB80F80028F81E /* CarValet.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CarValet.xcdatamodel; sourceTree = "<group>"; };
-		1582D0D718CB943E0028F81E /* CDCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDCar.h; sourceTree = "<group>"; };
-		1582D0D818CB943E0028F81E /* CDCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDCar.m; sourceTree = "<group>"; };
 		1582D0DA18CB965E0028F81E /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		159182A018B54BB6004403D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		159182A118B54BB7004403D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
@@ -205,9 +205,9 @@
 				15F001581885E9B100800736 /* HybridCar.m */,
 				150DE9AB188743870015DD7E /* ElectricCar.h */,
 				150DE9AC188743870015DD7E /* ElectricCar.m */,
-				1582D0D718CB943E0028F81E /* CDCar.h */,
-				1582D0D818CB943E0028F81E /* CDCar.m */,
 				1582D0D118CB80F80028F81E /* CarValet.xcdatamodeld */,
+				150AC97518CF142B00F99CF0 /* CDCar.h */,
+				150AC97618CF142B00F99CF0 /* CDCar.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -476,7 +476,7 @@
 				1582D0D318CB80F80028F81E /* CarValet.xcdatamodeld in Sources */,
 				155A02E718B7A09C00312EAA /* Utils.m in Sources */,
 				15D762D218C8B2CB004CA7B0 /* ViewCarViewController.m in Sources */,
-				1582D0D918CB943E0028F81E /* CDCar.m in Sources */,
+				150AC97718CF142B00F99CF0 /* CDCar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

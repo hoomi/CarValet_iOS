@@ -2,7 +2,7 @@
 //  CDCar.m
 //  CarValet
 //
-//  Created by Hooman Ostovari on 08/03/2014.
+//  Created by Hooman Ostovari on 11/03/2014.
 //  Copyright (c) 2014 Hooman Ostovari. All rights reserved.
 //
 
@@ -11,10 +11,10 @@
 
 @implementation CDCar
 
+@dynamic createdAt;
+@dynamic fuel;
 @dynamic make;
 @dynamic model;
-@dynamic fuel;
 @dynamic year;
-@dynamic createdAt;
 
 @end

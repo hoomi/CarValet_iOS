@@ -12,5 +12,10 @@
 #define kModelTYear 1908
 
 
+#define kCarsTableSortDateCreated   0
+#define kCarsTableSortMake          1
+#define kCarsTableSortModel         2
+#define kCarsTableSortYear          3
+
 
 #endif
