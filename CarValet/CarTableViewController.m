@@ -136,6 +136,16 @@
     }
 }
 
+-(NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+    return [fetchedResultController sectionIndexTitles];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
+{
+    return [fetchedResultController sectionForSectionIndexTitle:title atIndex:index];
+}
+
 #pragma mark - Protocols
 
 - (NSInteger) carToView
@@ -186,7 +196,10 @@
             [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
             break;
         case NSFetchedResultsChangeMove:
-            [tableView moveRowAtIndexPath:indexPath toIndexPath:newIndexPath];
+            [tableView deleteRowsAtIndexPaths:@[indexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            [tableView insertRowsAtIndexPaths:@[newIndexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
             break;
         default:
             break;
@@ -196,6 +209,7 @@
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
 {
     NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:sectionIndex];
+    
     switch (type) {
         case NSFetchedResultsChangeInsert:
             [self.tableView insertSections:indexSet withRowAnimation:UITableViewRowAnimationRight];
