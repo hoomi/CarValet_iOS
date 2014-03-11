@@ -48,7 +48,7 @@
     
     NSError *error = nil;
     fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"CDCar"];
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"createdAt" ascending:NO];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"make" ascending:YES];
     [fetchRequest setSortDescriptors:@[sortDescriptor]];
 
     arrayOfCars = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
