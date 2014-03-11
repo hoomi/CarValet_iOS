@@ -58,22 +58,20 @@
     self.navigationController.toolbarHidden = YES;
     
 }
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)newCar:(id)sender {
-    CDCar *newCar = [NSEntityDescription insertNewObjectForEntityForName:@"CDCar" inManagedObjectContext:managedObjectContext];
-    newCar.createdAt = [NSDate date];
-    NSError *error = nil;
-    
-    [managedObjectContext save:&error];
-    
-    if (error != nil) {
-        NSLog(@"Unresolved error %@, %@",error, [error userInfo]);
-        abort();
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"ViewCarSegue"]) {
+        ViewCarViewController *nextController = segue.destinationViewController;
+        nextController.fetchRequest = fetchRequest;
+        nextController.managedObjectContext = managedObjectContext;
+        nextController.delegate = self;
     }
 }
 
@@ -110,34 +108,11 @@
     return cell;
 }
 
-
-- (void) editTableView:(id)sender
-{
-    BOOL startEdit = (sender == self.editButton);
-    
-    UIBarButtonItem *nextButton = startEdit ? self.doneButton : self.editButton;
-    
-    [self.navigationItem setLeftBarButtonItem:nextButton animated:YES];
-    [self.tableView setEditing:startEdit animated:YES];
-}
-
-
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
     return  YES;
-}
-
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:@"ViewCarSegue"]) {
-        ViewCarViewController *nextController = segue.destinationViewController;
-        nextController.fetchRequest = fetchRequest;
-        nextController.managedObjectContext = managedObjectContext;
-        nextController.delegate = self;
-    }
 }
 
 
@@ -161,6 +136,8 @@
     }
 }
 
+#pragma mark - Protocols
+
 - (NSInteger) carToView
 {
     NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
@@ -180,7 +157,8 @@
     }
 }
 
-#pragma - NSFetchResultControllerDelegate
+
+#pragma mark - NSFetchResultControllerDelegate
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
 {
@@ -258,6 +236,8 @@
  }
  
  */
+
+#pragma mark - Actions
 - (IBAction)carSortChanged:(id)sender {
     
     NSString *sortKey;
@@ -313,4 +293,28 @@
     
     [self.tableView reloadData];
 }
+
+- (IBAction)newCar:(id)sender {
+    CDCar *newCar = [NSEntityDescription insertNewObjectForEntityForName:@"CDCar" inManagedObjectContext:managedObjectContext];
+    newCar.createdAt = [NSDate date];
+    NSError *error = nil;
+    
+    [managedObjectContext save:&error];
+    
+    if (error != nil) {
+        NSLog(@"Unresolved error %@, %@",error, [error userInfo]);
+        abort();
+    }
+}
+
+- (IBAction) editTableView:(id)sender
+{
+    BOOL startEdit = (sender == self.editButton);
+    
+    UIBarButtonItem *nextButton = startEdit ? self.doneButton : self.editButton;
+    
+    [self.navigationItem setLeftBarButtonItem:nextButton animated:YES];
+    [self.tableView setEditing:startEdit animated:YES];
+}
+
 @end
