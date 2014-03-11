@@ -40,9 +40,9 @@
     managedObjectContext = appDelegate.managedObjectContext;
     
     fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"CDCar"];
+    [self changeCarSort:kCarsTableSortDateCreated];
     self.navigationItem.leftBarButtonItem = self.editButton;
     
-    [self carSortChanged:nil];
     
     UIColor *magnesium = [UIColor colorWithRed:204.0/255.0 green:204.0/255.0 blue:204.0/255.0 alpha:1.0];
     self.tableView.sectionIndexColor = magnesium;
@@ -65,6 +65,7 @@
 {
     [super viewWillAppear:animated];
     self.navigationController.toolbarHidden = YES;
+    [self.mySearchBar setShowsScopeBar:YES];
     
 }
 
@@ -108,7 +109,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"CarCell";
-    CarTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    CarTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     cell.displayedCar = [fetchedResultController objectAtIndexPath:indexPath];
     [cell configureCell];
     
@@ -145,27 +146,82 @@
     }
 }
 
--(NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+-(NSArray *)sectioIndexTitlesForTableView:(UITableView *)tableView
 {
-    if (self.carSortControl.selectedSegmentIndex == kCarsTableSortYear) {
-        NSMutableArray *indices = [NSMutableArray new];
+    NSArray *indices;
+    if (self.mySearchBar.selectedScopeButtonIndex == kCarsTableSortYear) {
+        NSMutableArray *yearIndices = [NSMutableArray new];
         for (id<NSFetchedResultsSectionInfo> sectionInfo in fetchedResultController.sections) {
-            [indices insertObject:[sectionInfo name] atIndex:[indices count]];
+            [yearIndices insertObject:[sectionInfo name] atIndex:[indices count]];
         }
-        return indices;
+        indices = [yearIndices copy];
+    } else {
+        indices = [fetchedResultController sectionIndexTitles];
     }
-    return [fetchedResultController sectionIndexTitles];
+    return [@[UITableViewIndexSearch] arrayByAddingObjectsFromArray:indices];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
 {
-    if (self.carSortControl.selectedSegmentIndex == kCarsTableSortYear) {
+    
+    if (index == 0) {
+        [tableView scrollRectToVisible:self.mySearchBar.frame animated:YES];
+        
+        return NSNotFound;
+    }
+    if (self.mySearchBar.selectedScopeButtonIndex == kCarsTableSortYear) {
         return index;
     }
     return [fetchedResultController sectionForSectionIndexTitle:title atIndex:index];
 }
 
-#pragma mark - Protocols
+#pragma mark - UISearchDisplayDelegate
+
+- (void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope
+{
+    [self changeCarSort:selectedScope];
+}
+
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    [searchBar setShowsCancelButton:YES animated:YES];
+}
+
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    [searchBar resignFirstResponder];
+    [searchBar setText:@""];
+    [self searchBar:searchBar textDidChange:@""];
+    [searchBar setShowsCancelButton:NO animated:YES];
+}
+
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    if (searchText && ([searchText length] > 0)) {                      // 1
+        fetchRequest.predicate = [NSPredicate predicateWithFormat:          // 2
+                                  @"%K contains[cd] %@",                    // 3
+                                  [[fetchRequest.sortDescriptors            // 4
+                                    objectAtIndex:0] key],
+                                  searchText];                            // 5
+    } else {
+        fetchRequest.predicate = nil;                                       // 6
+    }
+    
+    NSError *error = nil;
+    [fetchedResultController performFetch:&error];                         // 7
+    
+    if (error != nil) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+    
+    [self.tableView reloadData];
+}
+
+#pragma mark - ViewCarProtocol
 
 - (NSInteger) carToView
 {
@@ -270,32 +326,36 @@
  
  */
 
-#pragma mark - Actions
-- (IBAction)carSortChanged:(id)sender {
-    
+#pragma mark - Utility Methods
+
+- (void)changeCarSort:(NSInteger)toSort
+{
     NSString *sortKey;
     NSString *keyPath;
     BOOL isAscending;
     SEL compareSelector = nil;
     
-    switch (self.carSortControl.selectedSegmentIndex) {
+    switch (toSort) {
         case kCarsTableSortMake:
             sortKey = @"make";
             keyPath = sortKey;
             isAscending = YES;
             compareSelector = @selector(localizedCaseInsensitiveCompare:);
             break;
+            
         case kCarsTableSortModel:
             sortKey = @"model";
             keyPath = sortKey;
             isAscending = YES;
             compareSelector = @selector(localizedCaseInsensitiveCompare:);
             break;
+            
         case kCarsTableSortYear:
             sortKey = @"year";
             keyPath = sortKey;
             isAscending = NO;
             break;
+            
         default:
             sortKey = @"createdAt";
             keyPath = nil;
@@ -303,29 +363,33 @@
             break;
     }
     
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:sortKey ascending:isAscending selector:compareSelector];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
+                                        initWithKey:sortKey
+                                        ascending:isAscending
+                                        selector:compareSelector];
     
-    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
-    [fetchRequest setSortDescriptors:sortDescriptors];
+    [fetchRequest setSortDescriptors:@[sortDescriptor]];
     
     fetchedResultController = [[NSFetchedResultsController alloc]
-                               initWithFetchRequest:fetchRequest
-                               managedObjectContext:managedObjectContext
-                               sectionNameKeyPath:keyPath
-                               cacheName:nil];
-    
+                                initWithFetchRequest:fetchRequest
+                                managedObjectContext:managedObjectContext
+                                sectionNameKeyPath:keyPath
+                                cacheName:nil];
     fetchedResultController.delegate = self;
-    NSError *error = nil;
     
+    NSError *error = nil;
     [fetchedResultController performFetch:&error];
     
     if (error != nil) {
-        NSLog(@"Unresolved error %@, %@",error, [error userInfo]);
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
     
     [self.tableView reloadData];
 }
+
+
+#pragma mark - Actions
 
 - (IBAction)newCar:(id)sender {
     CDCar *newCar = [NSEntityDescription insertNewObjectForEntityForName:@"CDCar" inManagedObjectContext:managedObjectContext];

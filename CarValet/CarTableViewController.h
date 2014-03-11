@@ -10,12 +10,12 @@
 #import <CoreData/CoreData.h>
 #import "ViewCarProtocol.h"
 
-@interface CarTableViewController : UITableViewController <ViewCarProtocol,NSFetchedResultsControllerDelegate>
+@interface CarTableViewController : UITableViewController <ViewCarProtocol,
+NSFetchedResultsControllerDelegate,UISearchBarDelegate>
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *editButton;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 - (IBAction)editTableView:(id)sender;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *carSortControl;
 @property (weak, nonatomic) IBOutlet UIView *tableHeader;
-- (IBAction)carSortChanged:(id)sender;
+@property (weak, nonatomic) IBOutlet UISearchBar *mySearchBar;
 
 @end

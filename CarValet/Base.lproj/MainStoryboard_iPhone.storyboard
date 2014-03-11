@@ -134,39 +134,28 @@
         <scene sceneID="eTf-La-OUg">
             <objects>
                 <tableViewController id="E1k-VN-nhc" customClass="CarTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="22" sectionFooterHeight="22" id="TSB-mN-VZj">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" sectionHeaderHeight="22" sectionFooterHeight="22" id="TSB-mN-VZj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="436"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="x9j-Pl-k8s">
-                            <rect key="frame" x="0.0" y="64" width="320" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bel-66-0Sx">
-                                    <rect key="frame" x="20" y="6" width="280" height="19"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <segments>
-                                        <segment title="Parked"/>
-                                        <segment title="Make"/>
-                                        <segment title="Model"/>
-                                        <segment title="Year"/>
-                                    </segments>
-                                    <connections>
-                                        <action selector="carSortChanged:" destination="E1k-VN-nhc" eventType="valueChanged" id="fQh-3b-Zqt"/>
-                                    </connections>
-                                </segmentedControl>
-                            </subviews>
-                            <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
-                            <constraints>
-                                <constraint firstItem="bel-66-0Sx" firstAttribute="leading" secondItem="x9j-Pl-k8s" secondAttribute="leading" constant="20" symbolic="YES" id="7Rt-hf-ep6"/>
-                                <constraint firstItem="bel-66-0Sx" firstAttribute="top" secondItem="x9j-Pl-k8s" secondAttribute="top" constant="6" id="S0m-N0-Zqu"/>
-                                <constraint firstAttribute="trailing" secondItem="bel-66-0Sx" secondAttribute="trailing" constant="20" symbolic="YES" id="VCG-qs-xQH"/>
-                                <constraint firstAttribute="bottom" secondItem="bel-66-0Sx" secondAttribute="bottom" constant="6" id="shE-fi-kYP"/>
-                            </constraints>
-                        </view>
+                        <searchBar key="tableHeaderView" contentMode="redraw" showsScopeBar="YES" id="8rw-7i-bMA">
+                            <rect key="frame" x="0.0" y="64" width="320" height="88"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <color key="barTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <scopeButtonTitles>
+                                <string>Parked</string>
+                                <string>Mark</string>
+                                <string>Model</string>
+                                <string>Year</string>
+                            </scopeButtonTitles>
+                            <connections>
+                                <outlet property="delegate" destination="E1k-VN-nhc" id="af3-Sf-s8o"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CarCell" rowHeight="68" id="yHu-4L-eHp" customClass="CarTableViewCell">
-                                <rect key="frame" x="0.0" y="116" width="320" height="68"/>
+                                <rect key="frame" x="0.0" y="174" width="320" height="68"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yHu-4L-eHp" id="kTB-Kg-syQ">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="67"/>
@@ -226,10 +215,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="carSortControl" destination="bel-66-0Sx" id="cmA-7f-vDm"/>
                         <outlet property="doneButton" destination="i9g-Pb-R8N" id="5NP-og-dDV"/>
                         <outlet property="editButton" destination="lMn-LW-1Yj" id="Q7u-2N-VkN"/>
-                        <outlet property="tableHeader" destination="x9j-Pl-k8s" id="WXJ-s7-HY0"/>
+                        <outlet property="mySearchBar" destination="8rw-7i-bMA" id="t5F-1e-ZA9"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u4u-EF-SW8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -243,6 +231,14 @@
                         <action selector="editTableView:" destination="E1k-VN-nhc" id="7Ew-RF-PKC"/>
                     </connections>
                 </barButtonItem>
+                <searchDisplayController id="ugX-kd-fjH">
+                    <connections>
+                        <outlet property="delegate" destination="E1k-VN-nhc" id="pPk-xi-hs4"/>
+                        <outlet property="searchContentsController" destination="E1k-VN-nhc" id="etl-if-kpj"/>
+                        <outlet property="searchResultsDataSource" destination="E1k-VN-nhc" id="MPN-vJ-nn5"/>
+                        <outlet property="searchResultsDelegate" destination="E1k-VN-nhc" id="bWd-4w-upV"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1464" y="-276"/>
         </scene>
