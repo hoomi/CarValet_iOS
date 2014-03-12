@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Main Menu Table View Controller-->
+        <!--Main Menu Table View Controller - CarValet-->
         <scene sceneID="oTm-Ki-kJE">
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="skg-Wh-Tus" customClass="MainMenuTableViewController" sceneMemberID="viewController">
@@ -91,7 +91,7 @@
                             <outlet property="delegate" destination="skg-Wh-Tus" id="oFs-b1-CMN"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Uq9-rC-h5D"/>
+                    <navigationItem key="navigationItem" title="CarValet" id="Uq9-rC-h5D"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>

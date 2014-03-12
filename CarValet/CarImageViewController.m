@@ -52,7 +52,7 @@
     CGRect newFrame =  carImageContainerView.frame;
     newFrame.size.height = maxHeight;
     carImageContainerView.frame = newFrame;
-
+    
     [self.scrollView addSubview:carImageContainerView];
     self.scrollView.contentSize = carImageContainerView.bounds.size;
 }
@@ -72,12 +72,17 @@
     self.resetZoomButton.enabled = NO;
     self.navigationController.toolbarHidden = YES;
     carImagesArray = @[ @"Yellow-Lamborghini.jpg",@"Acura-16.jpg", @"BMW-11.jpg", @"BMW-13.jpg",
-                       @"Cadillac-13.jpg", @"Car-39.jpg",
-                       @"Lexus-15.jpg", @"Mercedes Benz-106.jpg",
-                       @"Mini-11.jpg", @"Nissan Leaf-4.jpg",
-                       @"Nissan Maxima-2.jpg" ];
+                        @"Cadillac-13.jpg", @"Car-39.jpg",
+                        @"Lexus-15.jpg", @"Mercedes Benz-106.jpg",
+                        @"Mini-11.jpg", @"Nissan Leaf-4.jpg",
+                        @"Nissan Maxima-2.jpg" ];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
     [self setupScrollContent];
     [self updateCarNumberLabel];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -97,7 +102,7 @@
     NSInteger carIndex = [self carIndexForPoint:self.scrollView.contentOffset];
     
     NSString *localizedString = NSLocalizedStringWithDefaultValue(@"CarNumberLabel",@"EditScreen",[NSBundle mainBundle],@"Car Number",@"Label for the index number of the current car");
-
+    
     NSString *carNumberText = [NSString stringWithFormat:@"%@: %ld",localizedString,carIndex + 1];
     self.carNumberLabel.text = carNumberText;
     currentCarIndex = carIndex;
@@ -134,6 +139,7 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self.view layoutIfNeeded];
     [self updateCarNumberLabel];
 }
 

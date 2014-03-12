@@ -30,13 +30,6 @@
 {
     [super viewDidLoad];
     
-    
-    self.aboutViewController = [[AboutViewController alloc] initWithNibName:@"AboutViewController" bundle:[NSBundle mainBundle]];
-    if (IsIpad()) {
-        self.aboutViewController.navigationItem.hidesBackButton = YES;
-        self.aboutViewController.navigationItem.title = @"About";
-    }
-    
     for (UIImageView *iv in self.menuImages) {
         iv.image = [iv.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         iv.highlightedImage = [iv.highlightedImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
@@ -64,14 +57,21 @@
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{    
+{
+    UIStoryboard *iPhoneStoryBoard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:[NSBundle mainBundle]];
     UIViewController *nextController;
     
     switch (indexPath.row) {
         case kPadMenuAboutItem:
-            nextController = self.aboutViewController;
+            nextController = [iPhoneStoryBoard instantiateViewControllerWithIdentifier:@"AboutViewController"];
+            nextController.navigationItem.hidesBackButton = YES;
+            nextController.navigationItem.title = @"About";
             break;
-        case kPadMenuCarsItem:
+        case kPadMenuImagesItem:
+            nextController = [iPhoneStoryBoard instantiateViewControllerWithIdentifier:@"CarImagesViewController"];
+            nextController.navigationItem.hidesBackButton = YES;
+            nextController.navigationItem.rightBarButtonItem = nil;
+            break;
         default:
             nextController = nil;
             break;

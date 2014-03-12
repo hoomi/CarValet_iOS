@@ -31,7 +31,7 @@
         NSInteger lastScene = [defaults integerForKey:@"LastSceneShown"] ;
         tabController.selectedIndex = lastScene;
         NSLog(@"didFinishLaunchingWithOptions --> The tab index was: %ld",  (long)lastScene);
-
+        
     } else {
         UISplitViewController *splitViewController =
         (UISplitViewController *)self.window.rootViewController;
@@ -67,19 +67,21 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    UITabBarController *tabBarController = (UITabBarController*)self.window.rootViewController;
-    
-    // get the standard user defaults for this app
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    // set the preference for current scene
-    // (assumes currSceneType is set elsewhere to the id for the scene)
-    [defaults setInteger:tabBarController.selectedIndex forKey:@"LastSceneShown"];
-    
-    // make sure to synchronize so the defaults are saved
-    [defaults synchronize];
-    
-    NSLog(@"applicationDidEnterBackground --> The tab index was: %lu",  (unsigned long)tabBarController.selectedIndex);
+    if (!IsIpad()) {
+        UITabBarController *tabBarController = (UITabBarController*)self.window.rootViewController;
+        
+        // get the standard user defaults for this app
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        
+        // set the preference for current scene
+        // (assumes currSceneType is set elsewhere to the id for the scene)
+        [defaults setInteger:tabBarController.selectedIndex forKey:@"LastSceneShown"];
+        
+        // make sure to synchronize so the defaults are saved
+        [defaults synchronize];
+        
+        NSLog(@"applicationDidEnterBackground --> The tab index was: %lu",  (unsigned long)tabBarController.selectedIndex);
+    }
     
 }
 

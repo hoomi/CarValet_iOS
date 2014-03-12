@@ -245,7 +245,7 @@
         <!--CarImageViewContorller-->
         <scene sceneID="UPi-cp-Dly">
             <objects>
-                <viewController id="cAF-YY-P6w" userLabel="CarImageViewContorller" customClass="CarImageViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CarImagesViewController" id="cAF-YY-P6w" userLabel="CarImageViewContorller" customClass="CarImageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GJg-oh-Yos"/>
                         <viewControllerLayoutGuide type="bottom" id="KeU-4D-9v4"/>
@@ -479,7 +479,7 @@
         <!--About View Controller - About-->
         <scene sceneID="Nhl-se-cDj">
             <objects>
-                <viewController id="QYM-BO-nrL" customClass="AboutViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AboutViewController" id="QYM-BO-nrL" customClass="AboutViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qZP-tc-jlg"/>
                         <viewControllerLayoutGuide type="bottom" id="Wvx-6k-WyV"/>
