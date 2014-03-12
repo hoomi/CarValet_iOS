@@ -17,5 +17,9 @@
 #define kCarsTableSortModel         2
 #define kCarsTableSortYear          3
 
+#define kPadMenuCarsItem    0
+#define kPadMenuImagesItem  1
+#define kPadMenuAboutItem   2
+
 
 #endif

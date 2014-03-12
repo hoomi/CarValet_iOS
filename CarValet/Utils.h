@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 static inline BOOL IsEmpty(id thing) {
     return thing == nil
@@ -35,6 +36,11 @@ static inline BOOL IsNSNumber(id number) {
 
 static inline BOOL IsEmptyString (NSString* string) {
     return (string != nil && [string length]<=0);
+}
+
+static inline BOOL IsIpad()
+{
+    return UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
 }
 
 @interface Utils : NSObject

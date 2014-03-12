@@ -78,3 +78,9 @@ Enter the following command
 	
 		po [[UIWindow keyWindow] _autolayoutTrace]
 	
+
+### Checking if the device is an iPAD or an iPhone
+
+Use an if statement with the following condition
+	
+	UI_USER_INTERFACE_IDIOM() == <UIUserInterfaceIdiomPhone or UIUserInterfaceIdiomPad>

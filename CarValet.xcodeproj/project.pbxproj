@@ -15,6 +15,7 @@
 		155A02EE18B90E4F00312EAA /* CarTable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 155A02E818B90E4F00312EAA /* CarTable.strings */; };
 		155A02EF18B90E4F00312EAA /* EditScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = 155A02EA18B90E4F00312EAA /* EditScreen.strings */; };
 		155A02F018B90E4F00312EAA /* MainScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = 155A02EC18B90E4F00312EAA /* MainScreen.strings */; };
+		156AD48E18D0555700DCDCA6 /* MainMenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 156AD48D18D0555700DCDCA6 /* MainMenuTableViewController.m */; };
 		1580EF6818B6507A00FB1355 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1580EF6618B6507A00FB1355 /* InfoPlist.strings */; };
 		1580EF6C18B6604000FB1355 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1580EF6118B6500300FB1355 /* Localizable.strings */; };
 		1582D0D018CB80A70028F81E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1582D0CF18CB80A70028F81E /* CoreData.framework */; };
@@ -86,6 +87,8 @@
 		155A02F518B90E6B00312EAA /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/EditScreen.strings; sourceTree = "<group>"; };
 		155A02F618B90E6F00312EAA /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/MainScreen.strings; sourceTree = "<group>"; };
 		155A02F718B90E7000312EAA /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/MainScreen.strings; sourceTree = "<group>"; };
+		156AD48C18D0555700DCDCA6 /* MainMenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuTableViewController.h; sourceTree = "<group>"; };
+		156AD48D18D0555700DCDCA6 /* MainMenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuTableViewController.m; sourceTree = "<group>"; };
 		1580EF6218B6500300FB1355 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1580EF6418B6502F00FB1355 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1580EF6518B6505200FB1355 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -175,6 +178,7 @@
 		1550CF5618ACFA07006A01FC /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				156AD48B18D0499800DCDCA6 /* iPad */,
 				15AD246B18A68B9900698408 /* CarEditViewController.h */,
 				15AD246C18A68B9900698408 /* CarEditViewController.m */,
 				159AC8DB18BE500500785A5D /* CarImageViewController.h */,
@@ -214,6 +218,15 @@
 			children = (
 			);
 			name = Protocols;
+			sourceTree = "<group>";
+		};
+		156AD48B18D0499800DCDCA6 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				156AD48C18D0555700DCDCA6 /* MainMenuTableViewController.h */,
+				156AD48D18D0555700DCDCA6 /* MainMenuTableViewController.m */,
+			);
+			name = iPad;
 			sourceTree = "<group>";
 		};
 		159AC8C418BE4F6300785A5D /* images */ = {
@@ -462,6 +475,7 @@
 				1503A8DD18C9E6B800E968CE /* YearEditViewController.m in Sources */,
 				15F001271885CB6E00800736 /* AppDelegate.m in Sources */,
 				15D762C918C8932C004CA7B0 /* CarTableViewController.m in Sources */,
+				156AD48E18D0555700DCDCA6 /* MainMenuTableViewController.m in Sources */,
 				15D762D518C8C750004CA7B0 /* MakeModelEditViewController.m in Sources */,
 				15F001561885CB9100800736 /* Car.m in Sources */,
 				15F001591885E9B100800736 /* HybridCar.m in Sources */,
