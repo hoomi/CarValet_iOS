@@ -21,5 +21,11 @@
 #define kPadMenuImagesItem  1
 #define kPadMenuAboutItem   2
 
+#define kFuelPickerHundreds 0
+#define kFuelPickerTens     1
+#define kFuelPickerOnes     2
+#define kFuelPickerDecimal  3
+#define kFuelPickerTenths   4
+
 
 #endif

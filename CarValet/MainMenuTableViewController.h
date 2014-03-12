@@ -7,12 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "CarTableViewProtocol.h"
 @class AboutViewController;
 
-@interface MainMenuTableViewController : UITableViewController
+@interface MainMenuTableViewController : UITableViewController<CarTableViewProtocol>
 
-@property (strong,nonatomic) AboutViewController *aboutViewController;
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *menuImages;
 
 @end

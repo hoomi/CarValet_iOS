@@ -41,7 +41,7 @@
     
     fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"CDCar"];
     [self changeCarSort:kCarsTableSortDateCreated];
-    self.navigationItem.leftBarButtonItem = self.editButton;
+//    self.navigationItem.leftBarButtonItem = self.editButton;
     
     
     UIColor *magnesium = [UIColor colorWithRed:204.0/255.0 green:204.0/255.0 blue:204.0/255.0 alpha:1.0];
@@ -53,12 +53,14 @@
     
     UIColor *mercury = [UIColor colorWithRed:230.0/255.0 green:233.0/255.0 blue:230.0/255.0 alpha:1.0];
     self.tableView.sectionIndexTrackingBackgroundColor = mercury;
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    if (!self.delegate) {
+        self.title = NSLocalizedStringWithDefaultValue(
+                                                       @"AddViewScreenTitle",
+                                                       nil,
+                                                       [NSBundle mainBundle],
+                                                       @"CarValet",
+                                                       @"Title for the main app screen");
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -67,8 +69,14 @@
     self.navigationController.toolbarHidden = YES;
     [self.mySearchBar setShowsScopeBar:YES];
     
+    if (self.delegate == nil) {                                             // 1
+        self.navigationItem.leftBarButtonItem = self.editButton;            // 2
+    } else {                                                                // 3
+        UIBarButtonItem *addButton = self.navigationItem.rightBarButtonItem;
+        self.navigationItem.rightBarButtonItems = @[addButton, self.editButton];
+    }
+    
 }
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -76,12 +84,22 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    if ([identifier isEqualToString:@"ViewCarSegue"]) {                        // 1
+        if (self.delegate != nil) {                                         // 2
+            return NO;                                                      // 3
+        }
+    }
+    
+    return YES;
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"ViewCarSegue"]) {
+    if ([segue.identifier isEqualToString:@"ViewCarSegue"] && self.delegate == nil) {
         ViewCarViewController *nextController = segue.destinationViewController;
         nextController.fetchRequest = fetchRequest;
-        nextController.managedObjectContext = managedObjectContext;
         nextController.delegate = self;
     }
 }
@@ -181,7 +199,14 @@
     }
     
     return [fetchedResultController sectionForSectionIndexTitle:title           // 5
-                                                         atIndex:index];
+                                                        atIndex:index];
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.delegate) {
+        [self.delegate selectCar:[fetchedResultController objectAtIndexPath:indexPath]];
+    }
 }
 
 #pragma mark - UISearchDisplayDelegate
@@ -251,7 +276,6 @@
     }
 }
 
-
 #pragma mark - NSFetchResultControllerDelegate
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
@@ -306,35 +330,6 @@
     }
 }
 
-
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
- {
- }
- */
-
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
-
-/*
- #pragma mark - Navigation
- 
- // In a story board-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- 
- */
-
 #pragma mark - Utility Methods
 
 - (void)changeCarSort:(NSInteger)toSort
@@ -380,10 +375,10 @@
     [fetchRequest setSortDescriptors:@[sortDescriptor]];
     
     fetchedResultController = [[NSFetchedResultsController alloc]
-                                initWithFetchRequest:fetchRequest
-                                managedObjectContext:managedObjectContext
-                                sectionNameKeyPath:keyPath
-                                cacheName:nil];
+                               initWithFetchRequest:fetchRequest
+                               managedObjectContext:managedObjectContext
+                               sectionNameKeyPath:keyPath
+                               cacheName:nil];
     fetchedResultController.delegate = self;
     
     NSError *error = nil;
@@ -418,8 +413,14 @@
     BOOL startEdit = (sender == self.editButton);
     
     UIBarButtonItem *nextButton = startEdit ? self.doneButton : self.editButton;
-    
-    [self.navigationItem setLeftBarButtonItem:nextButton animated:YES];
+    if (self.delegate == nil) {
+        [self.navigationItem setLeftBarButtonItem:nextButton animated:YES];
+    } else {
+        UIBarButtonItem *addButton = self.navigationItem.rightBarButtonItems[0];
+        
+        [self.navigationItem setRightBarButtonItems:@[addButton, nextButton]
+                                           animated:YES];
+    }
     [self.tableView setEditing:startEdit animated:YES];
 }
 

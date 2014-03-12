@@ -18,6 +18,7 @@
 		156AD48E18D0555700DCDCA6 /* MainMenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 156AD48D18D0555700DCDCA6 /* MainMenuTableViewController.m */; };
 		156AD49118D060B800DCDCA6 /* DetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 156AD49018D060B800DCDCA6 /* DetailController.m */; };
 		156AD49318D0704E00DCDCA6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 156AD49218D0704E00DCDCA6 /* QuartzCore.framework */; };
+		156AD49718D0A80000DCDCA6 /* CarDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 156AD49618D0A80000DCDCA6 /* CarDetailsViewController.m */; };
 		1580EF6818B6507A00FB1355 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1580EF6618B6507A00FB1355 /* InfoPlist.strings */; };
 		1580EF6C18B6604000FB1355 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1580EF6118B6500300FB1355 /* Localizable.strings */; };
 		1582D0D018CB80A70028F81E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1582D0CF18CB80A70028F81E /* CoreData.framework */; };
@@ -94,6 +95,9 @@
 		156AD48F18D060B800DCDCA6 /* DetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailController.h; sourceTree = "<group>"; };
 		156AD49018D060B800DCDCA6 /* DetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailController.m; sourceTree = "<group>"; };
 		156AD49218D0704E00DCDCA6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		156AD49418D081EC00DCDCA6 /* CarTableViewProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CarTableViewProtocol.h; sourceTree = "<group>"; };
+		156AD49518D0A80000DCDCA6 /* CarDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarDetailsViewController.h; sourceTree = "<group>"; };
+		156AD49618D0A80000DCDCA6 /* CarDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarDetailsViewController.m; sourceTree = "<group>"; };
 		1580EF6218B6500300FB1355 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1580EF6418B6502F00FB1355 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1580EF6518B6505200FB1355 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -225,6 +229,7 @@
 				1503A8DA18C9C92800E968CE /* ViewCarProtocol.h */,
 				1503A8DE18C9F65F00E968CE /* EditYearProtocol.h */,
 				15D762D618C8C91F004CA7B0 /* MakeModelEditProtocol.h */,
+				156AD49418D081EC00DCDCA6 /* CarTableViewProtocol.h */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -234,6 +239,8 @@
 			children = (
 				156AD48C18D0555700DCDCA6 /* MainMenuTableViewController.h */,
 				156AD48D18D0555700DCDCA6 /* MainMenuTableViewController.m */,
+				156AD49518D0A80000DCDCA6 /* CarDetailsViewController.h */,
+				156AD49618D0A80000DCDCA6 /* CarDetailsViewController.m */,
 			);
 			name = iPad;
 			sourceTree = "<group>";
@@ -496,6 +503,7 @@
 				15D762CC18C894B2004CA7B0 /* CarTableViewCell.m in Sources */,
 				1582D0D318CB80F80028F81E /* CarValet.xcdatamodeld in Sources */,
 				155A02E718B7A09C00312EAA /* Utils.m in Sources */,
+				156AD49718D0A80000DCDCA6 /* CarDetailsViewController.m in Sources */,
 				15D762D218C8B2CB004CA7B0 /* ViewCarViewController.m in Sources */,
 				150AC97718CF142B00F99CF0 /* CDCar.m in Sources */,
 			);

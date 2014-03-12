@@ -10,12 +10,16 @@
 #import "AppDelegate.h"
 #import "AboutViewController.h"
 #import "DetailController.h"
+#import "CarDetailsViewController.h"
+#import "CarTableViewController.h"
 
 @interface MainMenuTableViewController ()
 
 @end
 
-@implementation MainMenuTableViewController
+@implementation MainMenuTableViewController {
+    CarDetailsViewController *currentCarDetailsController;
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -60,6 +64,7 @@
 {
     UIStoryboard *iPhoneStoryBoard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:[NSBundle mainBundle]];
     UIViewController *nextController;
+    BOOL newDetail = YES;
     
     switch (indexPath.row) {
         case kPadMenuAboutItem:
@@ -72,12 +77,35 @@
             nextController.navigationItem.hidesBackButton = YES;
             nextController.navigationItem.rightBarButtonItem = nil;
             break;
+        case kPadMenuCarsItem:
+            nextController = [iPhoneStoryBoard instantiateViewControllerWithIdentifier:@"CarTableViewController"];
+            [self.navigationController pushViewController:nextController   // 2
+                                                 animated:YES];
+            nextController.navigationItem.title = @"Cars";
+            ((CarTableViewController*)nextController).delegate = self;
+            
+            if (currentCarDetailsController == nil) {                                  // 1
+                currentCarDetailsController = [[self storyboard]
+                                              instantiateViewControllerWithIdentifier:
+                                              @"CarDetailViewController"];
+            }
+            nextController = currentCarDetailsController;
+            break;
         default:
             nextController = nil;
             break;
     }
-    [DetailController sharedDetailController].currDetailController= nextController;
+    if (newDetail) {
+        [DetailController sharedDetailController].currDetailController= nextController;
+    }
     
+}
+
+#pragma mark - CarTableViewProtocol
+-(void)selectCar:(CDCar *)selectedCar
+{
+    currentCarDetailsController.displayedCar = selectedCar;
+
 }
 
 @end
