@@ -13,5 +13,6 @@
 @interface MainMenuTableViewController : UITableViewController
 
 @property (strong,nonatomic) AboutViewController *aboutViewController;
+@property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *menuImages;
 
 @end

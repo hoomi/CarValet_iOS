@@ -31,9 +31,10 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="car" id="dUh-2t-9hE">
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="car" highlightedImage="car-selected" id="dUh-2t-9hE">
                                                     <rect key="frame" x="15" y="9" width="28" height="25"/>
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <color key="tintColor" red="0.50196081399917603" green="0.25098040699958801" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -52,9 +53,10 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="photo" id="iAv-xR-AD3">
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="photo" highlightedImage="photo-selected" id="iAv-xR-AD3">
                                                     <rect key="frame" x="15" y="10" width="28" height="23"/>
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <color key="tintColor" red="0.50196081400000003" green="0.25098040700000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -73,9 +75,10 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="info" id="7hG-iH-8ar">
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="info" highlightedImage="info-selected" id="7hG-iH-8ar">
                                                     <rect key="frame" x="15" y="7" width="28" height="28"/>
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <color key="tintColor" red="0.50196081400000003" green="0.25098040700000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -91,6 +94,11 @@
                     <navigationItem key="navigationItem" id="Uq9-rC-h5D"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outletCollection property="menuImages" destination="dUh-2t-9hE" id="B6Q-Qc-Ndm"/>
+                        <outletCollection property="menuImages" destination="iAv-xR-AD3" id="Oqq-FR-DMw"/>
+                        <outletCollection property="menuImages" destination="7hG-iH-8ar" id="3hD-RV-AnG"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HEz-QH-vyJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -181,8 +189,11 @@
     <resources>
         <image name="Detail Default" width="768" height="960"/>
         <image name="car" width="28" height="25"/>
+        <image name="car-selected" width="28" height="25"/>
         <image name="info" width="28" height="28"/>
+        <image name="info-selected" width="28" height="28"/>
         <image name="photo" width="28" height="23"/>
+        <image name="photo-selected" width="28" height="23"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

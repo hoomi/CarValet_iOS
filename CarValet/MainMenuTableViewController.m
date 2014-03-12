@@ -36,6 +36,11 @@
         self.aboutViewController.navigationItem.title = @"About";
     }
     
+    for (UIImageView *iv in self.menuImages) {
+        iv.image = [iv.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        iv.highlightedImage = [iv.highlightedImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    }
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     

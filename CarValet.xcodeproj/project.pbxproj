@@ -16,6 +16,7 @@
 		155A02EF18B90E4F00312EAA /* EditScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = 155A02EA18B90E4F00312EAA /* EditScreen.strings */; };
 		155A02F018B90E4F00312EAA /* MainScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = 155A02EC18B90E4F00312EAA /* MainScreen.strings */; };
 		156AD48E18D0555700DCDCA6 /* MainMenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 156AD48D18D0555700DCDCA6 /* MainMenuTableViewController.m */; };
+		156AD49118D060B800DCDCA6 /* DetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 156AD49018D060B800DCDCA6 /* DetailController.m */; };
 		1580EF6818B6507A00FB1355 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1580EF6618B6507A00FB1355 /* InfoPlist.strings */; };
 		1580EF6C18B6604000FB1355 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1580EF6118B6500300FB1355 /* Localizable.strings */; };
 		1582D0D018CB80A70028F81E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1582D0CF18CB80A70028F81E /* CoreData.framework */; };
@@ -89,6 +90,8 @@
 		155A02F718B90E7000312EAA /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/MainScreen.strings; sourceTree = "<group>"; };
 		156AD48C18D0555700DCDCA6 /* MainMenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuTableViewController.h; sourceTree = "<group>"; };
 		156AD48D18D0555700DCDCA6 /* MainMenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuTableViewController.m; sourceTree = "<group>"; };
+		156AD48F18D060B800DCDCA6 /* DetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailController.h; sourceTree = "<group>"; };
+		156AD49018D060B800DCDCA6 /* DetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailController.m; sourceTree = "<group>"; };
 		1580EF6218B6500300FB1355 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1580EF6418B6502F00FB1355 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1580EF6518B6505200FB1355 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -216,6 +219,9 @@
 		1550CF5818ACFA34006A01FC /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				1503A8DA18C9C92800E968CE /* ViewCarProtocol.h */,
+				1503A8DE18C9F65F00E968CE /* EditYearProtocol.h */,
+				15D762D618C8C91F004CA7B0 /* MakeModelEditProtocol.h */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -281,7 +287,6 @@
 		15F0011C1885CB6E00800736 /* CarValet */ = {
 			isa = PBXGroup;
 			children = (
-				15D762D618C8C91F004CA7B0 /* MakeModelEditProtocol.h */,
 				15ACDAAE18C773BB0075564F /* Images.xcassets */,
 				159AC8C418BE4F6300785A5D /* images */,
 				1550CF5818ACFA34006A01FC /* Protocols */,
@@ -296,9 +301,9 @@
 				155A02E618B7A09C00312EAA /* Utils.m */,
 				15D762CA18C894B2004CA7B0 /* CarTableViewCell.h */,
 				15D762CB18C894B2004CA7B0 /* CarTableViewCell.m */,
-				1503A8DA18C9C92800E968CE /* ViewCarProtocol.h */,
-				1503A8DE18C9F65F00E968CE /* EditYearProtocol.h */,
 				1582D0DA18CB965E0028F81E /* Constants.h */,
+				156AD48F18D060B800DCDCA6 /* DetailController.h */,
+				156AD49018D060B800DCDCA6 /* DetailController.m */,
 			);
 			path = CarValet;
 			sourceTree = "<group>";
@@ -473,6 +478,7 @@
 			files = (
 				15F001231885CB6E00800736 /* main.m in Sources */,
 				1503A8DD18C9E6B800E968CE /* YearEditViewController.m in Sources */,
+				156AD49118D060B800DCDCA6 /* DetailController.m in Sources */,
 				15F001271885CB6E00800736 /* AppDelegate.m in Sources */,
 				15D762C918C8932C004CA7B0 /* CarTableViewController.m in Sources */,
 				156AD48E18D0555700DCDCA6 /* MainMenuTableViewController.m in Sources */,

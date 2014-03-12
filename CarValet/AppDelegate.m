@@ -6,9 +6,10 @@
 //  Copyright (c) 2014 Hooman Ostovari. All rights reserved.
 //
 
+#import <CoreData/CoreData.h>
 #import "AppDelegate.h"
 #import "AboutViewController.h"
-#import <CoreData/CoreData.h>
+#import "DetailController.h"
 
 #define MyModelURLFile          @"CarValet"
 #define MySQLDataFileName       @"CarValet.sqlite"
@@ -22,7 +23,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+    if (!IsIpad()) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         
         UITabBarController *tabController = (UITabBarController*)self.window.rootViewController;
@@ -31,6 +32,13 @@
         tabController.selectedIndex = lastScene;
         NSLog(@"didFinishLaunchingWithOptions --> The tab index was: %ld",  (long)lastScene);
 
+    } else {
+        UISplitViewController *splitViewController =
+        (UISplitViewController *)self.window.rootViewController;
+        
+        DetailController *detailController = [DetailController
+                                              sharedDetailController];
+        detailController.splitViewController = splitViewController;
     }
     UIColor *mocha = [UIColor colorWithRed:128.0/255.0 green:64.0/255.0         // 1
                                       blue:0.0 alpha:1.0];
