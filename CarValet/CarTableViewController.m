@@ -69,6 +69,7 @@
     
 }
 
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -148,31 +149,39 @@
 
 -(NSArray *)sectioIndexTitlesForTableView:(UITableView *)tableView
 {
-    NSArray *indices;
-    if (self.mySearchBar.selectedScopeButtonIndex == kCarsTableSortYear) {
-        NSMutableArray *yearIndices = [NSMutableArray new];
-        for (id<NSFetchedResultsSectionInfo> sectionInfo in fetchedResultController.sections) {
-            [yearIndices insertObject:[sectionInfo name] atIndex:[indices count]];
+    NSMutableArray *indexes;                                                     // 1
+    if (self.mySearchBar.selectedScopeButtonIndex == kCarsTableSortYear) {        // 2
+        indexes = [NSMutableArray new];
+        
+        for (id <NSFetchedResultsSectionInfo> sectionInfo in
+             fetchedResultController.sections) {
+            [indexes insertObject:[sectionInfo name]
+                          atIndex:[indexes count]];
         }
-        indices = [yearIndices copy];
     } else {
-        indices = [fetchedResultController sectionIndexTitles];
+        indexes = [fetchedResultController sectionIndexTitles].mutableCopy;     // 3
     }
-    return [@[UITableViewIndexSearch] arrayByAddingObjectsFromArray:indices];
+    
+    if (!self.searchDisplayController.active)
+        [indexes insertObject:UITableViewIndexSearch atIndex:0];                 // 4
+    
+    return indexes;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
 {
     
-    if (index == 0) {
-        [tableView scrollRectToVisible:self.mySearchBar.frame animated:YES];
-        
-        return NSNotFound;
+    if (!self.searchDisplayController.active) {
+        if (index == 0) {                                                        // 1
+            [tableView setContentOffset:CGPointZero animated:YES];               // 2
+            return NSNotFound;                                                   // 3
+        } else {
+            index = index - 1;                                                   // 4
+        }
     }
-    if (self.mySearchBar.selectedScopeButtonIndex == kCarsTableSortYear) {
-        return index;
-    }
-    return [fetchedResultController sectionForSectionIndexTitle:title atIndex:index];
+    
+    return [fetchedResultController sectionForSectionIndexTitle:title           // 5
+                                                         atIndex:index];
 }
 
 #pragma mark - UISearchDisplayDelegate

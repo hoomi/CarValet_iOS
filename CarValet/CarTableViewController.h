@@ -15,7 +15,6 @@ NSFetchedResultsControllerDelegate,UISearchBarDelegate>
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *editButton;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 - (IBAction)editTableView:(id)sender;
-@property (weak, nonatomic) IBOutlet UIView *tableHeader;
 @property (weak, nonatomic) IBOutlet UISearchBar *mySearchBar;
 
 @end
