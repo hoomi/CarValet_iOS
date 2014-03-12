@@ -11,6 +11,7 @@
 @interface DetailController : NSObject<UISplitViewControllerDelegate>
 
 @property (weak,nonatomic) UISplitViewController* splitViewController;
+@property (weak,nonatomic) UIViewController* currDetailController;
 
 +(DetailController*)sharedDetailController;
 

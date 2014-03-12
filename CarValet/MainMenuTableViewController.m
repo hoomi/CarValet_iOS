@@ -9,6 +9,7 @@
 #import "MainMenuTableViewController.h"
 #import "AppDelegate.h"
 #import "AboutViewController.h"
+#import "DetailController.h"
 
 @interface MainMenuTableViewController ()
 
@@ -63,26 +64,19 @@
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
-    UIWindow *mainWindow = appDelegate.window;
-    UISplitViewController *splitViewController = (UISplitViewController*)mainWindow.rootViewController;
-    UINavigationController *detailController = [splitViewController viewControllers].lastObject;
-    
+{    
     UIViewController *nextController;
     
     switch (indexPath.row) {
         case kPadMenuAboutItem:
             nextController = self.aboutViewController;
-            if (![[detailController topViewController] isMemberOfClass:nextController.class]) {
-                [detailController pushViewController:nextController animated:YES];
-            }
             break;
         case kPadMenuCarsItem:
         default:
-            [detailController popToRootViewControllerAnimated:YES];
+            nextController = nil;
             break;
     }
+    [DetailController sharedDetailController].currDetailController= nextController;
     
 }
 

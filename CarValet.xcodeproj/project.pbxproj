@@ -17,6 +17,7 @@
 		155A02F018B90E4F00312EAA /* MainScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = 155A02EC18B90E4F00312EAA /* MainScreen.strings */; };
 		156AD48E18D0555700DCDCA6 /* MainMenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 156AD48D18D0555700DCDCA6 /* MainMenuTableViewController.m */; };
 		156AD49118D060B800DCDCA6 /* DetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 156AD49018D060B800DCDCA6 /* DetailController.m */; };
+		156AD49318D0704E00DCDCA6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 156AD49218D0704E00DCDCA6 /* QuartzCore.framework */; };
 		1580EF6818B6507A00FB1355 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1580EF6618B6507A00FB1355 /* InfoPlist.strings */; };
 		1580EF6C18B6604000FB1355 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1580EF6118B6500300FB1355 /* Localizable.strings */; };
 		1582D0D018CB80A70028F81E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1582D0CF18CB80A70028F81E /* CoreData.framework */; };
@@ -92,6 +93,7 @@
 		156AD48D18D0555700DCDCA6 /* MainMenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuTableViewController.m; sourceTree = "<group>"; };
 		156AD48F18D060B800DCDCA6 /* DetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailController.h; sourceTree = "<group>"; };
 		156AD49018D060B800DCDCA6 /* DetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailController.m; sourceTree = "<group>"; };
+		156AD49218D0704E00DCDCA6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1580EF6218B6500300FB1355 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1580EF6418B6502F00FB1355 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1580EF6518B6505200FB1355 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				156AD49318D0704E00DCDCA6 /* QuartzCore.framework in Frameworks */,
 				1582D0D018CB80A70028F81E /* CoreData.framework in Frameworks */,
 				15F001171885CB6E00800736 /* UIKit.framework in Frameworks */,
 				15F001191885CB6E00800736 /* Foundation.framework in Frameworks */,
@@ -276,6 +279,7 @@
 		15F001151885CB6E00800736 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				156AD49218D0704E00DCDCA6 /* QuartzCore.framework */,
 				1582D0CF18CB80A70028F81E /* CoreData.framework */,
 				15F001161885CB6E00800736 /* UIKit.framework */,
 				15F001181885CB6E00800736 /* Foundation.framework */,

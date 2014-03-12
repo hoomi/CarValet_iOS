@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Hooman Ostovari. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import "DetailController.h"
 
 @implementation DetailController
@@ -78,6 +79,40 @@
     }
 }
 
-
+- (void)setCurrDetailController:(UIViewController*)currDetailController {
+    NSArray *newStack = nil;                                                 // 1
+    
+    if (currDetailController == nil) {                                       // 2
+        UINavigationController *rootController =                             // 3
+        detailNavController.viewControllers[0];
+        
+        if (detailNavController.topViewController != rootController) {       // 4
+            
+            newStack = @[detailNavController.viewControllers[0]];            // 5
+            
+        }
+    } else if (![currDetailController isMemberOfClass:                       // 6
+                 [detailNavController.topViewController class]]) {
+        
+        newStack = @[detailNavController.viewControllers[0],                 // 7
+                     currDetailController];
+    }
+    
+    [menuPopoverController dismissPopoverAnimated:YES];                      // 8
+    
+    if (newStack != nil) {
+        CATransition *transition = [CATransition animation];
+        transition.duration = 0.7f;
+        transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        transition.type = kCATransitionReveal;
+        transition.subtype = kCATransitionFromRight;
+        [detailNavController.view.layer addAnimation:transition forKey:nil];
+        [detailNavController setViewControllers:newStack animated:NO];      // 9
+        
+        _currDetailController = detailNavController.topViewController;      // 10
+        _currDetailController.navigationItem.leftBarButtonItem =            // 11
+        menuPopoverButtonItem;
+    }
+}
 
 @end
