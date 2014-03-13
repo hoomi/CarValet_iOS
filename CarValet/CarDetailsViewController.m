@@ -188,6 +188,9 @@ numberOfRowsInComponent:(NSInteger)component {                 // 2
     [self.delegate nextOrPreviousCar:NO];                                   // 4
 }
 
-
+-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
+      shouldReceiveTouch:(UITouch *)touch {
+    return (self.displayedCar != nil);
+}
 
 @end

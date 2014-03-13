@@ -266,11 +266,13 @@
                 <swipeGestureRecognizer direction="right" id="Z4h-JY-tYi" userLabel="Swipe Gesture Recognizer Right">
                     <connections>
                         <action selector="swipeCarRight:" destination="1UE-Iy-amK" id="2Ea-yi-BTe"/>
+                        <outlet property="delegate" destination="1UE-Iy-amK" id="hXC-NB-ltm"/>
                     </connections>
                 </swipeGestureRecognizer>
                 <swipeGestureRecognizer direction="left" id="SYf-VK-IbC" userLabel="Swipe Gesture Recognizer Left">
                     <connections>
                         <action selector="swipeCarLeft:" destination="1UE-Iy-amK" id="lYa-Et-A9x"/>
+                        <outlet property="delegate" destination="1UE-Iy-amK" id="331-LM-aYz"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
