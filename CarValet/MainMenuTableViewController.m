@@ -74,6 +74,7 @@
 {
     UIStoryboard *iPhoneStoryBoard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:[NSBundle mainBundle]];
     UIViewController *nextController;
+    CarTableViewController *carTable;
     BOOL newDetail = YES;
     
     switch (indexPath.row) {
@@ -88,7 +89,13 @@
             nextController.navigationItem.rightBarButtonItem = nil;
             break;
         case kPadMenuCarsItem:
-            nextController = [iPhoneStoryBoard instantiateViewControllerWithIdentifier:@"CarTableViewController"];
+            carTable = [iPhoneStoryBoard instantiateViewControllerWithIdentifier:
+                        @"CarTableViewController"];
+            
+            carTable.navigationItem.title = @"Cars";
+            carTable.delegate = self;
+            
+            nextController = carTable;
             [self.navigationController pushViewController:nextController   // 2
                                                  animated:YES];
             nextController.navigationItem.title = @"Cars";
@@ -102,6 +109,7 @@
                 [[DetailController sharedDetailController] setCurrDetailController:currentCarDetailsController
                                               hidePopover:NO];
             }
+            currentCarDetailsController.delegate = carTable;
             nextController = currentCarDetailsController;
             newDetail = NO;
             break;
@@ -121,5 +129,6 @@
     currentCarDetailsController.displayedCar = selectedCar;
 
 }
+
 
 @end

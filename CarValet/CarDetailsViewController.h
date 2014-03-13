@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ViewCarProtocol.h"
 
 @class CDCar;
 
+
 @interface CarDetailsViewController : UIViewController <UIPickerViewDataSource,UIPickerViewDelegate>
+
+@property (weak, nonatomic) id <ViewCarProtocol> delegate;
 @property (weak, nonatomic) IBOutlet UITextField *carYearField;
 @property (weak, nonatomic) IBOutlet UITextField *carModelField;
 @property (weak, nonatomic) IBOutlet UITextField *carMakeField;

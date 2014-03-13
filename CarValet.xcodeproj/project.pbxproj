@@ -188,6 +188,7 @@
 		1550CF5618ACFA07006A01FC /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				156AD49818D1A75000DCDCA6 /* iPhone */,
 				156AD48B18D0499800DCDCA6 /* iPad */,
 				15AD246B18A68B9900698408 /* CarEditViewController.h */,
 				15AD246C18A68B9900698408 /* CarEditViewController.m */,
@@ -197,8 +198,6 @@
 				15ACDAB118C77F1C0075564F /* AboutViewController.m */,
 				15D762C718C8932C004CA7B0 /* CarTableViewController.h */,
 				15D762C818C8932C004CA7B0 /* CarTableViewController.m */,
-				15D762D018C8B2CB004CA7B0 /* ViewCarViewController.h */,
-				15D762D118C8B2CB004CA7B0 /* ViewCarViewController.m */,
 				15D762D318C8C750004CA7B0 /* MakeModelEditViewController.h */,
 				15D762D418C8C750004CA7B0 /* MakeModelEditViewController.m */,
 				1503A8DB18C9E6B700E968CE /* YearEditViewController.h */,
@@ -243,6 +242,15 @@
 				156AD49618D0A80000DCDCA6 /* CarDetailsViewController.m */,
 			);
 			name = iPad;
+			sourceTree = "<group>";
+		};
+		156AD49818D1A75000DCDCA6 /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				15D762D018C8B2CB004CA7B0 /* ViewCarViewController.h */,
+				15D762D118C8B2CB004CA7B0 /* ViewCarViewController.m */,
+			);
+			name = iPhone;
 			sourceTree = "<group>";
 		};
 		159AC8C418BE4F6300785A5D /* images */ = {

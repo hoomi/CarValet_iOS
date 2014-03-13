@@ -7,10 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+@class CDCar;
 
 @protocol ViewCarProtocol <NSObject>
 
-- (NSInteger) carToView;
+- (CDCar*) carToView;
 - (void) carViewDone:(BOOL) dataUpdated;
+
+@optional
+- (void)nextOrPreviousCar:(BOOL)isNext;
 
 @end

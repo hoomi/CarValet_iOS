@@ -44,7 +44,7 @@
     
     fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"CDCar"];
     [self changeCarSort:kCarsTableSortDateCreated];
-//    self.navigationItem.leftBarButtonItem = self.editButton;
+    //    self.navigationItem.leftBarButtonItem = self.editButton;
     
     
     UIColor *magnesium = [UIColor colorWithRed:204.0/255.0 green:204.0/255.0 blue:204.0/255.0 alpha:1.0];
@@ -103,7 +103,6 @@
 {
     if ([segue.identifier isEqualToString:@"ViewCarSegue"] && self.delegate == nil) {
         ViewCarViewController *nextController = segue.destinationViewController;
-        nextController.fetchRequest = fetchRequest;
         nextController.delegate = self;
     }
 }
@@ -215,7 +214,7 @@
         [self.delegate selectCar:[fetchedResultController objectAtIndexPath:indexPath]];
         if (previousPath != nil) {
             [self.tableView reloadRowsAtIndexPaths:@[previousPath]
-                             withRowAnimation:NO];
+                                  withRowAnimation:NO];
         }
         currentIndexPath = indexPath;
         [[DetailController sharedDetailController] hidePopover];
@@ -320,16 +319,11 @@ shouldReloadTableForSearchString:(NSString *)searchString
 
 #pragma mark - ViewCarProtocol
 
-- (NSInteger) carToView
+- (CDCar*) carToView
 {
-    NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
-    NSInteger selectedCarIndexTableView = 0;
-    for (NSInteger i = 0; i < selectedIndexPath.section; i++) {
-        selectedCarIndexTableView += [self tableView:currentTableView numberOfRowsInSection:i];
-    }
-    selectedCarIndexTableView += selectedIndexPath.row;
-    NSLog(@"selected row: %ld",(long)selectedCarIndexTableView);
-    return selectedCarIndexTableView;
+    currentIndexPath = [currentTableView indexPathForSelectedRow];
+    
+    return [fetchedResultController objectAtIndexPath:currentIndexPath];
 }
 
 - (void) carViewDone:(BOOL) dataUpdated
@@ -401,13 +395,13 @@ shouldReloadTableForSearchString:(NSString *)searchString
     NSString *keyPath;
     BOOL isAscending;
     SEL compareSelector = nil;
-
+    
     if ((self.delegate != nil) &&
         (self.tableView.indexPathForSelectedRow != nil)) {
         currentIndexPath = nil;
         [self.delegate selectCar:nil];
     }
-
+    
     
     switch (toSort) {
         case kCarsTableSortMake:
@@ -493,5 +487,85 @@ shouldReloadTableForSearchString:(NSString *)searchString
     }
     [self.tableView setEditing:startEdit animated:YES];
 }
+
+#pragma mark - View next/previous car
+
+- (NSIndexPath*)indexPathOfNext {
+    NSInteger section = self.tableView.indexPathForSelectedRow.section;     // 1
+    NSInteger row = self.tableView.indexPathForSelectedRow.row;
+    NSInteger maxSection = [self.tableView numberOfSections] - 1;
+    NSInteger maxRows = [self.tableView numberOfRowsInSection:section] - 1;
+    
+    if ((row + 1) > maxRows) {                                              // 2
+        if (section > maxSection) {                                         // 3
+            section = 0;
+            row = 0;
+        } else {
+            if (section != maxSection) {                                    // 4
+                section += 1;
+            } else {
+                section = 0;
+            }
+            row = 0;
+        }
+    } else {                                                                // 5
+        row += 1;
+    }
+    
+    return [NSIndexPath indexPathForRow:row inSection:section];
+}
+
+- (NSIndexPath*)indexPathOfPrevious {
+    NSInteger section = self.tableView.indexPathForSelectedRow.section;
+    NSInteger row = self.tableView.indexPathForSelectedRow.row;
+    NSInteger maxSection = [self.tableView numberOfSections] - 1;
+    NSInteger maxRows = [self.tableView numberOfRowsInSection:section] - 1;
+    
+    if (row == 0) {                                                         // 1
+        if (maxSection == 0) {                                              // 2
+            row = maxRows;
+        } else {
+            if (section == 0) {                                             // 3
+                section = maxSection;
+            } else {
+                section -= 1;
+            }
+            row = [self.tableView numberOfRowsInSection:section] - 1;       // 4
+        }
+    } else {
+        row -= 1;                                                           // 5
+    }
+    
+    return [NSIndexPath indexPathForRow:row inSection:section];
+}
+
+- (void)nextOrPreviousCar:(BOOL)isNext {
+    NSIndexPath *newSelection;                                              // 1
+    
+    if (isNext) {
+        newSelection = [self indexPathOfNext];
+    } else {
+        newSelection = [self indexPathOfPrevious];
+    }
+    NSLog(@"NewSelection row: %ld section: %ld",newSelection.row, newSelection.section);
+    NSLog(@"OldSelection row: %ld section: %ld",currentIndexPath.row, currentIndexPath.section);
+    [self.tableView selectRowAtIndexPath:newSelection                       // 2
+                                animated:YES
+                          scrollPosition:UITableViewScrollPositionMiddle];
+    
+    if (self.delegate != nil) {                                             // 3
+        NSIndexPath *previousPath = currentIndexPath;
+        
+        [self.delegate selectCar:[fetchedResultController objectAtIndexPath:newSelection]];                         // 4
+        
+        if (previousPath != nil) {
+            [currentTableView reloadRowsAtIndexPaths:@[previousPath]
+                                    withRowAnimation:NO];
+        }
+    }
+    currentIndexPath = newSelection;
+}
+
+
 
 @end

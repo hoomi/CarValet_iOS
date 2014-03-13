@@ -22,9 +22,8 @@
 
 @implementation ViewCarViewController
 {
-    NSArray *arrayOfCars;
     NSInteger currentEditType;
-    NSManagedObjectContext *managedObjectContext;
+    CDCar* myCar;
     BOOL dataUpdated;
 }
 
@@ -40,26 +39,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    managedObjectContext = appDelegate.managedObjectContext;
-    dataUpdated = NO;
-    NSError *error = nil;
-    
-    arrayOfCars = [managedObjectContext executeFetchRequest:self.fetchRequest error:&error];
-
-    
-    if (error != nil) {
-        NSLog(@"Unresolved error %@, %@",error, [error userInfo]);
-        abort();
-    }
-    self.displayedCarIndex = [self.delegate carToView];
-    UIColor *toolbarColor = [UIColor colorWithRed:102.0/255.0
+       dataUpdated = NO;
+       UIColor *toolbarColor = [UIColor colorWithRed:102.0/255.0
                                             green:204.0/255.0
                                              blue:0.0/255.0
                                             alpha:1.0];
     self.navigationController.toolbar.barTintColor = toolbarColor;
     self.navigationController.toolbarHidden = NO;
-    [self changeDisplayedCar:self.displayedCarIndex];
+    [self loadCarData];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -75,27 +62,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void) changeDisplayedCar:(NSInteger) index
-{
-    NSInteger count = [arrayOfCars count];
-    if (index >= count || index < 0) {
-        return;
-    }
-    self.displayedCarIndex = index;
-    
-    NSLocaleLanguageDirection langDirection = [NSLocale characterDirectionForLanguage:[NSLocale preferredLanguages][0]];
-    if (langDirection == NSLocaleLanguageDirectionLeftToRight) {
-        self.prevCarButton.enabled = index > 0;
-        self.nextCarButton.enabled = index < count -1;
-    } else {
-        self.prevCarButton.enabled = index < count -1;
-        self.nextCarButton.enabled = index > 0;
-    }
-    self.editButton.enabled = count > 0;
-    [self displayCarInformation];
-    
-}
-
 - (void) navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
     if (viewController == (UIViewController*) self.delegate) {
@@ -108,22 +74,21 @@
 
 - (void) displayCarInformation {
     
-    CDCar * displayedCar = [arrayOfCars objectAtIndex:self.displayedCarIndex];
-    self.makeLabel.text = displayedCar.make;
+    self.makeLabel.text = myCar.make;
     
-    self.modelLabel.text = displayedCar.model;
+    self.modelLabel.text = myCar.model;
     
-    self.yearLabel.text = [NSString stringWithFormat:@"%@", displayedCar.year];
+    self.yearLabel.text = [NSString stringWithFormat:@"%@", myCar.year];
     
-    self.fuelLabel.text = [NSString stringWithFormat:@"%0.2f",[displayedCar.fuel floatValue]];
+    self.fuelLabel.text = [NSString stringWithFormat:@"%0.2f",[myCar.fuel floatValue]];
     
     self.dateLabel.text = [NSDateFormatter
-                           localizedStringFromDate:displayedCar.createdAt
+                           localizedStringFromDate:myCar.createdAt
                            dateStyle:NSDateFormatterMediumStyle
                            timeStyle:NSDateFormatterNoStyle];
     
     self.timeLabel.text = [NSDateFormatter
-                           localizedStringFromDate:displayedCar.createdAt
+                           localizedStringFromDate:myCar.createdAt
                            dateStyle:NSDateFormatterNoStyle
                            timeStyle:NSDateFormatterMediumStyle];
 }
@@ -141,6 +106,42 @@
     }
 }
 
+- (void)loadCarData
+{
+    myCar = [self.delegate carToView];
+    
+    dataUpdated = NO;
+    
+    self.makeLabel.text = myCar.make;
+    
+    self.modelLabel.text = myCar.model;
+    
+    self.yearLabel.text = [NSString stringWithFormat:@"%@",
+                           myCar.year];
+    
+    self.fuelLabel.text = [NSString stringWithFormat:@"%0.2f",
+                           [myCar.fuel floatValue]];
+    
+    self.dateLabel.text = [NSDateFormatter
+                           localizedStringFromDate:myCar.createdAt
+                           dateStyle:NSDateFormatterMediumStyle
+                           timeStyle:NSDateFormatterNoStyle];
+    
+    self.timeLabel.text = [NSDateFormatter
+                           localizedStringFromDate:myCar.createdAt
+                           dateStyle:NSDateFormatterNoStyle
+                           timeStyle:NSDateFormatterMediumStyle];
+}
+
+#pragma mark - Next/Prev Car
+- (void) nextOrPreviousCar:(BOOL) isNext {
+    [self.delegate carViewDone:dataUpdated];                                // 2
+    
+    [self.delegate nextOrPreviousCar:isNext];                                  // 3
+    
+    [self loadCarData];
+}
+
 - (IBAction)editingDone:(UIStoryboardSegue*)segue
 {
     NSLog(@"editingDone called \n");
@@ -148,21 +149,23 @@
 }
 
 - (IBAction)nextCar:(id)sender {
-    NSInteger indexShift  = 1;
     if ([NSLocale characterDirectionForLanguage:[NSLocale preferredLanguages][0]] == NSLocaleLanguageDirectionRightToLeft) {
-        indexShift = -1;
+       [self nextOrPreviousCar:NO];
+    } else {
+       [self nextOrPreviousCar:YES];
     }
-    [self changeDisplayedCar:self.displayedCarIndex + indexShift];
 }
 
 - (IBAction)prevCar:(id)sender {
-    NSInteger indexShift  = -1;
+
     if ([NSLocale characterDirectionForLanguage:[NSLocale preferredLanguages][0]] == NSLocaleLanguageDirectionRightToLeft) {
-        indexShift = 1;
+        [self nextOrPreviousCar:YES];
+    } else {
+        [self nextOrPreviousCar:NO];
     }
-    [self changeDisplayedCar:self.displayedCarIndex + indexShift];
 }
 
+#pragma mark - Utility Functions
 - (NSString*) titleText
 {
     switch (currentEditType) {
@@ -188,8 +191,7 @@
 
 - (NSString*) editFieldText
 {
-    CDCar *car = [arrayOfCars objectAtIndex:self.displayedCarIndex];
-    return currentEditType == kCurrentEditModel ? car.model : car.make;
+    return currentEditType == kCurrentEditModel ? myCar.model : myCar.make;
     
 }
 
@@ -207,18 +209,16 @@
 
 -(NSInteger)editValueYear
 {
-    CDCar *car = arrayOfCars[self.displayedCarIndex];
-    return [car.year integerValue];
+    return [myCar.year integerValue];
 }
 
 - (void)editYearDone:(NSInteger)editValueYear
 {
-    CDCar *car = arrayOfCars[self.displayedCarIndex];
-    if (editValueYear < kModelTYear || editValueYear == [car.year integerValue]) {
+    if (editValueYear < kModelTYear || editValueYear == [myCar.year integerValue]) {
         return;
     }
     dataUpdated = YES;
-    car.year = [NSNumber numberWithInteger:editValueYear];
+    myCar.year = [NSNumber numberWithInteger:editValueYear];
     NSString *string = [Utils localizeDateWithYear:editValueYear];
     self.yearLabel.text = string;
     [self.tableView reloadData];
@@ -229,16 +229,15 @@
     if (IsEmptyString(textFieldValue)) {
         return;
     }
-    CDCar *displayedCar = arrayOfCars[self.displayedCarIndex];
     switch (currentEditType) {
         case kCurrentEditMake:
-            dataUpdated = dataUpdated || ![displayedCar.make isEqualToString:textFieldValue];
-            displayedCar.make = textFieldValue;
+            dataUpdated = dataUpdated || ![myCar.make isEqualToString:textFieldValue];
+            myCar.make = textFieldValue;
             self.makeLabel.text = textFieldValue;
             break;
         case kCurrentEditModel:
-            dataUpdated = dataUpdated || ![displayedCar.make isEqualToString:textFieldValue];
-            displayedCar.model = textFieldValue;
+            dataUpdated = dataUpdated || ![myCar.make isEqualToString:textFieldValue];
+            myCar.model = textFieldValue;
             self.modelLabel.text = textFieldValue;
             break;
         default:
@@ -247,5 +246,22 @@
     
 }
 
+#pragma mark - Gestures
+
+- (IBAction)swipeCarRight:(UISwipeGestureRecognizer*)sender {
+    if ([NSLocale characterDirectionForLanguage:[NSLocale preferredLanguages][0]] == NSLocaleLanguageDirectionRightToLeft) {
+        [self nextOrPreviousCar:NO];
+    } else {
+        [self nextOrPreviousCar:YES];
+    }
+}
+
+- (IBAction)swipeCarLeft:(UISwipeGestureRecognizer*)sender {
+    if ([NSLocale characterDirectionForLanguage:[NSLocale preferredLanguages][0]] == NSLocaleLanguageDirectionRightToLeft) {
+        [self nextOrPreviousCar:YES];
+    } else {
+        [self nextOrPreviousCar:NO];
+    }
+}
 
 @end

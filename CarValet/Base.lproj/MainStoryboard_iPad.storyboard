@@ -219,6 +219,7 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="3us-iU-2zw" firstAttribute="top" secondItem="yE9-Bf-Ohw" secondAttribute="bottom" constant="8" id="2Yo-wW-fi4"/>
                             <constraint firstItem="2E1-iy-pib" firstAttribute="leading" secondItem="dTz-cV-U22" secondAttribute="leading" constant="20" symbolic="YES" id="5Rp-5d-e7J"/>
@@ -244,6 +245,10 @@
                             <constraint firstItem="uWw-0z-0pV" firstAttribute="trailing" secondItem="yE9-Bf-Ohw" secondAttribute="trailing" id="z9A-p0-b50"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Z4h-JY-tYi" appends="YES" id="kpd-0D-wuX"/>
+                            <outletCollection property="gestureRecognizers" destination="SYf-VK-IbC" appends="YES" id="g77-FX-HTS"/>
+                        </connections>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -258,6 +263,16 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZAd-v4-lY4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="Z4h-JY-tYi" userLabel="Swipe Gesture Recognizer Right">
+                    <connections>
+                        <action selector="swipeCarRight:" destination="1UE-Iy-amK" id="2Ea-yi-BTe"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="SYf-VK-IbC" userLabel="Swipe Gesture Recognizer Left">
+                    <connections>
+                        <action selector="swipeCarLeft:" destination="1UE-Iy-amK" id="lYa-Et-A9x"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2208" y="-922"/>
         </scene>

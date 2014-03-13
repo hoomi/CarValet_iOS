@@ -178,5 +178,16 @@ numberOfRowsInComponent:(NSInteger)component {                 // 2
     [self setFuelValues];                                               // 5
 }
 
+#pragma mark - Gestures
+
+- (IBAction)swipeCarRight:(UISwipeGestureRecognizer*)sender {               // 1
+    [self.delegate nextOrPreviousCar:YES];                                  // 2
+}
+
+- (IBAction)swipeCarLeft:(UISwipeGestureRecognizer*)sender {                // 3
+    [self.delegate nextOrPreviousCar:NO];                                   // 4
+}
+
+
 
 @end

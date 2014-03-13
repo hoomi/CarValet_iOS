@@ -316,6 +316,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="436"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <sections>
                             <tableViewSection headerTitle="MAKE, MODEL &amp; YEAR" id="Nln-nr-gp2">
                                 <cells>
@@ -444,6 +445,8 @@
                         <connections>
                             <outlet property="dataSource" destination="a1C-JB-vIa" id="9d1-PX-vZU"/>
                             <outlet property="delegate" destination="a1C-JB-vIa" id="Mcm-kJ-fXC"/>
+                            <outletCollection property="gestureRecognizers" destination="EFA-7G-lPt" appends="YES" id="O0m-wZ-McC"/>
+                            <outletCollection property="gestureRecognizers" destination="BWq-kc-2YH" appends="YES" id="jTG-G4-Udf"/>
                         </connections>
                     </tableView>
                     <toolbarItems>
@@ -473,8 +476,18 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kvf-ow-SOv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="EFA-7G-lPt" userLabel="Swipe Gesture Recognizer Right">
+                    <connections>
+                        <action selector="swipeCarRight:" destination="a1C-JB-vIa" id="1Tl-iH-Oza"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="BWq-kc-2YH" userLabel="Swipe Gesture Recognizer Left">
+                    <connections>
+                        <action selector="swipeCarLeft:" destination="a1C-JB-vIa" id="OIb-sg-1v0"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2003" y="-276"/>
+            <point key="canvasLocation" x="1990" y="-265"/>
         </scene>
         <!--About View Controller - About-->
         <scene sceneID="Nhl-se-cDj">
