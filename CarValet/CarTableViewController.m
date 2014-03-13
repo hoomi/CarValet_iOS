@@ -39,6 +39,12 @@
 {
     [super viewDidLoad];
     
+    //This is to show that blocks do not use the updated value of a after it was updated
+    NSInteger a = 8;
+    void(^testLog)(void) = ^{NSLog(@"A: %ld",a);};
+    a += 100;
+    testLog();
+    
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     managedObjectContext = appDelegate.managedObjectContext;
     
