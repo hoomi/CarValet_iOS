@@ -531,7 +531,10 @@
                     <tabBarItem key="tabBarItem" title="About" image="info" id="76e-NK-WZa"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <connections>
+                        <outlet property="labelTaxiSpace" destination="HLw-S4-mLV" id="qzE-aM-5jB"/>
+                        <outlet property="taxiHeight" destination="5k7-Kv-9jN" id="src-mu-xyr"/>
                         <outlet property="taxiView" destination="vYe-Zt-ssW" id="z2o-He-x6c"/>
+                        <outlet property="taxiWidth" destination="H8b-wG-jJ6" id="mVg-ir-aZ0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r9f-MH-Xp2" userLabel="First Responder" sceneMemberID="firstResponder"/>
