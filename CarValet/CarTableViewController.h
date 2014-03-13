@@ -10,7 +10,7 @@
 #import <CoreData/CoreData.h>
 #import "ViewCarProtocol.h"
 #import "CarTableViewProtocol.h"
-@interface CarTableViewController : UITableViewController <ViewCarProtocol, NSFetchedResultsControllerDelegate,UISearchBarDelegate>
+@interface CarTableViewController : UITableViewController <ViewCarProtocol, NSFetchedResultsControllerDelegate,UISearchBarDelegate,UISearchDisplayDelegate>
 @property (weak, nonatomic) id<CarTableViewProtocol> delegate;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *editButton;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *doneButton;

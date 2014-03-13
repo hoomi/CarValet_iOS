@@ -46,6 +46,16 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    if (currentCarDetailsController != nil) {                                // 1
+        [DetailController sharedDetailController].currDetailController = nil;
+        currentCarDetailsController = nil;                                   // 2
+    }
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

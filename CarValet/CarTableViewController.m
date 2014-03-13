@@ -21,6 +21,8 @@
     NSManagedObjectContext *managedObjectContext;
     NSFetchedResultsController *fetchedResultController;
     NSFetchRequest *fetchRequest;
+    NSIndexPath *currentIndexPath;
+    UITableView *currentTableView;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -61,6 +63,7 @@
                                                        @"CarValet",
                                                        @"Title for the main app screen");
     }
+    currentTableView = self.tableView;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -205,7 +208,15 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (self.delegate) {
+        
+        NSIndexPath *previousPath = currentIndexPath;
+        
         [self.delegate selectCar:[fetchedResultController objectAtIndexPath:indexPath]];
+        if (previousPath != nil) {
+            [self.tableView reloadRowsAtIndexPaths:@[previousPath]
+                             withRowAnimation:NO];
+        }
+        currentIndexPath = indexPath;
     }
 }
 
@@ -255,6 +266,56 @@
     [self.tableView reloadData];
 }
 
+- (void)searchDisplayController:(UISearchDisplayController *)controller
+ willShowSearchResultsTableView:(UITableView *)tableView
+{
+    currentTableView = tableView;
+}
+
+#pragma mark - UISearchDisplayDelegate
+
+
+- (void)searchDisplayControllerWillEndSearch:(UISearchDisplayController *)
+controller {
+    [self searchDisplayController:controller
+ shouldReloadTableForSearchString:@""];
+    currentTableView = self.tableView;
+    [self.tableView reloadData];
+}
+
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller
+shouldReloadTableForSearchString:(NSString *)searchString
+{
+    if (searchString && ([searchString length] > 0)) {
+        fetchRequest.predicate = [NSPredicate predicateWithFormat:
+                                  @"%K contains[cd] %@",
+                                  [[fetchRequest.sortDescriptors
+                                    objectAtIndex:0] key],
+                                  searchString];
+    } else {
+        fetchRequest.predicate = nil;
+    }
+    
+    NSError *error = nil;
+    [fetchedResultController performFetch:&error];
+    
+    if (error != nil) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+    
+    return YES;
+}
+
+
+- (void)searchDisplayController:(UISearchDisplayController *)controller
+  didLoadSearchResultsTableView:(UITableView *)tableView {
+    tableView.rowHeight = self.tableView.rowHeight;
+}
+
+
+
 #pragma mark - ViewCarProtocol
 
 - (NSInteger) carToView
@@ -262,7 +323,7 @@
     NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
     NSInteger selectedCarIndexTableView = 0;
     for (NSInteger i = 0; i < selectedIndexPath.section; i++) {
-        selectedCarIndexTableView += [self tableView:self.tableView numberOfRowsInSection:i];
+        selectedCarIndexTableView += [self tableView:currentTableView numberOfRowsInSection:i];
     }
     selectedCarIndexTableView += selectedIndexPath.row;
     NSLog(@"selected row: %ld",(long)selectedCarIndexTableView);
@@ -272,7 +333,7 @@
 - (void) carViewDone:(BOOL) dataUpdated
 {
     if (dataUpdated) {
-        [self.tableView reloadRowsAtIndexPaths:[self.tableView indexPathsForVisibleRows]  withRowAnimation:UITableViewRowAnimationMiddle];
+        [currentTableView reloadRowsAtIndexPaths:[currentTableView indexPathsForVisibleRows]  withRowAnimation:UITableViewRowAnimationMiddle];
     }
 }
 
@@ -280,12 +341,12 @@
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
 {
-    [self.tableView beginUpdates];
+    [currentTableView beginUpdates];
 }
 
 -(void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
-    [self.tableView endUpdates];
+    [currentTableView endUpdates];
 }
 
 -(void)controller:(NSFetchedResultsController *)controller
@@ -320,10 +381,10 @@
     
     switch (type) {
         case NSFetchedResultsChangeInsert:
-            [self.tableView insertSections:indexSet withRowAnimation:UITableViewRowAnimationRight];
+            [currentTableView insertSections:indexSet withRowAnimation:UITableViewRowAnimationRight];
             break;
         case NSFetchedResultsChangeDelete:
-            [self.tableView deleteSections:indexSet withRowAnimation:UITableViewRowAnimationLeft];
+            [currentTableView deleteSections:indexSet withRowAnimation:UITableViewRowAnimationLeft];
             break;
         default:
             break;
@@ -338,6 +399,13 @@
     NSString *keyPath;
     BOOL isAscending;
     SEL compareSelector = nil;
+
+    if ((self.delegate != nil) &&
+        (self.tableView.indexPathForSelectedRow != nil)) {
+        currentIndexPath = nil;
+        [self.delegate selectCar:nil];
+    }
+
     
     switch (toSort) {
         case kCarsTableSortMake:
