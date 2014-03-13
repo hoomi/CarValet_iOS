@@ -82,6 +82,12 @@ If you are the user of a class or method, you are not defining or using the bloc
 	
 	[anObject aBlockBaseMethod:^{<your code goes here>}];
 
+###Modifable varibale in the block
+
+use 
+
+	__block <varaibe type> <variable name>
+
 ###Localisation
 
 In order to generate Base.lproj for localized strings use the following command from within the CarValet folder where all the *.m & *.h file exist

@@ -40,8 +40,12 @@
     [super viewDidLoad];
     
     //This is to show that blocks do not use the updated value of a after it was updated
-    NSInteger a = 8;
-    void(^testLog)(void) = ^{NSLog(@"A: %ld",a);};
+    __block NSInteger a = 8;
+    void(^testLog)(void) = ^void(void){
+        a = 50;
+        NSLog(@"A: %ld",a);
+    };
+    testLog();
     a += 100;
     testLog();
     
