@@ -501,24 +501,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CarValet is brought to you by Hooman Ostovari" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="9i5-fC-LOn">
-                                <rect key="frame" x="20" y="28" width="280" height="395"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CarValet is brought to you by Hooman Ostovari" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="9i5-fC-LOn">
+                                <rect key="frame" x="20" y="86" width="280" height="337"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="big-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="vYe-Zt-ssW">
+                                <rect key="frame" x="135" y="28" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.50196081399917603" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="5k7-Kv-9jN"/>
+                                    <constraint firstAttribute="width" constant="50" id="H8b-wG-jJ6"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="9i5-fC-LOn" secondAttribute="trailing" constant="20" symbolic="YES" id="4pS-3Z-mW9"/>
-                            <constraint firstItem="9i5-fC-LOn" firstAttribute="top" secondItem="qZP-tc-jlg" secondAttribute="bottom" constant="20" symbolic="YES" id="E9a-RI-h0X"/>
+                            <constraint firstItem="9i5-fC-LOn" firstAttribute="top" secondItem="vYe-Zt-ssW" secondAttribute="bottom" constant="8" symbolic="YES" id="HLw-S4-mLV"/>
+                            <constraint firstItem="vYe-Zt-ssW" firstAttribute="top" secondItem="qZP-tc-jlg" secondAttribute="bottom" constant="20" symbolic="YES" id="Mcg-Qo-nK2"/>
                             <constraint firstItem="Wvx-6k-WyV" firstAttribute="top" secondItem="9i5-fC-LOn" secondAttribute="bottom" constant="20" symbolic="YES" id="O3b-zX-79H"/>
                             <constraint firstItem="9i5-fC-LOn" firstAttribute="leading" secondItem="VLa-Aw-ic0" secondAttribute="leading" constant="20" symbolic="YES" id="Xxj-AM-Hxg"/>
+                            <constraint firstAttribute="centerX" secondItem="vYe-Zt-ssW" secondAttribute="centerX" id="e0Y-kH-na5"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="About" image="info" id="76e-NK-WZa"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <connections>
+                        <outlet property="taxiView" destination="vYe-Zt-ssW" id="z2o-He-x6c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r9f-MH-Xp2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -578,6 +592,7 @@
     <resources>
         <image name="arrow-left" width="22" height="22"/>
         <image name="arrow-right" width="22" height="22"/>
+        <image name="big-placeholder" width="560" height="560"/>
         <image name="car" width="28" height="25"/>
         <image name="info" width="28" height="28"/>
         <image name="photo" width="28" height="23"/>

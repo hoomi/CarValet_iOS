@@ -7,6 +7,7 @@
 //
 
 #import "AboutViewController.h"
+#import "DragViewGesture.h"
 
 @interface AboutViewController ()
 
@@ -26,7 +27,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    DragViewGesture *dragGesture = [[DragViewGesture alloc]init];
+    [self.taxiView addGestureRecognizer:dragGesture];
     
 }
 
