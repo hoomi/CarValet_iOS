@@ -12,6 +12,7 @@
 #import "DetailController.h"
 #import "CarDetailsViewController.h"
 #import "CarTableViewController.h"
+#import "ReturnGestureRecognizer.h"
 
 @interface MainMenuTableViewController ()
 
@@ -38,12 +39,8 @@
         iv.image = [iv.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         iv.highlightedImage = [iv.highlightedImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     }
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    ReturnGestureRecognizer *returnGesture = [[ReturnGestureRecognizer alloc]initWithTarget:self action:@selector(returnHome:)];
+    [DetailController sharedDetailController].returnGesture = returnGesture;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -128,6 +125,17 @@
 {
     currentCarDetailsController.displayedCar = selectedCar;
 
+}
+
+-(IBAction)returnHome:(UIGestureRecognizer*)sender
+{
+    [self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:YES];
+    if (currentCarDetailsController != nil) {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        currentCarDetailsController = nil;
+    }
+    
+    [DetailController sharedDetailController].currDetailController = nil;
 }
 
 

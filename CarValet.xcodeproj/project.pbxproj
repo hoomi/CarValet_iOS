@@ -23,6 +23,7 @@
 		1580EF6C18B6604000FB1355 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1580EF6118B6500300FB1355 /* Localizable.strings */; };
 		1582D0D018CB80A70028F81E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1582D0CF18CB80A70028F81E /* CoreData.framework */; };
 		1582D0D318CB80F80028F81E /* CarValet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1582D0D118CB80F80028F81E /* CarValet.xcdatamodeld */; };
+		158EF38618D1B86600BD154D /* ReturnGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 158EF38518D1B86600BD154D /* ReturnGestureRecognizer.m */; };
 		159AC8D018BE4F6300785A5D /* Acura-16.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 159AC8C518BE4F6300785A5D /* Acura-16.jpg */; };
 		159AC8D118BE4F6300785A5D /* BMW-11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 159AC8C618BE4F6300785A5D /* BMW-11.jpg */; };
 		159AC8D218BE4F6300785A5D /* BMW-13.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 159AC8C718BE4F6300785A5D /* BMW-13.jpg */; };
@@ -107,6 +108,8 @@
 		1582D0CF18CB80A70028F81E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		1582D0D218CB80F80028F81E /* CarValet.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CarValet.xcdatamodel; sourceTree = "<group>"; };
 		1582D0DA18CB965E0028F81E /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		158EF38418D1B86600BD154D /* ReturnGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReturnGestureRecognizer.h; sourceTree = "<group>"; };
+		158EF38518D1B86600BD154D /* ReturnGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReturnGestureRecognizer.m; sourceTree = "<group>"; };
 		159182A018B54BB6004403D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		159182A118B54BB7004403D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		159AC8C518BE4F6300785A5D /* Acura-16.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Acura-16.jpg"; sourceTree = "<group>"; };
@@ -253,6 +256,15 @@
 			name = iPhone;
 			sourceTree = "<group>";
 		};
+		158EF38318D1B7D100BD154D /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				158EF38418D1B86600BD154D /* ReturnGestureRecognizer.h */,
+				158EF38518D1B86600BD154D /* ReturnGestureRecognizer.m */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
 		159AC8C418BE4F6300785A5D /* images */ = {
 			isa = PBXGroup;
 			children = (
@@ -306,6 +318,7 @@
 		15F0011C1885CB6E00800736 /* CarValet */ = {
 			isa = PBXGroup;
 			children = (
+				158EF38318D1B7D100BD154D /* Other */,
 				15ACDAAE18C773BB0075564F /* Images.xcassets */,
 				159AC8C418BE4F6300785A5D /* images */,
 				1550CF5818ACFA34006A01FC /* Protocols */,
@@ -506,6 +519,7 @@
 				15F001591885E9B100800736 /* HybridCar.m in Sources */,
 				159AC8DD18BE500500785A5D /* CarImageViewController.m in Sources */,
 				15ACDAB318C77F1C0075564F /* AboutViewController.m in Sources */,
+				158EF38618D1B86600BD154D /* ReturnGestureRecognizer.m in Sources */,
 				150DE9AD188743870015DD7E /* ElectricCar.m in Sources */,
 				15AD246D18A68B9900698408 /* CarEditViewController.m in Sources */,
 				15D762CC18C894B2004CA7B0 /* CarTableViewCell.m in Sources */,

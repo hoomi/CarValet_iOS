@@ -8,13 +8,13 @@
 
 #import <QuartzCore/QuartzCore.h>
 #import "DetailController.h"
+#import "ReturnGestureRecognizer.h"
 
 @implementation DetailController
 {
     UIBarButtonItem *menuPopoverButtonItem;
     UIPopoverController *menuPopoverController;
     UINavigationController *detailNavController;
-    
 }
 
 
@@ -89,6 +89,9 @@
     
     NSArray *newStack = nil;                                                 // 1
     
+    if (self.returnGesture && currDetailController && _currDetailController != currDetailController) {
+        [currDetailController.view addGestureRecognizer:self.returnGesture];
+    }
     if (currDetailController == nil) {                                       // 2
         UINavigationController *rootController =                             // 3
         detailNavController.viewControllers[0];

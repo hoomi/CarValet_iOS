@@ -10,6 +10,7 @@
 
 @interface DetailController : NSObject<UISplitViewControllerDelegate>
 
+@property (strong,nonatomic) UIGestureRecognizer *returnGesture;
 @property (weak,nonatomic) UISplitViewController* splitViewController;
 @property (weak,nonatomic) UIViewController* currDetailController;
 
