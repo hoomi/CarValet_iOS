@@ -79,7 +79,14 @@
     }
 }
 
-- (void)setCurrDetailController:(UIViewController*)currDetailController {
+- (void) setCurrDetailController:(UIViewController *)currDetailController
+{
+    [self setCurrDetailController:currDetailController hidePopover:YES];
+}
+
+- (void)setCurrDetailController:(UIViewController *)currDetailController hidePopover:(BOOL)hidePopover
+{
+    
     NSArray *newStack = nil;                                                 // 1
     
     if (currDetailController == nil) {                                       // 2
@@ -98,7 +105,9 @@
                      currDetailController];
     }
     
-    [menuPopoverController dismissPopoverAnimated:YES];                      // 8
+    if (hidePopover) {
+        [self hidePopover];                                                  // 8
+    }
     
     if (newStack != nil) {
         CATransition *transition = [CATransition animation];
@@ -110,9 +119,14 @@
         [detailNavController setViewControllers:newStack animated:NO];      // 9
         
         _currDetailController = detailNavController.topViewController;      // 10
-        _currDetailController.navigationItem.leftBarButtonItem =            // 11
-        menuPopoverButtonItem;
+        _currDetailController.navigationItem.leftBarButtonItem = menuPopoverButtonItem;
     }
+}
+
+#pragma mark - Public Methods
+
+- (void)hidePopover {
+    [menuPopoverController dismissPopoverAnimated:YES];
 }
 
 @end

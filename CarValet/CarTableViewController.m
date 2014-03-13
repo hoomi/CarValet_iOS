@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "CarTableViewCell.h"
 #import "ViewCarViewController.h"
+#import "DetailController.h"
 
 @interface CarTableViewController ()
 
@@ -217,6 +218,7 @@
                              withRowAnimation:NO];
         }
         currentIndexPath = indexPath;
+        [[DetailController sharedDetailController] hidePopover];
     }
 }
 

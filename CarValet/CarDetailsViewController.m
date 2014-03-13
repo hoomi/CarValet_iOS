@@ -29,6 +29,7 @@
 {
     [super viewDidLoad];
     self.navigationItem.hidesBackButton= YES;
+    [self updateEditableState:NO];
     self.fuelPicker.dataSource = self;
     self.fuelPicker.delegate = self;
     // Do any additional setup after loading the view.
@@ -143,6 +144,14 @@ numberOfRowsInComponent:(NSInteger)component {                 // 2
     
     self.displayedCar.fuel = @([self getFuelValue]);
 }
+
+- (void)updateEditableState:(BOOL)enabled {                                 // 1
+    self.carMakeField.enabled = enabled;                                    // 2
+    self.carModelField.enabled = enabled;
+    self.carYearField.enabled = enabled;
+    self.fuelPicker.userInteractionEnabled = enabled;                       // 3
+}
+
 #pragma mark - Setters
 
 - (void)setDisplayedCar:(CDCar *)displayedCar {

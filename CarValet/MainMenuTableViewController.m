@@ -98,8 +98,12 @@
                 currentCarDetailsController = [[self storyboard]
                                               instantiateViewControllerWithIdentifier:
                                               @"CarDetailViewController"];
+                
+                [[DetailController sharedDetailController] setCurrDetailController:currentCarDetailsController
+                                              hidePopover:NO];
             }
             nextController = currentCarDetailsController;
+            newDetail = NO;
             break;
         default:
             nextController = nil;

@@ -15,4 +15,7 @@
 
 +(DetailController*)sharedDetailController;
 
+-(void)hidePopover;
+-(void)setCurrDetailController:(UIViewController *)currDetailController hidePopover:(BOOL)hidePopover;
+
 @end
