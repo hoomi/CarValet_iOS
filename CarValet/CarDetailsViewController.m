@@ -145,7 +145,10 @@ numberOfRowsInComponent:(NSInteger)component {                 // 2
     self.displayedCar.fuel = @([self getFuelValue]);
 }
 
-- (void)updateEditableState:(BOOL)enabled {                                 // 1
+- (void)updateEditableState:(BOOL)enabled {
+    if (!enabled) {
+        [self saveCar];
+    }
     self.carMakeField.enabled = enabled;                                    // 2
     self.carModelField.enabled = enabled;
     self.carYearField.enabled = enabled;

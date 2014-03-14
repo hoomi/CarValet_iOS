@@ -15,4 +15,7 @@
 
 -(void) selectCar:(CDCar*) selectedCar;
 
+@optional
+- (void) editMode:(BOOL) isEdit;
+
 @end

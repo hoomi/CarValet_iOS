@@ -26,4 +26,6 @@
 
 @property (copy, nonatomic) void (^nextOrPreviousCar)(BOOL isNext);
 
+- (void) updateEditableState:(BOOL)enabled;
+
 @end

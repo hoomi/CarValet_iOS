@@ -489,6 +489,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
         
         [self.navigationItem setRightBarButtonItems:@[addButton, nextButton]
                                            animated:YES];
+        [self.delegate editMode:startEdit];
     }
     [self.tableView setEditing:startEdit animated:YES];
 }

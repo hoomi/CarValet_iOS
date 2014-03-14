@@ -125,6 +125,10 @@
 }
 
 #pragma mark - CarTableViewProtocol
+- (void)editMode:(BOOL)isEdit
+{
+    [currentCarDetailsController updateEditableState:isEdit];
+}
 -(void)selectCar:(CDCar *)selectedCar
 {
     currentCarDetailsController.displayedCar = selectedCar;
