@@ -159,13 +159,13 @@ numberOfRowsInComponent:(NSInteger)component {                 // 2
         
         [self saveCar];
     }
-    _displayedCar = displayedCar;                                                     // 2
+    _displayedCar = displayedCar;                                                     
     
-    self.carMakeField.text = _displayedCar.make;                               // 3
+    self.carMakeField.text = _displayedCar.make;
     self.carModelField.text = _displayedCar.model;
     self.carYearField.text = [_displayedCar.year stringValue];
     
-    self.dayParkedLabel.text = [NSDateFormatter                         // 4
+    self.dayParkedLabel.text = [NSDateFormatter
                                 localizedStringFromDate:_displayedCar.createdAt
                                 dateStyle:NSDateFormatterMediumStyle
                                 timeStyle:NSDateFormatterNoStyle];
@@ -175,17 +175,17 @@ numberOfRowsInComponent:(NSInteger)component {                 // 2
                                  dateStyle:NSDateFormatterNoStyle
                                  timeStyle:NSDateFormatterMediumStyle];
     
-    [self setFuelValues];                                               // 5
+    [self setFuelValues];
 }
 
 #pragma mark - Gestures
 
-- (IBAction)swipeCarRight:(UISwipeGestureRecognizer*)sender {               // 1
-    [self.delegate nextOrPreviousCar:YES];                                  // 2
+- (IBAction)swipeCarRight:(UISwipeGestureRecognizer*)sender {
+    self.nextOrPreviousCar(YES);
 }
 
-- (IBAction)swipeCarLeft:(UISwipeGestureRecognizer*)sender {                // 3
-    [self.delegate nextOrPreviousCar:NO];                                   // 4
+- (IBAction)swipeCarLeft:(UISwipeGestureRecognizer*)sender {
+        self.nextOrPreviousCar(NO);
 }
 
 -(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer

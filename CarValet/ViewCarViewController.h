@@ -10,10 +10,9 @@
 #import <CoreData/CoreData.h>
 #import "MakeModelEditProtocol.h"
 #import "EditYearProtocol.h"
-#import "ViewCarProtocol.h"
-
+@class CDCar;
 @interface ViewCarViewController : UITableViewController <MakeModelEditProtocol,EditYearProtocol, UINavigationControllerDelegate>
-@property (weak, nonatomic) id <ViewCarProtocol> delegate;
+@property (weak, nonatomic) UIViewController *delegate;
 @property (weak, nonatomic) IBOutlet UILabel *makeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *modelLabel;
 @property (weak, nonatomic) IBOutlet UILabel *yearLabel;
@@ -25,5 +24,9 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *prevCarButton;
 - (IBAction)prevCar:(id)sender;
 - (IBAction)nextCar:(id)sender;
+
+@property (copy,nonatomic) CDCar* (^carToView)(void);
+@property (copy,nonatomic) void (^carViewDone)(BOOL dataChanged);
+@property (copy,nonatomic) void (^nextOrPreviousCar) (BOOL isNext);
 
 @end

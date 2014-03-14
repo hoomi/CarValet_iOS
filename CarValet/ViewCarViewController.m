@@ -64,9 +64,10 @@
 
 - (void) navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-    if (viewController == (UIViewController*) self.delegate) {
+        NSLog(@"viewControllerName: %@",[viewController nibName]);
+    if (viewController == self.delegate) {
         if (dataUpdated) {
-            [self.delegate carViewDone:dataUpdated];
+            self.carViewDone(dataUpdated);
         }
         navigationController.delegate = nil;
     }
@@ -108,9 +109,11 @@
 
 - (void)loadCarData
 {
-    myCar = [self.delegate carToView];
+    myCar = self.carToView();
     
     dataUpdated = NO;
+    
+    NSLog(@"Car make: %@",myCar.make);
     
     self.makeLabel.text = myCar.make;
     
@@ -135,9 +138,9 @@
 
 #pragma mark - Next/Prev Car
 - (void) nextOrPreviousCar:(BOOL) isNext {
-    [self.delegate carViewDone:dataUpdated];                                // 2
+    self.carViewDone(dataUpdated);
     
-    [self.delegate nextOrPreviousCar:isNext];                                  // 3
+    self.nextOrPreviousCar(isNext);
     
     [self loadCarData];
 }

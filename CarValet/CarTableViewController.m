@@ -113,6 +113,19 @@
 {
     if ([segue.identifier isEqualToString:@"ViewCarSegue"] && self.delegate == nil) {
         ViewCarViewController *nextController = segue.destinationViewController;
+        nextController.carToView = ^CDCar*(void){
+            currentIndexPath = [currentTableView indexPathForSelectedRow];
+            
+            return [fetchedResultController objectAtIndexPath:currentIndexPath];
+        };
+        nextController.carViewDone = ^void(BOOL dataUpdated) {
+            if (dataUpdated) {
+                [currentTableView reloadRowsAtIndexPaths:[currentTableView indexPathsForVisibleRows]  withRowAnimation:UITableViewRowAnimationMiddle];
+            }
+        };
+        nextController.nextOrPreviousCar = ^void(BOOL isNext) {
+            [self nextOrPreviousCar:isNext];
+        };
         nextController.delegate = self;
     }
 }
@@ -325,24 +338,6 @@ shouldReloadTableForSearchString:(NSString *)searchString
     tableView.rowHeight = self.tableView.rowHeight;
 }
 
-
-
-#pragma mark - ViewCarProtocol
-
-- (CDCar*) carToView
-{
-    currentIndexPath = [currentTableView indexPathForSelectedRow];
-    
-    return [fetchedResultController objectAtIndexPath:currentIndexPath];
-}
-
-- (void) carViewDone:(BOOL) dataUpdated
-{
-    if (dataUpdated) {
-        [currentTableView reloadRowsAtIndexPaths:[currentTableView indexPathsForVisibleRows]  withRowAnimation:UITableViewRowAnimationMiddle];
-    }
-}
-
 #pragma mark - NSFetchResultControllerDelegate
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
@@ -549,7 +544,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
     return [NSIndexPath indexPathForRow:row inSection:section];
 }
 
-- (void)nextOrPreviousCar:(BOOL)isNext {
+- (void) nextOrPreviousCar:(BOOL)isNext {
     NSIndexPath *newSelection;                                              // 1
     
     if (isNext) {
@@ -575,6 +570,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
     }
     currentIndexPath = newSelection;
 }
+
 
 
 

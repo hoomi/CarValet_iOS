@@ -86,6 +86,7 @@
             nextController.navigationItem.rightBarButtonItem = nil;
             break;
         case kPadMenuCarsItem:
+        {
             carTable = [iPhoneStoryBoard instantiateViewControllerWithIdentifier:
                         @"CarTableViewController"];
             
@@ -106,10 +107,13 @@
                 [[DetailController sharedDetailController] setCurrDetailController:currentCarDetailsController
                                               hidePopover:NO];
             }
-            currentCarDetailsController.delegate = carTable;
+            currentCarDetailsController.nextOrPreviousCar = ^(BOOL isNext){
+                [carTable nextOrPreviousCar:isNext];
+            };
             nextController = currentCarDetailsController;
             newDetail = NO;
             break;
+        }
         default:
             nextController = nil;
             break;
