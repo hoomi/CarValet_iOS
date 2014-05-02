@@ -159,7 +159,7 @@ Uncheck the Auto resize subviews in IB of scrollView:
 
 
 
-### Seeing the vieew structure exception
+### Seeing the view structure exception
 
 Enter the following command
 	
@@ -171,3 +171,12 @@ Enter the following command
 Use an if statement with the following condition
 	
 	UI_USER_INTERFACE_IDIOM() == <UIUserInterfaceIdiomPhone or UIUserInterfaceIdiomPad>
+	
+
+
+###Run sqlite debug message
+
+1. Click Product > Scheme > Edit Scheme....
+2. Ensure Run Grocery Dude and the Arguments tab is selected.
+3. Add a new argument by clicking + in the Arguments Passed On Launch section.
+4. Enter -com.apple.CoreData.SQLDebug 3 as a new argument and then click OK.
